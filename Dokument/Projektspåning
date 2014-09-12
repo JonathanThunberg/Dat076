@@ -1,0 +1,18 @@
+Mat sida - Funktionalitet
+
+Varushop där man kan lägga varor i varukorg. Logga in och registrera leveransadress & betalning
+-Uppdelad i kategorier
+
+Recept
+-kunna söka recept - ev kunna beställa varor direkt från receptet
+-Pris/port
+
+Kampanjvaror
+- startsidan
+
+Inlogg
+-admin som kan ta bort, ändra och lägga till varor.
+-kund, lägger beställningar och sparar kunduppgifter
+
+Inköpslista
+-Kund skriver en vara/rad - hemsidan sammanställer de till en "snygg" inköpslista - (kanske digital, mailas ut?)
