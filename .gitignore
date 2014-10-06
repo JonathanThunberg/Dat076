@@ -16,5 +16,5 @@ hs_err_pid*
 
 /Mathem/target/
 
-nb-configuration.xml
-pom.xml
+#nb-configuration.xml
+#pom.xml
