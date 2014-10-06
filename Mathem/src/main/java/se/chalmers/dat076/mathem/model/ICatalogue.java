@@ -6,13 +6,10 @@
 
 package se.chalmers.dat076.mathem.model;
 
-import java.util.Collection;
-import se.chalmers.dat076.mathem.model.entityclasses.Products;
-
 /**
  *
  * @author tuna
  */
-public class Shop {
-    Collection<Products> Products
+public class ICatalogue {
+    
 }
