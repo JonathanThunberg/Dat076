@@ -14,5 +14,5 @@ import se.chalmers.dat076.mathem.model.entityclasses.Products;
  * @author tuna
  */
 public class Shop {
-    Collection<Products> Products
+    Collection<Products> Products;
 }
