@@ -16,3 +16,16 @@ Database Class Loader started - derby.database.classpath=''
 Mon Oct 06 11:06:40 CEST 2014:
 Shutting down instance a816c00e-0148-e4b5-e589-ffff8ebdfe73 on database directory /Users/Julia/Documents/Chalmers/DAT076/Dat076/Mathem/MatHem with class loader sun.misc.Launcher$AppClassLoader@19e142a5 
 Mon Oct 06 11:06:40 CEST 2014 Thread[DRDAConnThread_3,5,main] (DATABASE = MatHem), (DRDAID = {2}), Database 'MatHem' shutdown.
+----------------------------------------------------------------
+Mon Oct 06 11:18:24 CEST 2014:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.10.2.0 - (1582446): instance 560740aa-0148-e4b5-e589-ffff8ebdfe73 
+on database directory /Users/Julia/Documents/Chalmers/DAT076/Dat076/Mathem/MatHem with class loader sun.misc.Launcher$AppClassLoader@19e142a5 
+Loaded from file:/Applications/NetBeans/glassfish-4.1/javadb/lib/derby.jar
+java.vendor=Oracle Corporation
+java.runtime.version=1.7.0_15-b03
+user.dir=/Applications/NetBeans/glassfish-4.1/javadb
+os.name=Mac OS X
+os.arch=x86_64
+os.version=10.9.2
+derby.system.home=/Users/Julia/Documents/Chalmers/DAT076/Dat076/Mathem
+Database Class Loader started - derby.database.classpath=''
