@@ -14,7 +14,7 @@ hs_err_pid*
 #Mac files#
 .DS_Store
 
-#/Mathem/target/
+/Mathem/target/
 
 #nb-configuration.xml
 #pom.xml
