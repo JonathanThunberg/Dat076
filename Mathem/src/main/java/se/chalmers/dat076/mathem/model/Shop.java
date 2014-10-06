@@ -4,12 +4,12 @@
  * and open the template in the editor.
  */
 
-package se.chalmers.dat076.mathem;
+package se.chalmers.dat076.mathem.model;
 
 /**
  *
  * @author tuna
  */
-public class Product {
+public class Shop {
     
 }
