@@ -1,0 +1,22 @@
+/* 
+    Created on : 2014-okt-09, 09:29:42
+    Author     : victor_nordh
+*/
+
+root { 
+    display: block;
+}
+
+body {
+    margin: auto;
+    width : 50em;
+}
+
+.odd {
+  background-color: lightgray
+}
+.even {
+  background-color: white
+}
+
+
