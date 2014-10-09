@@ -8,12 +8,7 @@ root {
 }
 body{
     text-align: center;
-    width: 40px;
-    border:10px solid yellow;
-}
-menu{
-    text-align: center;
-    width: 40px;
+    width: 800px;
     border:10px solid yellow;
 }
 
@@ -24,4 +19,17 @@ menu{
   background-color: white
 }
 
+head {
+    background-image:  url(../resources/img/header.jpg);
+    background-repeat: repeat;
+    background-position: center;
+    border-radius:100px;
+    box-shadow: 8px 8px 5px gainsboro
+}
 
+footer {
+    position:fixed;
+    bottom:10px;
+    height:30px;
+    width: 50em;
+}
