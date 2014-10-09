@@ -2,35 +2,45 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:h="http://java.sun.com/jsf/html">
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+      
     <ui:insert name="metadata" />
     <h:head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <h:outputStylesheet library="css" name="bootstrap.css"  />
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />        
         <h:outputStylesheet library="css" name="default.css"  />
-        <title>Mat</title>
+        <title>MatButiken Online</title>
     </h:head>
     
     <h:body>
-        
-        <header>
-            <hgroup>
-                <h1>MatHem</h1>
-            </hgroup>
-        </header>
-        <nav class="navbar navbar-default" role="navigation">
-            <h:link value="Home" class="navbar-brand" outcome="home" />
-            <h:link value="Products" class="navbar-brand" outcome="products" />
-            <h:link value="Customers" class="navbar-brand" outcome="customers" />
-            <h:link value="Orders" class="navbar-brand" outcome="orders" />        
-        </nav>
-       
-        <div id="content">
-            <ui:insert name="content">Content</ui:insert>
-        </div>
-        <footer>
-            <p> ThisIsFooter</p> 
-        </footer>
-    </h:body>
+            <div>
+                MatButiken
+            </div>
+
+            <div id = "menu">
+
+
+                <p:tabMenu activeIndex="#{param.i}">
+                    <p:menuitem value="Matbutik" outcome="index.xhtml" icon="ui-icon-star">
+                        <f:param name="i" value="0" />
+                    </p:menuitem>
+                    <p:menuitem value="Kampanjer"  outcome="index.xhtml" icon="ui-icon-search">
+                        <f:param name="i" value="1" />
+                    </p:menuitem>
+                    <p:menuitem value="Recept"  outcome="index.xhtml" icon="ui-icon-document">
+                        <f:param name="i" value="2" />
+                    </p:menuitem>
+                    <p:menuitem value="Om oss"  outcome="index.xhtml" icon="ui-icon-wrench">
+                        <f:param name="i" value="3" />
+                    </p:menuitem>
+                </p:tabMenu>
+            </div>            
+
+            <div>
+                Footer
+            </div>
+
+        </h:body>
 
 </html>

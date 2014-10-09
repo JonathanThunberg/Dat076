@@ -6,10 +6,15 @@
 root { 
     display: block;
 }
-
-body {
-    margin: auto;
-    width : 50em;
+body{
+    text-align: center;
+    width: 40px;
+    border:10px solid yellow;
+}
+menu{
+    text-align: center;
+    width: 40px;
+    border:10px solid yellow;
 }
 
 .odd {
