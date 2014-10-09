@@ -79,7 +79,7 @@ public class AdressesPK implements Serializable {
 
     @Override
     public String toString() {
-        return "se.chalmers.dat076.mathem.AdressesPK[ streetname=" + streetname + ", city=" + city + " ]";
+        return "se.chalmers.dat076.mathem.model.entityclasses.AdressesPK[ streetname=" + streetname + ", city=" + city + " ]";
     }
     
 }

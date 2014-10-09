@@ -98,7 +98,7 @@ public class Admins implements Serializable {
 
     @Override
     public String toString() {
-        return "se.chalmers.dat076.mathem.Admins[ username=" + username + " ]";
+        return "se.chalmers.dat076.mathem.model.entityclasses.Admins[ username=" + username + " ]";
     }
     
 }

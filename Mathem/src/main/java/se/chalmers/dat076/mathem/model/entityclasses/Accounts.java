@@ -122,7 +122,7 @@ public class Accounts implements Serializable {
 
     @Override
     public String toString() {
-        return "se.chalmers.dat076.mathem.Accounts[ cardnumber=" + cardnumber + " ]";
+        return "se.chalmers.dat076.mathem.model.entityclasses.Accounts[ cardnumber=" + cardnumber + " ]";
     }
     
 }

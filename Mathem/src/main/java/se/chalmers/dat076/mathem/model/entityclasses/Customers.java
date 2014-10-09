@@ -169,7 +169,7 @@ public class Customers implements Serializable {
 
     @Override
     public String toString() {
-        return "se.chalmers.dat076.mathem.Customers[ username=" + username + " ]";
+        return "se.chalmers.dat076.mathem.model.entityclasses.Customers[ username=" + username + " ]";
     }
     
 }

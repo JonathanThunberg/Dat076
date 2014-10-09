@@ -107,7 +107,7 @@ public class Adresses implements Serializable {
 
     @Override
     public String toString() {
-        return "se.chalmers.dat076.mathem.Adresses[ adressesPK=" + adressesPK + " ]";
+        return "se.chalmers.dat076.mathem.model.entityclasses.Adresses[ adressesPK=" + adressesPK + " ]";
     }
     
 }

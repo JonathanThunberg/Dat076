@@ -87,7 +87,7 @@ public class Categories implements Serializable {
 
     @Override
     public String toString() {
-        return "se.chalmers.dat076.mathem.Categories[ name=" + name + " ]";
+        return "se.chalmers.dat076.mathem.model.entityclasses.Categories[ name=" + name + " ]";
     }
     
 }
