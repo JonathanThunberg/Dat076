@@ -1,0 +1,27 @@
+/* 
+    Created on : 2014-okt-09, 09:29:42
+    Author     : victor_nordh
+*/
+
+root { 
+    display: block;
+}
+body{
+    text-align: center;
+    width: 40px;
+    border:10px solid yellow;
+}
+menu{
+    text-align: center;
+    width: 40px;
+    border:10px solid yellow;
+}
+
+.odd {
+  background-color: lightgray
+}
+.even {
+  background-color: white
+}
+
+
