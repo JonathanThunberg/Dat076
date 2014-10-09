@@ -5,42 +5,46 @@
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:p="http://primefaces.org/ui">
-      
+
     <ui:insert name="metadata" />
     <h:head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />        
         <h:outputStylesheet library="css" name="default.css"  />
         <title>MatButiken Online</title>
     </h:head>
-    
+
     <h:body>
-            <div>
-                MatButiken
-            </div>
+        <div>
+            MatButiken
+        </div>
 
-            <div id = "menu">
+        <div id = "menu">
 
 
-                <p:tabMenu activeIndex="#{param.i}">
-                    <p:menuitem value="Matbutik" outcome="index.xhtml" icon="ui-icon-star">
-                        <f:param name="i" value="0" />
-                    </p:menuitem>
-                    <p:menuitem value="Kampanjer"  outcome="index.xhtml" icon="ui-icon-search">
-                        <f:param name="i" value="1" />
-                    </p:menuitem>
-                    <p:menuitem value="Recept"  outcome="index.xhtml" icon="ui-icon-document">
-                        <f:param name="i" value="2" />
-                    </p:menuitem>
-                    <p:menuitem value="Om oss"  outcome="index.xhtml" icon="ui-icon-wrench">
-                        <f:param name="i" value="3" />
-                    </p:menuitem>
-                </p:tabMenu>
-            </div>            
+            <p:tabMenu activeIndex="#{param.i}">
+                <p:menuitem value="Matbutik" outcome="index.xhtml" icon="ui-icon-star">
+                    <f:param name="i" value="0" />
+                </p:menuitem>
+                <p:menuitem value="Kampanjer"  outcome="index.xhtml" icon="ui-icon-search">
+                    <f:param name="i" value="1" />
+                </p:menuitem>
+                <p:menuitem value="Recept"  outcome="index.xhtml" icon="ui-icon-document">
+                    <f:param name="i" value="2" />
+                </p:menuitem>
+                <p:menuitem value="Om oss"  outcome="index.xhtml" icon="ui-icon-wrench">
+                    <f:param name="i" value="3" />
+                </p:menuitem>
+            </p:tabMenu>
+        </div>            
 
-            <div>
-                Footer
-            </div>
+        <div id="content">
+            <ui:insert name="content">Content</ui:insert>
+        </div>
 
-        </h:body>
+        <div>
+            Footer
+        </div>
+
+    </h:body>
 
 </html>
