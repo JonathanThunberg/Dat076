@@ -10,6 +10,6 @@ package se.chalmers.dat076.mathem.model;
  *
  * @author tuna
  */
-public class ICatalogue {
+public interface ICatalogue {
     
 }
