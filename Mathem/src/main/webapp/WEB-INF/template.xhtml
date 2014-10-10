@@ -9,27 +9,29 @@
     <ui:insert name="metadata" />
     <h:head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />        
-        <h:outputStylesheet library="css" name="default.css"  />
+        <link rel="stylesheet" type="text/css" href="css/default.css"/>
+
         <title>MatButiken Online</title>
+        <div id ="pic"></div>
+    </h:head>
+    <h:body>
 
         <p:tabMenu activeIndex="#{param.i}">
-            <p:menuitem value="Matbutik" outcome="index.xhtml" icon="ui-icon-star">
+            <p:menuitem value="Matbutik" outcome="index.xhtml" icon="ui-icon-cart">
                 <f:param name="i" value="0" />
             </p:menuitem>
-            <p:menuitem value="Kampanjer"  outcome="index.xhtml" icon="ui-icon-search">
+            <p:menuitem value="Kampanjer"  outcome="index.xhtml" icon="ui-icon-star">
                 <f:param name="i" value="1" />
             </p:menuitem>
-            <p:menuitem value="Recept"  outcome="index.xhtml" icon="ui-icon-document">
+            <p:menuitem value="Recept"  outcome="index.xhtml" icon="ui-icon-note">
                 <f:param name="i" value="2" />
             </p:menuitem>
-            <p:menuitem value="Om oss"  outcome="index.xhtml" icon="ui-icon-wrench">
+            <p:menuitem value="Om oss"  outcome="index.xhtml" icon="ui-icon-person">
                 <f:param name="i" value="3" />
             </p:menuitem>
         </p:tabMenu>
 
-    </h:head>
 
-    <h:body>
         <div>
             MatButiken
         </div>
@@ -45,53 +47,4 @@
         </div>
 
     </h:body>
-
-</html><?xml version='1.0' encoding='UTF-8' ?> 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:p="http://primefaces.org/ui">
-
-    <ui:insert name="metadata" />
-    <h:head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />        
-        <h:outputStylesheet library="css" name="default.css"  />
-        <title>MatButiken Online</title>
-
-        <p:tabMenu activeIndex="#{param.i}">
-            <p:menuitem value="Matbutik" outcome="index.xhtml" icon="ui-icon-star">
-                <f:param name="i" value="0" />
-            </p:menuitem>
-            <p:menuitem value="Kampanjer"  outcome="index.xhtml" icon="ui-icon-search">
-                <f:param name="i" value="1" />
-            </p:menuitem>
-            <p:menuitem value="Recept"  outcome="index.xhtml" icon="ui-icon-document">
-                <f:param name="i" value="2" />
-            </p:menuitem>
-            <p:menuitem value="Om oss"  outcome="index.xhtml" icon="ui-icon-wrench">
-                <f:param name="i" value="3" />
-            </p:menuitem>
-        </p:tabMenu>
-
-    </h:head>
-
-    <h:body>
-        <div>
-            MatButiken
-        </div>
-
-
-
-        <div id="content">
-            <ui:insert name="content">Content</ui:insert>
-        </div>
-
-        <div>
-            Footer
-        </div>
-
-    </h:body>
-
 </html>

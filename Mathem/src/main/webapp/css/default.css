@@ -6,27 +6,27 @@
 root { 
     display: block;
 }
+head {
+
+}
+
 body{
     text-align: center;
-    width: 800px;
-    border:10px solid yellow;
+
 }
 
-.odd {
-  background-color: lightgray
-}
-.even {
-  background-color: white
-}
-
-head {
-    background-image:  url(../resources/img/header.jpg);
-    background-repeat: repeat;
-    background-position: center;
+#pic {
+    background-image:  url(../img/header.jpg);
+    background-repeat: no-repeat;
+    background-position: left;
     border-radius:100px;
-    box-shadow: 8px 8px 5px gainsboro
-}
+    box-shadow: 8px 8px 5px gainsboro;
+    width: 100%;
+    height: 100px;
 
+}
+.ui-menuitem-link ui-corner-all {
+}
 footer {
     position:fixed;
     bottom:10px;
