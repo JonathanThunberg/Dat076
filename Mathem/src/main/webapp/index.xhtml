@@ -2,7 +2,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:ui="http://java.sun.com/jsf/facelets">
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
     <h:head>
         <link rel="stylesheet" type="text/css" href="css/default.css"/>
         <title>Shop</title>
@@ -10,13 +11,43 @@
     <h:body>
         <ui:composition template="/WEB-INF/template.xhtml">
             <ui:define name="content"> 
-                <section>
-                    <p>This is the entry to other parts of the application</p>
-                </section>
+                <div id="matbutiken_left_menu">
+                    <h:form> 
+                        <p:growl id="messages" showDetail="false"/>
+
+                        <p:menu>
+                            <p:submenu label="Kategorier">
+                                <p:menuitem value="Frukt &amp; Grönt" actionListener="#{menuView.save}" update="messages" />
+                                <p:menuitem value="Godis" actionListener="#{menuView.update}" update="messages" />
+                                <p:menuitem value="Godis" actionListener="#{menuView.update}" update="messages" />
+                                <p:menuitem value="Godis" actionListener="#{menuView.update}" update="messages" />
+                                <p:menuitem value="Godis" actionListener="#{menuView.update}" update="messages" />
+                                <p:menuitem value="Godis" actionListener="#{menuView.update}" update="messages" />
+                                <p:menuitem value="Godis" actionListener="#{menuView.update}" update="messages" />
+                            </p:submenu>
+                            <p:submenu label="Non-Ajax">
+                                <p:menuitem value="Delete" actionListener="#{menuView.delete}" update="messages" ajax="false"/>
+                            </p:submenu>
+                            <p:submenu label="Navigations">
+                                <p:menuitem value="External" url="http://www.primefaces.org" />
+                                <p:menuitem value="Internal" outcome="index.xhtml" />
+                            </p:submenu>
+                        </p:menu>
+                    </h:form>
+
+                </div>
+                
+                <div id="productgrid">
+                    
+                    <h1>Här ska det finnas massor av produkter</h1>
+                    
+                    
+                    
+                </div>
 
             </ui:define>
         </ui:composition>
         <br />
-        <h:link outcome="welcomePrimefaces" value="Primefaces welcome page" />
+        <h:link outcome="index.xhtml" value="Primefaces welcome page" />
     </h:body>
 </html>

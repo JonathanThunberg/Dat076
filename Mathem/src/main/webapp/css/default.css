@@ -25,11 +25,21 @@ body{
     height: 100px;
 
 }
-.ui-menuitem-link ui-corner-all {
+#matbutiken_left_menu {
+
+    float: left;
 }
-footer {
-    position:fixed;
+#productgrid {
+
+    border: 1px solid red;
+    position: relative;
+    float: left;
+}
+
+#footer {
+    float: left;
     bottom:10px;
     height:30px;
-    width: 50em;
+    width: 100%;
+    border: 1px solid blue;
 }
