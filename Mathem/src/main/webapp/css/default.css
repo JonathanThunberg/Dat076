@@ -12,21 +12,26 @@ head {
 
 body{
     margin:2% 15%;
+    background-image: url(../img/background.jpg);
 }
 #matbutiken_left_menu
 {
+    float: left;
     font-size: 15px;
-
 }
-#customSeparator {
+#matbutiken_big_menu
+{
+    float:left;
 }
-.ui-layout-center {                    
-    overflow:hidden;
+#inner_main{
+    float: left;
+    height: 365px;
+    width: 100%;
 }
-
-.ui-layout-center .ui-layout-unit-content {
-    overflow:hidden;
-}     
+.recipe_img
+{
+    width: 95%; 
+}
 #header {
     background-image:  url(../img/header.jpg);
     background-repeat: no-repeat;
@@ -35,12 +40,11 @@ body{
     box-shadow: 8px 8px 5px gainsboro;
     width: 100%;
     height: 100px;
-
 }
 #footer {
     height:100px;
     width: 100%;
-    border: 1px solid red;
+    float: left;
 }
 .inner_foot
 {
