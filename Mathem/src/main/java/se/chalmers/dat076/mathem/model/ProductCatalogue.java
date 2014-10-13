@@ -8,8 +8,8 @@ package se.chalmers.dat076.mathem.model;
 import java.util.ArrayList;
 import java.util.List;
 import javax.ejb.Stateless;
-import javax.inject.Inject;
 import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import se.chalmers.dat076.mathem.model.entityclasses.Products;
 import se.chalmers.dat076.mathem.model.persistance.AbstractDAO;
 
@@ -18,10 +18,10 @@ import se.chalmers.dat076.mathem.model.persistance.AbstractDAO;
  * @author tuna
  */
 @Stateless
-public class ProductCatalogue extends AbstractDAO<Products, Long>
+public class ProductCatalogue extends AbstractDAO<Products, Integer>
 implements ICatalogue  {
 
-    @Inject
+    @PersistenceContext
     protected EntityManager eM;
     
     public ProductCatalogue() {
@@ -39,7 +39,7 @@ implements ICatalogue  {
         return found;
     }
     
-    public List<Products> getById(Long id) {
+    public List<Products> getById(Integer id) {
         List<Products> found = new ArrayList<>();
         for (Products p : findRange(0, count())) {
             if (p.getId().equals(id)) {

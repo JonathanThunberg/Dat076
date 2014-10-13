@@ -40,14 +40,15 @@
 
                 <div id="matbutiken_big_menu">
                     <h:form id="form">
-                        <p:dataGrid var="prod" value="#{dataGridView.prods}" columns="4"
+                        <p:dataGrid var="prod" value="#{dataGridView.init()}" columns="4" <!--layout="grid" -->
                                     rows="16" paginator="true" id="products"
-                                    paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}">
+                                    paginatorTemplate="{PreviousPageLink} {CurrentPageReport} {NextPageLink}">
 
                             <p:panel header="#{product.id}" style="text-align:center">
                                 <h:panelGrid columns="1" style="width:100%">
-                                    <!-- <p:graphicImage name="demo/images/car/#{product.name}.gif"/> -->
+                                    <p:graphicImage name="/img/Products/#{product.name}.gif"/>
 
+                                    <h:outputText value="#{product.name}" />
                                     <h:outputText value="#{product.price}" />
 
                                     <p:commandLink update=":form:productDetail" oncomplete="PF('productDialog').show()" title="View Detail">

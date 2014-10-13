@@ -37,5 +37,4 @@ public class ProductService {
     public List<String> getName() {
         return Arrays.asList(name);
     }
-}
-*/
+}*/

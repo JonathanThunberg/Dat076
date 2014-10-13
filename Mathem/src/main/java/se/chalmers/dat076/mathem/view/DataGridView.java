@@ -1,62 +1,40 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package se.chalmers.dat076.mathem.view;
-
 /**
  *
  * @author victor_nordh92
  */
- /*
+ 
 import java.io.Serializable;
 import java.util.List;
 import java.util.logging.Logger;
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
 import javax.inject.Inject;
+import se.chalmers.dat076.mathem.model.Shop;
+import se.chalmers.dat076.mathem.model.entityclasses.Products;
  
 @ManagedBean
 @ViewScoped
 public class DataGridView implements Serializable {
-     
-    private List<Product> prods;
-    //private static final Logger LOG = Logger.getLogger(Bönan.class.getName());
-    private Product selectedProd;
-     
-    @ManagedProperty("#{productService}")
-    private ProductService service;
+    
+    @Inject
+    private Shop shop;    
+    private List<Products> prodList;    
+    private static final Logger LOG = Logger.getLogger(DataGridView.class.getName());
+    
+    private Products selectedProd;
      
     @PostConstruct
-    public void init() {        
-    }
-    
-    protected DataGridView() {
-        // Must have for CDI
+    public void init() {   
+        this.prodList = this.shop.getProductCatalogue().findAll();
     }
 
-    @Inject
-    public DataGridView(List<Product> prod) {
-        this.prod = prod;
-    }
-
-    
-    public List<Product> getProd() {
-        return prods;
-    }
- 
-    public void setService(ProductService service) {
-        this.service = service;
-    }
- 
-    public Product getSelectedProd() {
+    public Products getSelectedProd() {
         return selectedProd;
     }
  
-    public void setSelectedProd(Product selectedCar) {
+    public void setSelectedProd(Products selectedProd) {
         this.selectedProd = selectedProd;
     }
-}*/
+}
