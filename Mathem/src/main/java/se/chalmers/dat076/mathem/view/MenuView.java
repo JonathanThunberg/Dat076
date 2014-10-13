@@ -29,7 +29,7 @@ public class MenuView {
         DefaultSubMenu firstSubmenu = new DefaultSubMenu("Dynamic Submenu");
          
         DefaultMenuItem item = new DefaultMenuItem("External");
-        item.setUrl("http://www.primefaces.org");
+        item.setUrl("http://www.google.se");
         item.setIcon("ui-icon-home");
         firstSubmenu.addElement(item);
          
