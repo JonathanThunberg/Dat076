@@ -7,12 +7,21 @@
 package se.chalmers.dat076.mathem.model;
 
 import java.util.Collection;
+import javax.ejb.EJB;
+import javax.enterprise.context.ApplicationScoped;
 import se.chalmers.dat076.mathem.model.entityclasses.Products;
 
 /**
  *
  * @author tuna
  */
+@ApplicationScoped 
 public class Shop {
-    Collection<Products> Products;
+    @EJB
+    private ProductCatalogue pC;
+    
+    public ProductCatalogue getProductCatalogue() {
+        return pC;
+    }
+    
 }
