@@ -3,7 +3,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:p="http://primefaces.org/ui">
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
         <link rel="stylesheet" type="text/css" href="css/default.css"/>
         <title>Shop</title>
@@ -36,18 +37,48 @@
                     </h:form>
 
                 </div>
-                
-                <div id="productgrid">
-                    
-                    <h1>Här ska det finnas massor av produkter</h1>
-                    
-                    
-                    
-                </div>
 
+                <div id="matbutiken_big_menu">
+                    <h:form id="form">
+                        <p:dataGrid var="prod" value="#{dataGridView.prods}" columns="4"
+                                    rows="16" paginator="true" id="products"
+                                    paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}">
+
+                            <p:panel header="#{product.id}" style="text-align:center">
+                                <h:panelGrid columns="1" style="width:100%">
+                                    <!-- <p:graphicImage name="demo/images/car/#{product.name}.gif"/> -->
+
+                                    <h:outputText value="#{product.price}" />
+
+                                    <p:commandLink update=":form:productDetail" oncomplete="PF('productDialog').show()" title="View Detail">
+                                        <h:outputText styleClass="ui-icon ui-icon-search" style="margin:0 auto;" />
+                                        <f:setPropertyActionListener value="#{product}" target="#{dataGridView.selectedProd}" />
+                                    </p:commandLink>
+                                </h:panelGrid>
+                            </p:panel>
+
+                        </p:dataGrid>
+
+                        <p:dialog header="Product Info" widgetVar="productDialog" modal="true" showEffect="fade" hideEffect="fade" resizable="false">
+                            <p:outputPanel id="productDetail" style="text-align:center;">
+                                <p:panelGrid  columns="2" rendered="#{not empty dataGridView.selectedProd}" columnClasses="label,value">
+                                    <f:facet name="header">
+                                        <p:graphicImage name="demo/images/car/#{dataGridView.selectedProd.name}-big.gif"/> 
+                                    </f:facet>
+
+                                    <h:outputText value="Namn:" />
+                                    <h:outputText value="#{dataGridView.selectedProd.name}" />
+
+                                    <h:outputText value="Pris" />
+                                    <h:outputText value="#{dataGridView.selectedProd.price}" />
+
+                                </p:panelGrid>
+                            </p:outputPanel>
+                        </p:dialog>
+                    </h:form>
+
+                </div>
             </ui:define>
-        </ui:composition>
-        <br />
-        <h:link outcome="index.xhtml" value="Primefaces welcome page" />
+        </ui:composition>                
     </h:body>
 </html>
