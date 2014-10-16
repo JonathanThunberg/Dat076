@@ -8,12 +8,13 @@ package se.chalmers.dat076.mathem.model;
 import java.util.ArrayList;
 import java.util.List;
 import javax.ejb.Stateless;
+import se.chalmers.dat076.mathem.model.entityclasses.Product;
+import javax.inject.Inject; 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import se.chalmers.dat076.mathem.model.entityclasses.Product;
 import se.chalmers.dat076.mathem.model.persistance.AbstractDAO;
 
-/**
+/** 
  *
  * @author tuna
  */
@@ -29,6 +30,7 @@ implements ICatalogue  {
     }
  
     
+    @Override
     public List<Product> getByName(String name) {
         List<Product> found = new ArrayList<>();
         for (Product p : findRange(0, count())) {
@@ -39,6 +41,7 @@ implements ICatalogue  {
         return found;
     }
     
+    @Override
     public List<Product> getById(Integer id) {
         List<Product> found = new ArrayList<>();
         for (Product p : findRange(0, count())) {
@@ -49,6 +52,7 @@ implements ICatalogue  {
         return found;
     }
     
+    @Override
     public List<Product> getByPrice(double price) {
         List<Product> found = new ArrayList<>();
         for (Product p : findRange(0, count())) {
@@ -58,9 +62,12 @@ implements ICatalogue  {
         }
         return found;
     }
+    
+    
     @Override
     protected EntityManager getEntityManager() {
         return eM;
     }
+
 }
 
