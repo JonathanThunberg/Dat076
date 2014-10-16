@@ -23,6 +23,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
+import se.chalmers.dat076.mathem.model.ShoppingCart;
 
 /**
  *
@@ -68,6 +69,8 @@ public class Customers implements Serializable {
         @JoinColumn(name = "CITY", referencedColumnName = "CITY")})
     @ManyToOne
     private Adresses adresses;
+    
+    private ShoppingCart cart  = new ShoppingCart();
 
     public Customers() {
     }
@@ -113,6 +116,10 @@ public class Customers implements Serializable {
         this.email = email;
     }
 
+    public ShoppingCart getCart() {
+        return cart;
+    }
+    
     @XmlTransient
     public Collection<Products> getProductsCollection() {
         return productsCollection;

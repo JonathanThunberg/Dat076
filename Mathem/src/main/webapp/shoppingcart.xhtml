@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:p="http://primefaces.org/ui">
+     
+    <h:head>
+        <title>Shopping Cart</title>
+                <style type="text/css">
+            .ui-widget {
+                font-size: 90%;
+            }
+        </style>
+    </h:head>
+     
+    <h:body>
+        <h:form>
+            <p:dataTable var="item" value="#{shoppingCartBB.items}">
+                <p:column headerText="Namn">
+                    <h:outputText value="#{item.product.name}" />
+                </p:column>
+ 
+                <p:column headerText="Pris/st">
+                    <h:outputText value="#{item.product.price}" />
+                </p:column>
+ 
+                <p:column id="quantity" headerText="Antal">
+                    <p:spinner value="#{item.quantity}" min="0">
+                        <p:ajax listener="#{shoppingCartCtrl.setQuantity(item,quantity)}" update="@form" process="@this" />
+                    </p:spinner>
+                    
+                </p:column>
+                
+                <p:column headerText="Pris">
+                    <h:outputText value="#{item.product.price*item.quantity}" />
+                </p:column>
+ 
+                <p:column headerText="Ta bort">
+                    <p:commandButton icon="ui-icon-closethick" actionListener="#{shoppingCartCtrl.deleteItem(item)}" />
+                </p:column>
+            </p:dataTable>
+            <p:commandButton icon ="ui-icon-trash" value="Töm varukorg" actionListener="#{shoppingCartCtrl.emptyCart}" />
+            <p:commandButton value="Köp" actionListener="#{shoppingCartCtrl.buy}" />
+        </h:form>
+    </h:body>
+     
+</html>
