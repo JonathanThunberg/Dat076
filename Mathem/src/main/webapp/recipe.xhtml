@@ -20,32 +20,12 @@ and open the template in the editor.
     <h:body>
         <ui:composition template="/WEB-INF/template.xhtml">
             <ui:define name="content"> 
-                <div id="matbutiken_left_menu">
-                    <h:form> 
-                        <p:growl id="messages" showDetail="false"/>
-
-                        <p:menu>
-                            <p:submenu label="Kategorier">
-                                <p:menuitem value="Frukt &amp; Grönt" actionListener="#{menuView.save}" update="messages" />
-                                <p:menuitem value="Hej" actionListener="#{menuView.update}" update="messages" />
-                                <p:menuitem value="Godis" actionListener="#{menuView.update}" update="messages" />
-                                <p:menuitem value="Godis" actionListener="#{menuView.update}" update="messages" />
-                                <p:menuitem value="Godis" actionListener="#{menuView.update}" update="messages" />
-                                <p:menuitem value="Godis" actionListener="#{menuView.update}" update="messages" />
-                                <p:menuitem value="Godis" actionListener="#{menuView.update}" update="messages" />
-                            </p:submenu>
-                            <p:submenu label="Non-Ajax">
-                                <p:menuitem value="Delete" actionListener="#{menuView.delete}" update="messages" ajax="false"/>
-                            </p:submenu>
-                            <p:submenu label="Navigations">
-                                <p:menuitem value="External" url="http://www.primefaces.org" />
-                                <p:menuitem value="Internal" outcome="index.xhtml" />
-                            </p:submenu>
-                            
-                            
-                        </p:menu>
-                    </h:form>
-
+                <div id ="inner_main">
+                    <p:imageSwitch style="margin:5px 0 0 60px;" effect="scrollLeft">
+                        <p:graphicImage class="recipe_img" value= "../img/introRecipe/kycklingsallad.jpg"/>
+                        <p:graphicImage class="recipe_img" value= "../img/introRecipe/paj.jpg" />
+                        <p:graphicImage class="recipe_img" value= "../img/introRecipe/pasta.jpg" />
+                    </p:imageSwitch>
                 </div>
             </ui:define>
         </ui:composition>
