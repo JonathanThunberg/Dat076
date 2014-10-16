@@ -5,7 +5,7 @@
  */
 package se.chalmers.dat076.mathem.model;
 
-import se.chalmers.dat076.mathem.model.entityclasses.Products;
+import se.chalmers.dat076.mathem.model.entityclasses.Product;
 
 /**
  *
@@ -13,19 +13,19 @@ import se.chalmers.dat076.mathem.model.entityclasses.Products;
  */
 public class OrderItem {
     
-    private Products product;
+    private Product product;
     private int quantity;
 
-    public OrderItem(Products product, int quantity) {
+    public OrderItem(Product product, int quantity) {
         this.product = product;
         this.quantity = quantity;
     }
 
-    public Products getProduct() {
+    public Product getProduct() {
         return product;
     }
 
-    public void setProduct(Products product) {
+    public void setProduct(Product product) {
         this.product = product;
     }
 

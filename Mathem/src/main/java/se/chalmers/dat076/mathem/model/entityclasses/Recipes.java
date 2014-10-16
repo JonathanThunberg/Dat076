@@ -45,7 +45,7 @@ public class Recipes implements Serializable {
     @Column(name = "DESCRIPTION")
     private String description;
     @ManyToMany(mappedBy = "recipesCollection")
-    private Collection<Products> productsCollection;
+    private Collection<Product> productsCollection;
 
     public Recipes() {
     }
@@ -76,11 +76,11 @@ public class Recipes implements Serializable {
     }
 
     @XmlTransient
-    public Collection<Products> getProductsCollection() {
+    public Collection<Product> getProductsCollection() {
         return productsCollection;
     }
 
-    public void setProductsCollection(Collection<Products> productsCollection) {
+    public void setProductsCollection(Collection<Product> productsCollection) {
         this.productsCollection = productsCollection;
     }
 
