@@ -24,8 +24,8 @@
         <from-outcome>aboutus</from-outcome>
         <to-view-id>/index.xhtml</to-view-id>
     </navigation-case>  
-</navigation-rule> 
-<application>
+</navigation-rule>     
+ <application>
     <action-listener>
         org.primefaces.application.DialogActionListener
     </action-listener>
@@ -35,8 +35,7 @@
     <view-handler>
         org.primefaces.application.DialogViewHandler
     </view-handler>
-</application>    
-    
+</application>   
 
 
 </faces-config>
