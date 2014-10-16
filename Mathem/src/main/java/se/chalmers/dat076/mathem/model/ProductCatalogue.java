@@ -12,6 +12,9 @@ import se.chalmers.dat076.mathem.model.entityclasses.Product;
 import javax.inject.Inject; 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import se.chalmers.dat076.mathem.model.entityclasses.Product;
 import se.chalmers.dat076.mathem.model.persistance.AbstractDAO;
 
 /** 
@@ -52,6 +55,7 @@ implements ICatalogue  {
         return found;
     }
     
+
     @Override
     public List<Product> getByPrice(double price) {
         List<Product> found = new ArrayList<>();
