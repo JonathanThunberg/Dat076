@@ -34,12 +34,14 @@ public class ShoppingCartBB implements Serializable{
     }
      
     public List<OrderItem> getItems() {
-        return shop.getCustomer().getCart().getOrderItems();
+        return null;
+        //return shop.getCustomer().getCart().getOrderItems();
     }
    
 
     public ShoppingCart getCart() {
-        return shop.getCustomer().getCart();
+        return null;
+        //return shop.getCustomer().getCart();
     }
     
     

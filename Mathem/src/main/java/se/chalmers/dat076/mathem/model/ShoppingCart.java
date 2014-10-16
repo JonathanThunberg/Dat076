@@ -5,6 +5,7 @@
  */
 package se.chalmers.dat076.mathem.model;
 
+import java.io.Serializable;
 import java.util.List;
 
 
@@ -12,7 +13,7 @@ import java.util.List;
  *
  * @author Julia
  */
-public class ShoppingCart {
+public class ShoppingCart implements Serializable{
     
     private List<OrderItem> items;
     

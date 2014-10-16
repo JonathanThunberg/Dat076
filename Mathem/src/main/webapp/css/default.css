@@ -32,7 +32,7 @@ body{
 {
     width: 95%; 
 }
-<<<<<<< HEAD
+
 #matbutiken_left_menu
 {
     font-size: 15px;
@@ -47,8 +47,7 @@ body{
 .ui-layout-center .ui-layout-unit-content {
     overflow:hidden;
 }     
-=======
->>>>>>> 359d8e065fd652f18237a627bdf288052144eb4d
+
 #header {
     background-image:  url(../img/header.jpg);
     background-repeat: no-repeat;
@@ -61,11 +60,8 @@ body{
 #footer {
     height:100px;
     width: 100%;
-<<<<<<< HEAD
     border: 1px solid red;
-=======
     float: left;
->>>>>>> 359d8e065fd652f18237a627bdf288052144eb4d
 }
 .inner_foot
 {

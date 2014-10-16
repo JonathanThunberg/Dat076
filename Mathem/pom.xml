@@ -37,6 +37,7 @@
             <groupId>org.primefaces</groupId>
             <artifactId>primefaces</artifactId>
             <version>5.1</version>
+            <type>jar</type>
         </dependency>
         <dependency>  
             <groupId>org.primefaces.themes</groupId>  
