@@ -33,26 +33,12 @@
         </p:tabMenu>
         <h:form>
             <p:growl id="growl" showDetail="true" />
-            <p:commandButton value="Varukorg" icon="ui-icon-cart" actionListener="#{shoppingCartDialog.openCart()}">
-                <p:ajax event="dialogReturn" update="growl" />
-            </p:commandButton>
+            <p:commandButton value="Varukorg" icon="ui-icon-cart" actionListener="#{shoppingCartDialog.openCart()}" />
         </h:form>
 
         <div id="content">
             <ui:insert name="content">Content</ui:insert>
         </div>
-        <div id="footer">
-            <p:layout style="height: 100%">
-                <p:layoutUnit position="center">
-
-                    <div class="inner_foot">Text1</div>
-                    <div class="inner_foot">Text2</div>
-                    <div class="inner_foot">Text3</div>
-                    <div class="inner_foot">Text4</div>
-                </p:layoutUnit>
-            </p:layout>
-        </div>
-        
     </h:body>
         <div id="footer">
             <p:layout style="height: 100%">
