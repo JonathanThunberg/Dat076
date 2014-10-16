@@ -33,9 +33,7 @@
         </p:tabMenu>
         <h:form>
             <p:growl id="growl" showDetail="true" />
-            <p:commandButton value="Varukorg" icon="ui-icon-cart" actionListener="#{shoppingCartDialog.openCart()}">
-                <p:ajax event="dialogReturn" update="growl" />
-            </p:commandButton>
+            <p:commandButton value="Varukorg" icon="ui-icon-cart" actionListener="#{shoppingCartDialog.openCart()}" />
         </h:form>
 
         <div id="content">
