@@ -33,11 +33,11 @@ import javax.xml.bind.annotation.XmlTransient;
 @Table(name = "PRODUCTS")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Products.findAll", query = "SELECT p FROM Products p"),
-    @NamedQuery(name = "Products.findById", query = "SELECT p FROM Products p WHERE p.id = :id"),
-    @NamedQuery(name = "Products.findByName", query = "SELECT p FROM Products p WHERE p.name = :name"),
-    @NamedQuery(name = "Products.findByPrice", query = "SELECT p FROM Products p WHERE p.price = :price")})
-public class Products implements Serializable {
+    @NamedQuery(name = "Product.findAll", query = "SELECT p FROM Products p"),
+    @NamedQuery(name = "Product.findById", query = "SELECT p FROM Products p WHERE p.id = :id"),
+    @NamedQuery(name = "Product.findByName", query = "SELECT p FROM Products p WHERE p.name = :name"),
+    @NamedQuery(name = "Product.findByPrice", query = "SELECT p FROM Products p WHERE p.price = :price")})
+public class Product implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -62,7 +62,7 @@ public class Products implements Serializable {
         @JoinColumn(name = "PRODUCT", referencedColumnName = "ID")}, inverseJoinColumns = {
         @JoinColumn(name = "USERNAME", referencedColumnName = "USERNAME")})
     @ManyToMany
-    private Collection<Customers> customersCollection;
+    private Collection<Customer> customersCollection;
     @JoinTable(name = "ISIN", joinColumns = {
         @JoinColumn(name = "PRODUCT", referencedColumnName = "ID")}, inverseJoinColumns = {
         @JoinColumn(name = "RECIPE", referencedColumnName = "NAME")})
@@ -72,14 +72,14 @@ public class Products implements Serializable {
     @ManyToOne
     private Categories category;
 
-    public Products() {
+    public Product() {
     }
 
-    public Products(Integer id) {
+    public Product(Integer id) {
         this.id = id;
     }
 
-    public Products(Integer id, String name, double price) {
+    public Product(Integer id, String name, double price) {
         this.id = id;
         this.name = name;
         this.price = price;
@@ -119,11 +119,11 @@ public class Products implements Serializable {
     }
 
     @XmlTransient
-    public Collection<Customers> getCustomersCollection() {
+    public Collection<Customer> getCustomersCollection() {
         return customersCollection;
     }
 
-    public void setCustomersCollection(Collection<Customers> customersCollection) {
+    public void setCustomersCollection(Collection<Customer> customersCollection) {
         this.customersCollection = customersCollection;
     }
 
@@ -154,10 +154,10 @@ public class Products implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Products)) {
+        if (!(object instanceof Product)) {
             return false;
         }
-        Products other = (Products) object;
+        Product other = (Product) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }

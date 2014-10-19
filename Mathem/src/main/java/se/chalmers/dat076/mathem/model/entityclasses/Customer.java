@@ -33,12 +33,12 @@ import se.chalmers.dat076.mathem.model.ShoppingCart;
 @Table(name = "CUSTOMERS")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Customers.findAll", query = "SELECT c FROM Customers c"),
-    @NamedQuery(name = "Customers.findByUsername", query = "SELECT c FROM Customers c WHERE c.username = :username"),
-    @NamedQuery(name = "Customers.findByName", query = "SELECT c FROM Customers c WHERE c.name = :name"),
-    @NamedQuery(name = "Customers.findByPhone", query = "SELECT c FROM Customers c WHERE c.phone = :phone"),
-    @NamedQuery(name = "Customers.findByEmail", query = "SELECT c FROM Customers c WHERE c.email = :email")})
-public class Customers implements Serializable {
+    @NamedQuery(name = "Customer.findAll", query = "SELECT c FROM Customers c"),
+    @NamedQuery(name = "Customer.findByUsername", query = "SELECT c FROM Customers c WHERE c.username = :username"),
+    @NamedQuery(name = "Customer.findByName", query = "SELECT c FROM Customers c WHERE c.name = :name"),
+    @NamedQuery(name = "Customer.findByPhone", query = "SELECT c FROM Customers c WHERE c.phone = :phone"),
+    @NamedQuery(name = "Customer.findByEmail", query = "SELECT c FROM Customers c WHERE c.email = :email")})
+public class Customer implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
@@ -58,7 +58,7 @@ public class Customers implements Serializable {
     @Column(name = "EMAIL")
     private String email;
     @ManyToMany(mappedBy = "customersCollection")
-    private Collection<Products> productsCollection;
+    private Collection<Product> productsCollection;
     @ManyToMany(mappedBy = "customersCollection")
     private Collection<Orders> ordersCollection;
     @JoinColumn(name = "USERNAME", referencedColumnName = "USERNAME", insertable = false, updatable = false)
@@ -72,14 +72,14 @@ public class Customers implements Serializable {
     
     private ShoppingCart cart  = new ShoppingCart();
 
-    public Customers() {
+    public Customer() {
     }
 
-    public Customers(String username) {
+    public Customer(String username) {
         this.username = username;
     }
 
-    public Customers(String username, String email) {
+    public Customer(String username, String email) {
         this.username = username;
         this.email = email;
     }
@@ -121,11 +121,11 @@ public class Customers implements Serializable {
     }
     
     @XmlTransient
-    public Collection<Products> getProductsCollection() {
+    public Collection<Product> getProductsCollection() {
         return productsCollection;
     }
 
-    public void setProductsCollection(Collection<Products> productsCollection) {
+    public void setProductsCollection(Collection<Product> productsCollection) {
         this.productsCollection = productsCollection;
     }
 
@@ -164,10 +164,10 @@ public class Customers implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Customers)) {
+        if (!(object instanceof Customer)) {
             return false;
         }
-        Customers other = (Customers) object;
+        Customer other = (Customer) object;
         if ((this.username == null && other.username != null) || (this.username != null && !this.username.equals(other.username))) {
             return false;
         }

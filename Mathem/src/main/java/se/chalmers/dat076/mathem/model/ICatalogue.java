@@ -6,10 +6,20 @@
 
 package se.chalmers.dat076.mathem.model;
 
+import java.util.List;
+import javax.persistence.EntityManager;
+import se.chalmers.dat076.mathem.model.entityclasses.Product;
+import se.chalmers.dat076.mathem.model.persistance.IDAO;
+
 /**
  *
- * @author tuna
+ * @author tuna 
  */
-public interface ICatalogue {
+public interface ICatalogue extends IDAO<Product, Integer> {
     
+    public List<Product> getByName(String name);
+
+    public List<Product> getById(Integer id);
+            
+    public List<Product> getByPrice(double price);
 }

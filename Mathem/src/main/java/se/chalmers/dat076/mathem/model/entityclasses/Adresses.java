@@ -42,7 +42,7 @@ public class Adresses implements Serializable {
     @Column(name = "POSTALCODE")
     private String postalcode;
     @OneToMany(mappedBy = "adresses")
-    private Collection<Customers> customersCollection;
+    private Collection<Customer> customersCollection;
 
     public Adresses() {
     }
@@ -77,11 +77,11 @@ public class Adresses implements Serializable {
     }
 
     @XmlTransient
-    public Collection<Customers> getCustomersCollection() {
+    public Collection<Customer> getCustomersCollection() {
         return customersCollection;
     }
 
-    public void setCustomersCollection(Collection<Customers> customersCollection) {
+    public void setCustomersCollection(Collection<Customer> customersCollection) {
         this.customersCollection = customersCollection;
     }
 

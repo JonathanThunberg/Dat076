@@ -13,45 +13,36 @@ import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.enterprise.context.ApplicationScoped;
-import se.chalmers.dat076.mathem.model.entityclasses.Products;
+import se.chalmers.dat076.mathem.model.entityclasses.Product;
 
 /**
  *
  * @author tuna
  */
 @ApplicationScoped 
-public class Shop implements Serializable {
+public class Shop implements Serializable{
     @EJB
     private ProductCatalogue pC;
-    
+       
     public ProductCatalogue getProductCatalogue() {
         return pC;
     }
     
-    
-    /*
-    private transient final IShop shop = Shop.newInstance();
-
-    public IShop getShop() {
-        return shop;
-    }
-    */
-    
-    private final List<Products> productList = new ArrayList<>();
+    private final List<Product> productList = new ArrayList<>();
 
     @PostConstruct
     public void post() {        
     }
 
-    public void create(Products p) {
+    public void create(Product p) {
         if (productList.contains(p)) {
             throw new IllegalArgumentException("Product already exists with id " + p.getId());
         }
         productList.add(p);
     }
 
-    public void update(Products p) {
-        Products tmp = find(p.getId());
+    public void update(Product p) {
+        Product tmp = find(p.getId());
         int i = productList.indexOf(tmp);
         if (i > -1) {
             productList.set(i, p);
@@ -59,14 +50,14 @@ public class Shop implements Serializable {
     }
 
     public void delete(Integer id) {
-        Products p = find(id);
+        Product p = find(id);
         if (p != null) {
             productList.remove(p);
         }
     }
 
-    public Products find(Integer id) {
-        for (Products p : productList) {
+    public Product find(Integer id) {
+        for (Product p : productList) {
             if (p.getId().equals(id)) {
                 return p;
             }
@@ -74,11 +65,11 @@ public class Shop implements Serializable {
         return null;
     }
 
-    public Collection<Products> findAll() {        
+    public Collection<Product> findAll() {        
         return productList;
     }
 
-    public Collection<Products> findRange(int first, int n) {
+    public Collection<Product> findRange(int first, int n) {
         if (first + n < productList.size()) {
             return productList.subList(first, first + n);
         } else {
