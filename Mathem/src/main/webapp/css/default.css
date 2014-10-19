@@ -62,8 +62,12 @@ body{
     width: 100%;
     float: left;
 }
+.foot_text{
+    margin-top: 12px;
+}
 .inner_foot
 {
+    font-size: 10px;
     float:left;
     width: 25%;
     height: 100%;
