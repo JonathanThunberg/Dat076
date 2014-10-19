@@ -37,7 +37,7 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Product.findById", query = "SELECT p FROM Products p WHERE p.id = :id"),
     @NamedQuery(name = "Product.findByName", query = "SELECT p FROM Products p WHERE p.name = :name"),
     @NamedQuery(name = "Product.findByPrice", query = "SELECT p FROM Products p WHERE p.price = :price")})
-public class Product implements Serializable {
+public class Products implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -62,7 +62,7 @@ public class Product implements Serializable {
         @JoinColumn(name = "PRODUCT", referencedColumnName = "ID")}, inverseJoinColumns = {
         @JoinColumn(name = "USERNAME", referencedColumnName = "USERNAME")})
     @ManyToMany
-    private Collection<Customer> customersCollection;
+    private Collection<Customers> customersCollection;
     @JoinTable(name = "ISIN", joinColumns = {
         @JoinColumn(name = "PRODUCT", referencedColumnName = "ID")}, inverseJoinColumns = {
         @JoinColumn(name = "RECIPE", referencedColumnName = "NAME")})
@@ -72,14 +72,14 @@ public class Product implements Serializable {
     @ManyToOne
     private Categories category;
 
-    public Product() {
+    public Products() {
     }
 
-    public Product(Integer id) {
+    public Products(Integer id) {
         this.id = id;
     }
 
-    public Product(Integer id, String name, double price) {
+    public Products(Integer id, String name, double price) {
         this.id = id;
         this.name = name;
         this.price = price;
@@ -119,11 +119,11 @@ public class Product implements Serializable {
     }
 
     @XmlTransient
-    public Collection<Customer> getCustomersCollection() {
+    public Collection<Customers> getCustomersCollection() {
         return customersCollection;
     }
 
-    public void setCustomersCollection(Collection<Customer> customersCollection) {
+    public void setCustomersCollection(Collection<Customers> customersCollection) {
         this.customersCollection = customersCollection;
     }
 
@@ -154,10 +154,10 @@ public class Product implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Product)) {
+        if (!(object instanceof Products)) {
             return false;
         }
-        Product other = (Product) object;
+        Products other = (Products) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }

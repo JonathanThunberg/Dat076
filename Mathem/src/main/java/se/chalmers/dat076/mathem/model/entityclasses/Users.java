@@ -44,7 +44,7 @@ public class Users implements Serializable {
     @Column(name = "PASSWORD")
     private String password;
     @OneToOne(cascade = CascadeType.ALL, mappedBy = "users")
-    private Customer customers;
+    private Customers customers;
     @OneToOne(cascade = CascadeType.ALL, mappedBy = "users")
     private Admins admins;
 
@@ -76,11 +76,11 @@ public class Users implements Serializable {
         this.password = password;
     }
 
-    public Customer getCustomers() {
+    public Customers getCustomers() {
         return customers;
     }
 
-    public void setCustomers(Customer customers) {
+    public void setCustomers(Customers customers) {
         this.customers = customers;
     }
 

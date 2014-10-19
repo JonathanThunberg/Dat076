@@ -7,7 +7,7 @@ package se.chalmers.dat076.mathem.view;
  
 import javax.faces.bean.ManagedBean;
 import se.chalmers.dat076.mathem.model.entityclasses.Adresses;
-import se.chalmers.dat076.mathem.model.entityclasses.Customer;
+import se.chalmers.dat076.mathem.model.entityclasses.Customers;
 /**
  *
  * @author victor_nordh92
@@ -15,7 +15,7 @@ import se.chalmers.dat076.mathem.model.entityclasses.Customer;
 @ManagedBean
 public class CustomerRegistryBB {
    
-    private Customer customer;
+    private Customers customer;
     private String name = customer.getName();
     private Integer phone = customer.getPhone();
     private String email = customer.getEmail();

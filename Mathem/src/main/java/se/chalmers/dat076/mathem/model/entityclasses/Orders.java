@@ -47,12 +47,12 @@ public class Orders implements Serializable {
     @Temporal(TemporalType.TIMESTAMP)
     private Date date;
     @ManyToMany(mappedBy = "ordersCollection")
-    private Collection<Product> productsCollection;
+    private Collection<Products> productsCollection;
     @JoinTable(name = "ISTO", joinColumns = {
         @JoinColumn(name = "ORDERID", referencedColumnName = "ID")}, inverseJoinColumns = {
         @JoinColumn(name = "USERNAME", referencedColumnName = "USERNAME")})
     @ManyToMany
-    private Collection<Customer> customersCollection;
+    private Collection<Customers> customersCollection;
 
     public Orders() {
     }
@@ -78,20 +78,20 @@ public class Orders implements Serializable {
     }
 
     @XmlTransient
-    public Collection<Product> getProductsCollection() {
+    public Collection<Products> getProductsCollection() {
         return productsCollection;
     }
 
-    public void setProductsCollection(Collection<Product> productsCollection) {
+    public void setProductsCollection(Collection<Products> productsCollection) {
         this.productsCollection = productsCollection;
     }
 
     @XmlTransient
-    public Collection<Customer> getCustomersCollection() {
+    public Collection<Customers> getCustomersCollection() {
         return customersCollection;
     }
 
-    public void setCustomersCollection(Collection<Customer> customersCollection) {
+    public void setCustomersCollection(Collection<Customers> customersCollection) {
         this.customersCollection = customersCollection;
     }
 
