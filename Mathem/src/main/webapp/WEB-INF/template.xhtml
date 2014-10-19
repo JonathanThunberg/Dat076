@@ -27,13 +27,18 @@
             <p:menuitem value="Recept"  outcome="recipe.xhtml" icon="ui-icon-note">
                 <f:param name="i" value="2" />
             </p:menuitem>
-            <p:menuitem value="Om oss"  outcome="index.xhtml" icon="ui-icon-person">
+            <p:menuitem value="Kontakt"  outcome="index.xhtml" icon="ui-icon-person">
                 <f:param name="i" value="3" />
             </p:menuitem>
         </p:tabMenu>
         <h:form>
             <p:growl id="growl" showDetail="true" />
             <p:commandButton value="Varukorg" icon="ui-icon-cart" actionListener="#{shoppingCartDialog.openCart()}" />
+        </h:form>
+        
+        <h:form>
+            <p:growl id="CustomRegistry" showDetail="true" />
+            <p:commandButton value="Registrera dig" icon="ui-icon-pencil" actionListener="#{customRegistryDialog.openRegistry()}" />
         </h:form>
 
         <div id="content">

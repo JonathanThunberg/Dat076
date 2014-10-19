@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+
+    <h:head>
+        <title>Registrera dig</title>
+        <style type="text/css">
+            .ui-widget {
+                font-size: 90%;
+            }
+        </style>
+    </h:head>
+
+    <h:body>
+        <h:form>
+            <h:panelGrid columns="4" cellpadding="5">
+                <h:outputLabel for="name" value="Förnamn:" style="font-weight:bold" />
+                <p:inputText id="name" value="#{CustomerRegistryBB.text}" />
+                
+                <h:outputLabel for="lastname" value="Efternamn:" style="font-weight:bold" />
+                <p:inputText id="lastname" value="#{CustomerRegistryBB.text}" />
+                
+                <h:outputLabel for="phone" value="Telefonnr:" style="font-weight:bold" />
+                <p:inputText id="phone" value="#{CustomerRegistryBB.text}" />
+                
+                <h:outputLabel for="email" value="E-mail:" style="font-weight:bold" />
+                <p:inputText id="email" value="#{CustomerRegistryBB.text}" />
+                
+                <h:outputLabel for="adress" value="Adress:" style="font-weight:bold" />
+                <p:inputText id="adress" value="#{CustomerRegistryBB.text}" />
+                
+                <h:outputLabel for="city" value="Postort:" style="font-weight:bold" />
+                <p:inputText id="city" value="#{CustomerRegistryBB.text}" />
+                
+                <p:commandButton value="Submit" update="display" icon="ui-icon-check" />
+                <h:outputText id="display" value="#{CustomerRegistryBB.text}" />
+            </h:panelGrid>
+        </h:form>
+    </h:body>
+
+</html>

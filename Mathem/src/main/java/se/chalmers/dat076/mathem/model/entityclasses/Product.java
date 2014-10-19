@@ -62,7 +62,7 @@ public class Product implements Serializable {
         @JoinColumn(name = "PRODUCT", referencedColumnName = "ID")}, inverseJoinColumns = {
         @JoinColumn(name = "USERNAME", referencedColumnName = "USERNAME")})
     @ManyToMany
-    private Collection<Customers> customersCollection;
+    private Collection<Customer> customersCollection;
     @JoinTable(name = "ISIN", joinColumns = {
         @JoinColumn(name = "PRODUCT", referencedColumnName = "ID")}, inverseJoinColumns = {
         @JoinColumn(name = "RECIPE", referencedColumnName = "NAME")})
@@ -119,11 +119,11 @@ public class Product implements Serializable {
     }
 
     @XmlTransient
-    public Collection<Customers> getCustomersCollection() {
+    public Collection<Customer> getCustomersCollection() {
         return customersCollection;
     }
 
-    public void setCustomersCollection(Collection<Customers> customersCollection) {
+    public void setCustomersCollection(Collection<Customer> customersCollection) {
         this.customersCollection = customersCollection;
     }
 

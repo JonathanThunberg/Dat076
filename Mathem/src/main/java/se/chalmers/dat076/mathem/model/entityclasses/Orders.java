@@ -52,7 +52,7 @@ public class Orders implements Serializable {
         @JoinColumn(name = "ORDERID", referencedColumnName = "ID")}, inverseJoinColumns = {
         @JoinColumn(name = "USERNAME", referencedColumnName = "USERNAME")})
     @ManyToMany
-    private Collection<Customers> customersCollection;
+    private Collection<Customer> customersCollection;
 
     public Orders() {
     }
@@ -87,11 +87,11 @@ public class Orders implements Serializable {
     }
 
     @XmlTransient
-    public Collection<Customers> getCustomersCollection() {
+    public Collection<Customer> getCustomersCollection() {
         return customersCollection;
     }
 
-    public void setCustomersCollection(Collection<Customers> customersCollection) {
+    public void setCustomersCollection(Collection<Customer> customersCollection) {
         this.customersCollection = customersCollection;
     }
 
