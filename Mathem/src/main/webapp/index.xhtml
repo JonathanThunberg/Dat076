@@ -19,19 +19,12 @@
                         <p:menu>
                             <p:submenu label="Kategorier">
                                 <p:menuitem value="Frukt &amp; Grönt" actionListener="#{menuView.save}" update="messages" />
+                                <p:menuitem value="Dryck" actionListener="#{menuView.update}" update="messages" />
+                                <p:menuitem value="Kött &amp; Chark" actionListener="#{menuView.update}" update="messages" />
+                                <p:menuitem value="Fisk &amp; Skaldjur" actionListener="#{menuView.update}" update="messages" />
+                                <p:menuitem value="Mejeri" actionListener="#{menuView.update}" update="messages" />
+                                <p:menuitem value="Skafferi" actionListener="#{menuView.update}" update="messages" />
                                 <p:menuitem value="Godis" actionListener="#{menuView.update}" update="messages" />
-                                <p:menuitem value="Godis" actionListener="#{menuView.update}" update="messages" />
-                                <p:menuitem value="Godis" actionListener="#{menuView.update}" update="messages" />
-                                <p:menuitem value="Godis" actionListener="#{menuView.update}" update="messages" />
-                                <p:menuitem value="Godis" actionListener="#{menuView.update}" update="messages" />
-                                <p:menuitem value="Godis" actionListener="#{menuView.update}" update="messages" />
-                            </p:submenu>
-                            <p:submenu label="Non-Ajax">
-                                <p:menuitem value="Delete" actionListener="#{menuView.delete}" update="messages" ajax="false"/>
-                            </p:submenu>
-                            <p:submenu label="Navigations">
-                                <p:menuitem value="External" url="http://www.primefaces.org" />
-                                <p:menuitem value="Internal" outcome="index.xhtml" />
                             </p:submenu>
                         </p:menu>
                     </h:form>
