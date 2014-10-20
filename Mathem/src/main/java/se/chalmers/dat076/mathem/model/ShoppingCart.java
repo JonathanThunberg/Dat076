@@ -16,6 +16,7 @@ import java.util.List;
 public class ShoppingCart implements Serializable{
     
     private List<OrderItem> items;
+    private double price = 0;
     
     public void add(OrderItem item) {
         boolean itemAdded = false;
@@ -27,6 +28,7 @@ public class ShoppingCart implements Serializable{
         if(!itemAdded) {
             items.add(item);
         }
+        price = price+(item.getQuantity()*item.getProduct().getPrice());
     }
 
     public void remove(OrderItem item) { 
@@ -34,6 +36,7 @@ public class ShoppingCart implements Serializable{
     }
     
     public void changeQuantity(OrderItem item, int quantity) {
+        price = price + ((quantity-item.getQuantity())*item.getProduct().getPrice());
         item.setQuantity(quantity);
     }
 
@@ -44,6 +47,10 @@ public class ShoppingCart implements Serializable{
      
     public void emptyCart() {
         items.clear();
+    }
+    
+    public double getTotalPrice() {
+        return price;
     }
 
     
