@@ -38,18 +38,16 @@
                                     paginatorTemplate="{PreviousPageLink} {CurrentPageReport} {NextPageLink}">
 
                             <p:panel header="#{prod.name}" style="text-align:center">
-                                <h:panelGrid columns="1" style="width:100%">
-                                    <p:graphicImage value= "/img/Products/#{prod.name}.jpg"/>
-
+                                <h:panelGrid columns="1" style="width:100%;">
+                                    <p:row> <p:graphicImage value= "/img/Products/#{prod.name}.jpg"/>
+                                    </p:row>
                                     <h:outputText value="#{prod.price} kr/st" />
-                                    <p:spinner style="float:left" size="5"  min="1" value="1">
-                        <p:ajax listener="#{shoppingCartCtrl.setQuantity(item,quantity)}" update="@form" process="@this" />
-                    </p:spinner>
-
-                                    <p:commandLink style="float:right;" update=":form:productDetail" oncomplete="PF('productDialog').show()" title="Köp">
-                                        <h:outputText value="Köp"/>
-                                        <f:setPropertyActionListener value="#{product}" target="#{dataGridView.selectedProd}" />
-                                    </p:commandLink>
+                                    <p:row>  
+                                        <p:spinner style="float:left; " size="5"  min="1" value="1">
+                                            <p:ajax listener="#{shoppingCartCtrl.setQuantity(item,quantity)}" update="@form" process="@this" />
+                                        </p:spinner> 
+                                        <p:commandButton style="float: left; width: 60px; font-size: 15px; margin-left: 6px;" title="Köp" value="Köp" actionListener="#{CustomerRegistryCtrl.submit}"/>                                                     
+                                    </p:row>
                                 </h:panelGrid>
                             </p:panel>
 
