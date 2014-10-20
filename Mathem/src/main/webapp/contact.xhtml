@@ -28,7 +28,7 @@ and open the template in the editor.
                 <p:inputText id="username" value="#{CustomerRegistryBB.username}" required="true"/>
 
                 <h:outputLabel for="pwd1" value="Lösenord:" style="font-weight:bold" class="ui-outputlabel ui-widget"/>
-                <p:password id="feedback" value="#{CustomerRegistryBB.password}" match="pwd2" label="Password 1" required="true" feedback="true" />
+                <p:password id="password" value="#{CustomerRegistryBB.password}" match="pwd2" label="Password 1" required="true" feedback="true" />
 
                 <p:outputLabel for="pwd2" value="Lösenord igen:" style="font-weight:bold" />
                 <p:password id="pwd2" value="#{CustomerRegistryBB.password}" label="Password 2" required="true" />
@@ -44,7 +44,10 @@ and open the template in the editor.
 
                 <p:outputLabel for="city" value="Postort:" style="font-weight:bold" />
                 <p:inputText id="city" value="#{CustomerRegistryBB.text}" required="true"/>
-
+                
+                <p:outputLabel for="postalcode" value="Postnr:" style="font-weight:bold" />
+                <p:inputText id="city" value="#{CustomerRegistryBB.text}" required="true"/>
+                
                 <p:commandButton value="Bli medlem" icon="ui-icon-disk" actionListener="#{CustomerRegistryCtrl.submit}"/>                
             </h:panelGrid>
         </h:form>

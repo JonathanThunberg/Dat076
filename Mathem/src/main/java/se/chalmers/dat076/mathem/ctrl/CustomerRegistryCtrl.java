@@ -7,6 +7,8 @@ package se.chalmers.dat076.mathem.ctrl;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Named;
+import se.chalmers.dat076.mathem.model.entityclasses.Adress;
+import se.chalmers.dat076.mathem.model.entityclasses.Customer;
 import se.chalmers.dat076.mathem.model.entityclasses.User;
 
 /**
@@ -16,20 +18,20 @@ import se.chalmers.dat076.mathem.model.entityclasses.User;
 @Named
 @RequestScoped
 public class CustomerRegistryCtrl {
-    
-    private User user;
-    
+
+    private Customer customer;
+
+    public void submit() {
     /*
-    private String name = 
-    private String username = user.getUsername();
-    private String password
-    private Integer phone
-    private String email
-    private String adress
-    private String city
-    */
-    
-    public void submit(){
-    
-    }
+    name = customer.setName();
+    username = customer.setUsername();
+    password = customer.getUsers().getPassword();
+    phone = customer.getPhone();
+    email = customer.getEmail();
+    adress = customer.getAdresses();
+    city = adress.getAdressesPK().getCity();
+    streetname = adress.getAdressesPK().getStreetname();
+    postcode = adress.getPostalcode();
+            */
+}
 }
