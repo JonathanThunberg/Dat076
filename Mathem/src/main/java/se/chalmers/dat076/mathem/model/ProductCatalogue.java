@@ -23,7 +23,7 @@ import se.chalmers.dat076.mathem.model.persistance.AbstractDAO;
  */
 @Stateless
 public class ProductCatalogue extends AbstractDAO<Product, Integer>
-implements ICatalogue<Product, Integer>  {
+implements IProductCatalogue  {
 
     @PersistenceContext
     protected EntityManager eM;
@@ -33,7 +33,7 @@ implements ICatalogue<Product, Integer>  {
     }
  
     
-    
+    @Override
     public List<Product> getByName(String name) {
         List<Product> found = new ArrayList<>();
         for (Product p : findRange(0, count())) {
@@ -56,7 +56,7 @@ implements ICatalogue<Product, Integer>  {
     }
     
 
-
+    @Override
     public List<Product> getByPrice(double price) {
         List<Product> found = new ArrayList<>();
         for (Product p : findRange(0, count())) {

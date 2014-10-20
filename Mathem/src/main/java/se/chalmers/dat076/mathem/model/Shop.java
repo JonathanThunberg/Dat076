@@ -22,12 +22,12 @@ import se.chalmers.dat076.mathem.model.entityclasses.Product;
 @ApplicationScoped 
 public class Shop{
     @EJB
-    private ICatalogue pC;
+    private IProductCatalogue pC;
     
     @EJB
     private ICatalogue uC;
        
-    public ICatalogue getProductCatalogue() {
+    public IProductCatalogue getProductCatalogue() {
         return pC;
     }
     
