@@ -15,11 +15,7 @@ import se.chalmers.dat076.mathem.model.persistance.IDAO;
  *
  * @author tuna 
  */
-public interface ICatalogue extends IDAO<Product, Integer> {
+public interface ICatalogue<T, K> extends IDAO<T, K> {
     
-    public List<Product> getByName(String name);
-
-    public List<Product> getById(Integer id);
-            
-    public List<Product> getByPrice(double price);
+    public List<T> getByKey(K k);
 }

@@ -23,11 +23,17 @@ import se.chalmers.dat076.mathem.model.entityclasses.Product;
 public class Shop{
     @EJB
     private ICatalogue pC;
+    
+    @EJB
+    private ICatalogue uC;
        
     public ICatalogue getProductCatalogue() {
         return pC;
     }
     
+    public ICatalogue getUserCatalogue() {
+        return uC;
+    }
     private final List<Product> productList = new ArrayList<>();
 
     @PostConstruct
