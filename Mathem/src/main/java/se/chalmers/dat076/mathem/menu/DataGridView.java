@@ -1,4 +1,4 @@
-package se.chalmers.dat076.mathem.view;
+package se.chalmers.dat076.mathem.menu;
 /**
  *
  * @author victor_nordh92
@@ -20,16 +20,21 @@ public class DataGridView implements Serializable {
     
     @Inject
     private Shop shop;    
-    private List<Product> prodList;    
+       
     private static final Logger LOG = Logger.getLogger(DataGridView.class.getName());
     
+    private List<Product> products; 
     private Product selectedProd;
      
     @PostConstruct
     public void init() {   
-        //this.prodList = this.shop.getProductCatalogue().findAll();
+        this.products = this.shop.getProductCatalogue().findAll();
+        System.out.println("hej");
     }
 
+    public List<Product> getProducts() {
+    return products;
+}
     public Product getSelectedProd() {
         return selectedProd;
     }
