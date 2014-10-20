@@ -6,7 +6,7 @@
 /**
  *
  * @author Patrik
- */
+ 
 import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
@@ -79,3 +79,4 @@ public class MenuView {
         FacesContext.getCurrentInstance().addMessage(null, message);
     }
 }
+*/

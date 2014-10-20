@@ -10,7 +10,7 @@ and open the template in the editor.
       xmlns:p="http://primefaces.org/ui">
 
     <h:head>
-        <title>Registrera dig</title>
+        <title>Registrera dig hos Matbutiken Online</title>
         <style type="text/css">
             .ui-widget {
                 font-size: 90%;
@@ -21,26 +21,31 @@ and open the template in the editor.
     <h:body>
         <h:form>
             <h:panelGrid columns="4" cellpadding="5">
-                <h:outputLabel for="name" value="Förnamn:" style="font-weight:bold" />
-                <p:inputText id="name" value="#{CustomerRegistryBB.name}" />
-                
-                <h:outputLabel for="lastname" value="Efternamn:" style="font-weight:bold" />
-                <p:inputText id="lastname" value="#{CustomerRegistryBB.text}" />
-                
-                <h:outputLabel for="phone" value="Telefonnr:" style="font-weight:bold" />
-                <p:inputText id="phone" value="#{CustomerRegistryBB.phone}" />
-                
-                <h:outputLabel for="email" value="E-mail:" style="font-weight:bold" />
-                <p:inputText id="email" value="#{CustomerRegistryBB.email}" />
-                
-                <h:outputLabel for="adress" value="Adress:" style="font-weight:bold" />
-                <p:inputText id="adress" value="#{CustomerRegistryBB.adress}" />
-                
-                <h:outputLabel for="city" value="Postort:" style="font-weight:bold" />
-                <p:inputText id="city" value="#{CustomerRegistryBB.text}" />
-                
-                <p:commandButton value="Submit" update="display" icon="ui-icon-check" />
-                <h:outputText id="display" value="#{CustomerRegistryBB.text}" />
+                <p:outputLabel for="name" value="Förnamn:" style="font-weight:bold" />
+                <p:inputText id="name" value="#{CustomerRegistryBB.name}" required="true"/>
+
+                <p:outputLabel for="username" value="Användarnamn:" style="font-weight:bold" />
+                <p:inputText id="username" value="#{CustomerRegistryBB.username}" required="true"/>
+
+                <h:outputLabel for="pwd1" value="Lösenord:" style="font-weight:bold" class="ui-outputlabel ui-widget"/>
+                <p:password id="feedback" value="#{CustomerRegistryBB.password}" match="pwd2" label="Password 1" required="true" feedback="true" />
+
+                <p:outputLabel for="pwd2" value="Lösenord igen:" style="font-weight:bold" />
+                <p:password id="pwd2" value="#{CustomerRegistryBB.password}" label="Password 2" required="true" />
+
+                <p:outputLabel for="phone" value="Telefonnr:" style="font-weight:bold" />
+                <p:inputText id="phone" value="#{CustomerRegistryBB.phone}" required="true"/>
+
+                <p:outputLabel for="email" value="E-mail:" style="font-weight:bold" />
+                <p:inputText id="email" value="#{CustomerRegistryBB.email}" required="true"/>
+
+                <p:outputLabel for="adress" value="Adress:" style="font-weight:bold" />
+                <p:inputText id="adress" value="#{CustomerRegistryBB.adress}" required="true"/>
+
+                <p:outputLabel for="city" value="Postort:" style="font-weight:bold" />
+                <p:inputText id="city" value="#{CustomerRegistryBB.text}" required="true"/>
+
+                <p:commandButton value="Bli medlem" icon="ui-icon-disk" actionListener="#{CustomerRegistryCtrl.submit}"/>                
             </h:panelGrid>
         </h:form>
     </h:body>
