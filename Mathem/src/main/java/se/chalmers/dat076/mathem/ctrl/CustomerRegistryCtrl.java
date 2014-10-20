@@ -8,6 +8,7 @@ package se.chalmers.dat076.mathem.ctrl;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Named;
 import se.chalmers.dat076.mathem.model.entityclasses.Users;
+import se.chalmers.dat076.mathem.model.entityclasses.Customer;
 
 /**
  *
@@ -18,6 +19,7 @@ import se.chalmers.dat076.mathem.model.entityclasses.Users;
 public class CustomerRegistryCtrl {
     
     private Users user;
+    private Customer customer;
         
     public void submit(){
             

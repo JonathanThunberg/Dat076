@@ -26,7 +26,7 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import se.chalmers.dat076.mathem.model.entityclasses.Products;
+import se.chalmers.dat076.mathem.model.entityclasses.Product;
 
 /**
  *
@@ -70,16 +70,16 @@ public class ProductCatalogueTest {
     private void clearAll() throws Exception {
         utx.begin();
         em.joinTransaction();
-        em.createQuery("delete from Products").executeUpdate();
+        em.createQuery("delete from Product").executeUpdate();
         utx.commit();
     }
     
     @Test
     public void testCreate() throws Exception {
         System.out.println("create");
-        Products t = new Products(1,"aaa", 8.1);
+        Product t = new Product(1,"aaa", 8.1);
         shop.getProductCatalogue().create(t);
-        List<Products> ps = shop.getProductCatalogue().findAll();
+        List<Product> ps = shop.getProductCatalogue().findAll();
         assertTrue(ps.size() > 0);
         assertTrue(ps.get(0).getName().equals(t.getName()));
         
