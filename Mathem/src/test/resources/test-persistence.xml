@@ -2,15 +2,15 @@
 <persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
   <persistence-unit name="mathem_test_pu" transaction-type="JTA">
     <jta-data-source>jdbc/mathem</jta-data-source>
-    <class>se.chalmers.dat076.mathem.model.entityclasses.Customers</class>
-    <class>se.chalmers.dat076.mathem.model.entityclasses.Categories</class>
-    <class>se.chalmers.dat076.mathem.model.entityclasses.Accounts</class>
-    <class>se.chalmers.dat076.mathem.model.entityclasses.Admins</class>
-    <class>se.chalmers.dat076.mathem.model.entityclasses.Adresses</class>
-    <class>se.chalmers.dat076.mathem.model.entityclasses.Orders</class>
-    <class>se.chalmers.dat076.mathem.model.entityclasses.Recipes</class>
-    <class>se.chalmers.dat076.mathem.model.entityclasses.Users</class>
-    <class>se.chalmers.dat076.mathem.model.entityclasses.Products</class>
+    <class>se.chalmers.dat076.mathem.model.entityclasses.Customer</class>
+    <class>se.chalmers.dat076.mathem.model.entityclasses.Product</class>
+    <class>se.chalmers.dat076.mathem.model.entityclasses.Account</class>
+    <class>se.chalmers.dat076.mathem.model.entityclasses.Admin</class>
+    <class>se.chalmers.dat076.mathem.model.entityclasses.Adress</class>
+    <class>se.chalmers.dat076.mathem.model.entityclasses.Category</class>
+    <class>se.chalmers.dat076.mathem.model.entityclasses.Order</class>
+    <class>se.chalmers.dat076.mathem.model.entityclasses.Recipe</class>
+    <class>se.chalmers.dat076.mathem.model.entityclasses.User</class>
     <exclude-unlisted-classes>true</exclude-unlisted-classes>
     <properties>
       <property name="javax.persistence.schema-generation.database.action" value="create"/>

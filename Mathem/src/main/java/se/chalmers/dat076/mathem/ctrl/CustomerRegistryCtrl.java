@@ -7,7 +7,7 @@ package se.chalmers.dat076.mathem.ctrl;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Named;
-import se.chalmers.dat076.mathem.model.entityclasses.Customers;
+import se.chalmers.dat076.mathem.model.entityclasses.Customer;
 
 /**
  *
@@ -17,7 +17,7 @@ import se.chalmers.dat076.mathem.model.entityclasses.Customers;
 @RequestScoped
 public class CustomerRegistryCtrl {
     
-    private Customers customer;
+    private Customer customer;
         
     public void submit(){
             //ToDo
