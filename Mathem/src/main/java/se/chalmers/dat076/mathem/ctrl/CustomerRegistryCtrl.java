@@ -20,6 +20,6 @@ public class CustomerRegistryCtrl {
     private Customers customer;
         
     public void submit(){
-            //ToDo
+            
     }
 }

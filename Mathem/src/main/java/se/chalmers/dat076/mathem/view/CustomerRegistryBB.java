@@ -8,6 +8,8 @@ package se.chalmers.dat076.mathem.view;
 import javax.faces.bean.ManagedBean;
 import se.chalmers.dat076.mathem.model.entityclasses.Adresses;
 import se.chalmers.dat076.mathem.model.entityclasses.Customers;
+import se.chalmers.dat076.mathem.model.entityclasses.Users;
+
 /**
  *
  * @author victor_nordh92
@@ -16,11 +18,14 @@ import se.chalmers.dat076.mathem.model.entityclasses.Customers;
 public class CustomerRegistryBB {
    
     private Customers customer;
+    private Users user;
+    
     private String name = customer.getName();
     private Integer phone = customer.getPhone();
     private String email = customer.getEmail();
     private Adresses adress = customer.getAdresses();
- 
+    private String password = user.getPassword();
+    
     public String getName() {
         return name;
     }
@@ -51,5 +56,12 @@ public class CustomerRegistryBB {
         
     public void setEmail(Adresses adress) {
         this.adress = adress;
+    }
+    public String getPassword() {
+        return password;
+    }
+    
+    public void setPassword(String password) {
+        this.password = password;
     }
 }
