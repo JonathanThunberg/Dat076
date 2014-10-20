@@ -20,7 +20,7 @@ and open the template in the editor.
      
     <h:body>
         <h:form>
-            <p:dataTable var="item" value="#{shoppingCartBB.items}">
+            <p:dataTable var="item" value="#{shoppingCartBB.cart.orderItems}">
                 <p:column headerText="Namn">
                     <h:outputText value="#{item.product.name}" />
                 </p:column>
@@ -46,6 +46,7 @@ and open the template in the editor.
             </p:dataTable>
             <p:commandButton icon ="ui-icon-trash" value="Töm varukorg" actionListener="#{shoppingCartCtrl.emptyCart}" />
             <p:commandButton value="Köp" actionListener="#{shoppingCartCtrl.buy}" />
+            <p:outputLabel value="Summa: #{shoppingCartBB.cart.totalPrice}" />
         </h:form>
     </h:body>
      
