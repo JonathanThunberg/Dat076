@@ -32,7 +32,7 @@ import se.chalmers.dat076.mathem.model.entityclasses.Product;
  *
  * @author tuna
  */
-
+/*
 @RunWith(Arquillian.class)
 public class ProductCatalogueTest {
     
@@ -84,4 +84,4 @@ public class ProductCatalogueTest {
         assertTrue(ps.get(0).getName().equals(t.getName()));
         
     }
-}   
+}   */

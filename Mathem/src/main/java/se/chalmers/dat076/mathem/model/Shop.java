@@ -6,7 +6,6 @@
 
 package se.chalmers.dat076.mathem.model;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;

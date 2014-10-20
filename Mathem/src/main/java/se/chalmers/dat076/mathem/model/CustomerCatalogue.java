@@ -11,7 +11,6 @@ import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import se.chalmers.dat076.mathem.model.entityclasses.Customer;
-import se.chalmers.dat076.mathem.model.entityclasses.User;
 import se.chalmers.dat076.mathem.model.persistance.AbstractDAO;
 
 /**
@@ -21,7 +20,7 @@ import se.chalmers.dat076.mathem.model.persistance.AbstractDAO;
 
     @Stateless
     public class CustomerCatalogue extends AbstractDAO<Customer, String>
-            implements ICatalogue<Customer, String> {
+            implements ICustomerCatalogue{
 
         @PersistenceContext
         protected EntityManager eM;
