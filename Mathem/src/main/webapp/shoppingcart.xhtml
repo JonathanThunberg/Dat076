@@ -28,9 +28,10 @@ and open the template in the editor.
                 <p:column headerText="Pris/st">
                     <h:outputText value="#{item.product.price}" />
                 </p:column>
- 
+                
+                
                 <p:column id="quantity" headerText="Antal">
-                    <p:spinner value="#{item.quantity}" min="0">
+                    <p:spinner label="#{item.quantity}"  min="1">
                         <p:ajax listener="#{shoppingCartCtrl.setQuantity(item,quantity)}" update="@form" process="@this" />
                     </p:spinner>
                     

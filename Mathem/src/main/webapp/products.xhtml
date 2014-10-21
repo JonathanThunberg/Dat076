@@ -7,7 +7,6 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
         <link rel="stylesheet" type="text/css" href="css/default.css"/>
-        <title>Shop</title>
     </h:head>
     <h:body>
         <ui:composition template="/WEB-INF/template.xhtml">
@@ -15,22 +14,25 @@
                 <div id="matbutiken_left_menu">
                         <p:menu>
                             <p:submenu label="Kategorier">
-
-                                <p:menuitem value="Alla" outcome="index.xhtml" actionListener="#{dataGridView.category}"/>
-                                <p:menuitem value="Frukt &amp; Grönt" outcome="index.xhtml" />
-                                <p:menuitem value="Dryck" outcome="index.xhtml" />
-                                <p:menuitem value="Kött &amp; Chark" outcome="index.xhtml"/>
-                                <p:menuitem value="Fisk &amp; Skaldjur" outcome="index.xhtml"/>
-                                <p:menuitem value="Mejeri" outcome="index.xhtml"/>
-                                <p:menuitem value="Skafferi" outcome="index.xhtml"/>
-                                <p:menuitem value="Godis" outcome="index.xhtml"/>
+                                <p:menuitem value="Alla" outcome="products" action="#{productsBB.editCategory()}">
+                                    <f:param name="category" value="Alla"/>
+                                </p:menuitem>
+                                <p:menuitem value="Frukt &amp; Grönt" outcome="products"/>
+                                <p:menuitem value="Dryck" outcome="products" action="#{productsBB.editCategory()}">
+                                    <f:param name="category" value="Dryck"/>
+                                </p:menuitem>
+                                <p:menuitem value="Kött &amp; Chark" outcome="products"/>
+                                <p:menuitem value="Fisk &amp; Skaldjur" outcome="products"/>
+                                <p:menuitem value="Mejeri" outcome="products" action="#{productsBB.setCategory(Mejeri)}"/>
+                                <p:menuitem value="Skafferi" outcome="products" action="#{productsBB.setCategory(Skafferi)}"/>
+                                <p:menuitem value="Godis" outcome="products" action="#{productsBB.setCategory(Godis)}"/>
                             </p:submenu>
                         </p:menu>
                 </div>
 
                 <div id="matbutiken_big_menu">
                     <h:form id="form">
-                        <p:dataGrid var="prod" value="#{dataGridView.products}" columns="3" layout="grid"
+                        <p:dataGrid var="prod" value="#{productsBB.products}" columns="3" layout="grid"
                                     rows="9" paginator="true" id="products"
                                     paginatorTemplate="{PreviousPageLink} {CurrentPageReport} {NextPageLink}">
 
@@ -40,10 +42,8 @@
                                     </p:row>
                                     <h:outputText value="#{prod.price} kr/st" />
                                     <p:row>  
-                                        <p:spinner style="float:left; " size="5"  min="1" value="1">
-                                            <p:ajax listener="#{shoppingCartCtrl.setQuantity(item,quantity)}" update="@form" process="@this" />
-                                        </p:spinner> 
-                                        <p:commandButton style="float: left; width: 60px; font-size: 15px; margin-left: 6px;" title="Köp" value="Köp" actionListener="#{CustomerRegistryCtrl.submit}"/>                                                     
+                                        <p:spinner style="float:left; " size="5"  min="1" value="#{productsBB.amount}"/>
+                                        <p:commandButton style="float: left; width: 60px; font-size: 15px; margin-left: 6px;" title="Köp" value="Köp"  actionListener="#{productsCtrl.buy(prod)}"/>                                                     
                                     </p:row>
                                 </h:panelGrid>
                             </p:panel>
@@ -52,16 +52,16 @@
 
                         <p:dialog header="Product Info" widgetVar="productDialog" modal="true" showEffect="fade" hideEffect="fade" resizable="false">
                             <p:outputPanel id="productDetail" style="text-align:center;">
-                                <p:panelGrid  columns="2" rendered="#{not empty dataGridView.selectedProd}" columnClasses="label,value">
+                                <p:panelGrid  columns="2" rendered="#{not empty productsBB.selectedProd}" columnClasses="label,value">
                                     <f:facet name="header">
-                                        <p:graphicImage name="demo/images/car/#{dataGridView.selectedProd.name}-big.gif"/> 
+                                        <p:graphicImage name="demo/images/car/#{productsBB.selectedProd.name}-big.gif"/> 
                                     </f:facet>
 
                                     <h:outputText value="Namn:" />
-                                    <h:outputText value="#{dataGridView.selectedProd.name}" />
+                                    <h:outputText value="#{productsBB.selectedProd.name}" />
 
                                     <h:outputText value="Pris" />
-                                    <h:outputText value="#{dataGridView.selectedProd.price}" />
+                                    <h:outputText value="#{productsBB.selectedProd.price}" />
 
                                 </p:panelGrid>
                             </p:outputPanel>

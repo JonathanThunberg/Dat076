@@ -3,16 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package se.chalmers.dat076.mathem.model;
+package se.chalmers.dat076.mathem.model.catalogue;
 
 import javax.ejb.Local;
-import se.chalmers.dat076.mathem.model.entityclasses.Customer;
+import se.chalmers.dat076.mathem.model.entityclasses.Category;
 
 /**
  *
- * @author victor_nordh92
+ * @author Julia
  */
 @Local
-public interface ICustomerCatalogue extends ICatalogue <Customer,String> {
+public interface ICategoryCatalogue extends ICatalogue <Category, String>{
     
 }

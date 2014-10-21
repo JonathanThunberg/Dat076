@@ -31,7 +31,7 @@
                             </p:submenu>
                             <p:submenu label="Navigations">
                                 <p:menuitem value="External" url="http://www.primefaces.org" />
-                                <p:menuitem value="Internal" outcome="index.xhtml" />
+                                <p:menuitem value="Internal" outcome="products" />
                             </p:submenu>
                         </p:menu>
                     </h:form>
@@ -40,7 +40,7 @@
 
                 <div id="matbutiken_big_menu">
                     <h:form id="form">
-                        <p:dataGrid var="prod" value="#{dataGridView.init()}" columns="4" layout="grid"
+                        <p:dataGrid var="prod" value="#{productsBB.init()}" columns="4" layout="grid"
                                     rows="16" paginator="true" id="products"
                                     paginatorTemplate="{PreviousPageLink} {CurrentPageReport} {NextPageLink}">
 
@@ -53,7 +53,7 @@
 
                                     <p:commandLink update=":form:productDetail" oncomplete="PF('productDialog').show()" title="View Detail">
                                         <h:outputText styleClass="ui-icon ui-icon-search" style="margin:0 auto;" />
-                                        <f:setPropertyActionListener value="#{product}" target="#{dataGridView.selectedProd}" />
+                                        <f:setPropertyActionListener value="#{product}" target="#{productsBB.selectedProd}" />
                                     </p:commandLink>
                                 </h:panelGrid>
                             </p:panel>
@@ -62,16 +62,16 @@
 
                         <p:dialog header="Product Info" widgetVar="productDialog" modal="true" showEffect="fade" hideEffect="fade" resizable="false">
                             <p:outputPanel id="productDetail" style="text-align:center;">
-                                <p:panelGrid  columns="2" rendered="#{not empty dataGridView.selectedProd}" columnClasses="label,value">
+                                <p:panelGrid  columns="2" rendered="#{not empty productsBB.selectedProd}" columnClasses="label,value">
                                     <f:facet name="header">
-                                        <p:graphicImage name="demo/images/car/#{dataGridView.selectedProd.name}-big.gif"/> 
+                                        <p:graphicImage name="demo/images/car/#{productsBB.selectedProd.name}-big.gif"/> 
                                     </f:facet>
 
                                     <h:outputText value="Namn:" />
-                                    <h:outputText value="#{dataGridView.selectedProd.name}" />
+                                    <h:outputText value="#{productsBB.selectedProd.name}" />
 
                                     <h:outputText value="Pris" />
-                                    <h:outputText value="#{dataGridView.selectedProd.price}" />
+                                    <h:outputText value="#{productsBB.selectedProd.price}" />
 
                                 </p:panelGrid>
                             </p:outputPanel>

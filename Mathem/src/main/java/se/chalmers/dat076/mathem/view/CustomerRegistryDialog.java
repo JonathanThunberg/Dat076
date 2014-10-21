@@ -13,11 +13,11 @@ import org.primefaces.context.RequestContext;
  * @author victor_nordh92
  */
 @ManagedBean
-public class CustomRegistryDialog {
+public class CustomerRegistryDialog {
        
     public void openRegistry() {
         
-        RequestContext.getCurrentInstance().openDialog("contact.xhtml");
+        RequestContext.getCurrentInstance().openDialog("customerregistry.xhtml");
     }
 
 }

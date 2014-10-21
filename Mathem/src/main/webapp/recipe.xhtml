@@ -32,7 +32,7 @@ and open the template in the editor.
                 
                 <div id="recipes_big_menu">
                     <h:form id="form">
-                        <p:dataGrid var="recipes" value="#{recipeGridView.recipes}" columns="5" layout="grid"
+                        <p:dataGrid var="recipes" value="#{recipeBB.recipes}" columns="5" layout="grid"
                                     rows="15" paginator="true" id="products"
                                     paginatorTemplate="{PreviousPageLink} {CurrentPageReport} {NextPageLink}">
 
@@ -51,13 +51,13 @@ and open the template in the editor.
 
                         <p:dialog header="Product Info" widgetVar="productDialog" modal="true" showEffect="fade" hideEffect="fade" resizable="false">
                             <p:outputPanel id="productDetail" style="text-align:center;">
-                                <p:panelGrid  columns="2" rendered="#{not empty recipeGridView.selectedRecp}" columnClasses="label,value">
+                                <p:panelGrid  columns="2" rendered="#{not empty reciperecipeBBtedRecp}" columnClasses="label,value">
                                     <f:facet name="header">
-                                        <p:graphicImage name="demo/images/car/#{recipeGridView.selectedRecp.name}-big.gif"/> 
+                                        <p:graphicImage name="demo/images/car/#{recipeGridVirecipeBBp.name}-big.gif"/> 
                                     </f:facet>
 
                                     <h:outputText value="Namn:" />
-                                    <h:outputText value="#{recipeGridView.selectedRecp.name}" />
+                                    <h:outputText value="#{recipeGridView.selrecipeBB}" />
                                    
                                 </p:panelGrid>
                             </p:outputPanel>

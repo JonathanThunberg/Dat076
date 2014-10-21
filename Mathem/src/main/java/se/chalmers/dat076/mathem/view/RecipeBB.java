@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package se.chalmers.dat076.mathem.menu;
+package se.chalmers.dat076.mathem.view;
 
 import java.io.Serializable;
 import java.util.List;
@@ -13,7 +13,6 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import javax.inject.Inject;
 import se.chalmers.dat076.mathem.model.Shop;
-import se.chalmers.dat076.mathem.model.entityclasses.Product;
 import se.chalmers.dat076.mathem.model.entityclasses.Recipe;
 
 /**
@@ -22,12 +21,12 @@ import se.chalmers.dat076.mathem.model.entityclasses.Recipe;
  */
 @ManagedBean
 @ViewScoped
-public class RecipeGridView implements Serializable {
+public class RecipeBB implements Serializable {
 
     @Inject
     private Shop shop;
 
-    private static final Logger LOG = Logger.getLogger(DataGridView.class.getName());
+    private static final Logger LOG = Logger.getLogger(ProductsBB.class.getName());
 
     private List<Recipe> recipes;
     private Recipe selectedrecp;

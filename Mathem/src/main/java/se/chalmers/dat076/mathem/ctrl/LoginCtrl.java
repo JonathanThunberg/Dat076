@@ -8,7 +8,7 @@ import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
 import org.primefaces.context.RequestContext;
-import se.chalmers.dat076.mathem.model.ICatalogue;
+import se.chalmers.dat076.mathem.model.catalogue.ICatalogue;
 import se.chalmers.dat076.mathem.model.Shop;
 import se.chalmers.dat076.mathem.model.entityclasses.User;
 import se.chalmers.dat076.mathem.view.LoginBB;

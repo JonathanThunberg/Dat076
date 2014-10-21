@@ -9,21 +9,21 @@
  <navigation-rule>
      <from-view-id>*</from-view-id>
     <navigation-case>
-        <from-outcome>home</from-outcome>
-        <to-view-id>/index.xhtml</to-view-id>
-    </navigation-case>
-    <navigation-case>
         <from-outcome>products</from-outcome>
-        <to-view-id>/index.xhtml</to-view-id>
+        <to-view-id>/products.xhtml</to-view-id>
     </navigation-case>
      <navigation-case>
         <from-outcome>recipe</from-outcome>
-        <to-view-id>/index.xhtml</to-view-id>
+        <to-view-id>/recipes.xhtml</to-view-id>
     </navigation-case>
      <navigation-case>
         <from-outcome>aboutus</from-outcome>
-        <to-view-id>/index.xhtml</to-view-id>
+        <to-view-id>/aboutus.xhtml</to-view-id>
     </navigation-case>  
+    <navigation-case>
+        <from-outcome>campaign</from-outcome>
+        <to-view-id>/campaign.xhtml</to-view-id>
+    </navigation-case>
 </navigation-rule>     
  <application>
     <action-listener>

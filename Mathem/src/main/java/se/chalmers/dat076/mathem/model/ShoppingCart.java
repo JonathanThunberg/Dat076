@@ -6,6 +6,7 @@
 package se.chalmers.dat076.mathem.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 import javax.enterprise.context.SessionScoped;
 
@@ -18,20 +19,22 @@ import javax.enterprise.context.SessionScoped;
 @SessionScoped
 public class ShoppingCart implements Serializable{
     
-    private List<OrderItem> items;
+    private List<OrderItem> items = new ArrayList<>();
     private double price = 0;
     
     public void add(OrderItem item) {
         boolean itemAdded = false;
-        for(int i = 1; i<items.size(); i++) {
+        for(int i = 0; i<items.size(); i++) {
+            System.out.println(item.getProduct().getName());
             if(items.get(i).getProduct().getName().equalsIgnoreCase(item.getProduct().getName())) {
+                changeQuantity(items.get(i), items.get(i).getQuantity()+item.getQuantity());
                 itemAdded = true;
             }
         }
         if(!itemAdded) {
             items.add(item);
-        }
-        price = price+(item.getQuantity()*item.getProduct().getPrice());
+            price = price+(item.getQuantity()*item.getProduct().getPrice());
+        }  
     }
 
     public void remove(OrderItem item) { 
@@ -45,6 +48,10 @@ public class ShoppingCart implements Serializable{
 
 
     public List<OrderItem> getOrderItems() {
+        for(OrderItem i: items) {
+            //System.out.println(i.getProduct().getName());
+        }
+        System.out.println(items.size());
         return items;
     }
      

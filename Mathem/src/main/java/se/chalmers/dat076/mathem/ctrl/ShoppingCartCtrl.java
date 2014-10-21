@@ -40,6 +40,7 @@ public class ShoppingCartCtrl {
     } 
     
     public void setQuantity(OrderItem item, int quantity) {
+        
         cartBB.getCart().changeQuantity(item, quantity);
     }
     
