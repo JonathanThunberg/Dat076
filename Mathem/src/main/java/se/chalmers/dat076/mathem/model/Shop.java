@@ -6,6 +6,10 @@
 
 package se.chalmers.dat076.mathem.model;
 
+import se.chalmers.dat076.mathem.catalogue.IProductCatalogue;
+import se.chalmers.dat076.mathem.catalogue.IRecipeCatalogue;
+import se.chalmers.dat076.mathem.catalogue.ICustomerCatalogue;
+import se.chalmers.dat076.mathem.catalogue.ICatalogue;
 import javax.ejb.EJB;
 import javax.enterprise.context.ApplicationScoped;
 

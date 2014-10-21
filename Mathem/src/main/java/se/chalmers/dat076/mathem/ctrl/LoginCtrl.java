@@ -7,7 +7,7 @@ import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
-import se.chalmers.dat076.mathem.model.ICatalogue;
+import se.chalmers.dat076.mathem.catalogue.ICatalogue;
 import se.chalmers.dat076.mathem.model.Shop;
 import se.chalmers.dat076.mathem.model.entityclasses.User;
 import se.chalmers.dat076.mathem.view.LoginBB;
