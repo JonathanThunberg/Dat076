@@ -61,7 +61,7 @@ public class ProductCatalogueTest {
         clearAll();
     }
     
-    @PersistenceContext(unitName = "mathem_test_pu")
+    @PersistenceContext
     @Produces
     @Default
     EntityManager em;
