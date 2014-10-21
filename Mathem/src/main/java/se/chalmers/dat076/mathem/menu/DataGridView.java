@@ -28,6 +28,7 @@ public class DataGridView implements Serializable {
     private Product selectedProd;
     private String category = "all";
 
+
     @PostConstruct
     public void init() {
         if (category.equals("all")) {

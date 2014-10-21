@@ -3,12 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
 package se.chalmers.dat076.mathem.view;
  
 import java.io.Serializable;
 import javax.enterprise.context.RequestScoped;
+import javax.faces.context.FacesContext;
 import javax.inject.Named;
-import se.chalmers.dat076.mathem.model.entityclasses.Adress;
+import se.chalmers.dat076.mathem.model.Shop;
 import se.chalmers.dat076.mathem.model.entityclasses.Customer;
 
 /**
@@ -17,21 +19,21 @@ import se.chalmers.dat076.mathem.model.entityclasses.Customer;
  */
 @Named
 @RequestScoped
-public class CustomerRegistryBB implements Serializable{
-   
-    private Customer customer;
+public class CustomerRegistryBB implements Serializable{    
     
-    private String name = customer.getName();
-    private String username = customer.getUsername();
-    private String password = customer.getUsers().getPassword();
-    private Integer phone = customer.getPhone();
-    private String email = customer.getEmail();
-    private Adress adress = customer.getAdresses();
-    private String streetname = adress.getAdressesPK().getStreetname();
-    private String city = adress.getAdressesPK().getCity();
-    private String postcode = adress.getPostalcode();
+    private String name; 
+    private String username;
+    private String password;
+    private Integer phone;
+    private String email;
+    
+    private String streetname;
+    private String city;
+    private String postcode;
+    private Shop shop;
     
     public String getName() {
+        //return ((Customer) shop.getCustomerCatalogue().getByKey(FacesContext.getCurrentInstance())).getName; 
         return name;
     }
     
@@ -71,14 +73,6 @@ public class CustomerRegistryBB implements Serializable{
         this.email = email;
     }
     
-    public Adress getAdress() {
-        return adress;
-    }
-    
-    public void setAdress(Adress adress) {
-        this.adress = adress;
-    }      
-    
     public String getStreetname() {
         return streetname;
     }
@@ -89,6 +83,7 @@ public class CustomerRegistryBB implements Serializable{
     
     public String getPostcode() {
         return postcode;
+
     }
         
     public void setPostcode(String postcode) {
@@ -103,3 +98,4 @@ public class CustomerRegistryBB implements Serializable{
         this.city = city;
     }
 }
+

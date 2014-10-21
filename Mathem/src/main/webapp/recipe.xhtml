@@ -14,18 +14,56 @@ and open the template in the editor.
     <!-- <ui:insert name="metadata" /> Denna gör något och misstänker att den borde vara med!-->
     <h:head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />        
-        <link rel="stylesheet" type="text/css" href="css/CSS_recipe.css"/>
+        <link rel="stylesheet" type="text/css" href="css/default.css"/>
 
     </h:head>    
     <h:body>
         <ui:composition template="/WEB-INF/template.xhtml">
             <ui:define name="content"> 
+                
                 <div id ="inner_main">
                     <p:imageSwitch style="margin:5px 0 0 60px;" effect="scrollLeft">
-                        <p:graphicImage class="recipe_img" value= "../img/introRecipe/kycklingsallad.jpg"/>
-                        <p:graphicImage class="recipe_img" value= "../img/introRecipe/paj.jpg" />
-                        <p:graphicImage class="recipe_img" value= "../img/introRecipe/pasta.jpg" />
+                        <p:graphicImage class="recipe_img" value= "../img/introRecipe/bild2.jpg"/>
+                        <p:graphicImage class="recipe_img" value= "../img/introRecipe/bild3.jpg"/>
+                        <p:graphicImage class="recipe_img" value= "../img/introRecipe/bild5.jpg"/>
+                        <p:graphicImage class="recipe_img" value= "../img/introRecipe/bild6.jpg"/>
                     </p:imageSwitch>
+                </div>
+                
+                <div id="recipes_big_menu">
+                    <h:form id="form">
+                        <p:dataGrid var="recipes" value="#{recipeGridView.recipes}" columns="5" layout="grid"
+                                    rows="15" paginator="true" id="products"
+                                    paginatorTemplate="{PreviousPageLink} {CurrentPageReport} {NextPageLink}">
+
+                            <p:panel header="#{recipes.name}" style="text-align:center">
+                                <h:panelGrid columns="1" style="width:100%;">
+                                    <p:row> <p:graphicImage value= "/img/Recipes/#{recipes.name}.jpg"/>
+                                    </p:row>
+                                    <h:outputText value="#{recipes.description}" />
+                                    <p:row>
+                                        <p:commandButton style="float: left; width: 60px; font-size: 15px; margin-left: 6px;" title="Läs mer" value="Läs mer" actionListener="#{CustomerRegistryCtrl.submit}"/>                                                     
+                                    </p:row>
+                                </h:panelGrid>
+                            </p:panel>
+
+                        </p:dataGrid>
+
+                        <p:dialog header="Product Info" widgetVar="productDialog" modal="true" showEffect="fade" hideEffect="fade" resizable="false">
+                            <p:outputPanel id="productDetail" style="text-align:center;">
+                                <p:panelGrid  columns="2" rendered="#{not empty recipeGridView.selectedRecp}" columnClasses="label,value">
+                                    <f:facet name="header">
+                                        <p:graphicImage name="demo/images/car/#{recipeGridView.selectedRecp.name}-big.gif"/> 
+                                    </f:facet>
+
+                                    <h:outputText value="Namn:" />
+                                    <h:outputText value="#{recipeGridView.selectedRecp.name}" />
+                                   
+                                </p:panelGrid>
+                            </p:outputPanel>
+                        </p:dialog>
+                    </h:form>
+
                 </div>
             </ui:define>
         </ui:composition>
