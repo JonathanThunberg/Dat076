@@ -27,7 +27,7 @@ body{
 }
 #inner_main{
     float: left;
-    height: 365px;
+    height: 255px;
     width: 100%;
 }
 .recipe_img
@@ -35,6 +35,12 @@ body{
     width: 95%; 
 }
 
+#recipes_big_menu
+{
+    margin: 100px 0 0 5px;
+    width: 600px;
+    float: left;
+}
 #matbutiken_left_menu
 {
     font-size: 15px;

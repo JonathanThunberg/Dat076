@@ -48,7 +48,7 @@ and open the template in the editor.
                 <p:outputLabel for="postcode" value="Postnr:" style="font-weight:bold" />
                 <p:inputText id="postcode" value="#{customerRegistryBB.postcode}" required="true"/>
                 
-                <p:commandButton value="Bli medlem" icon="ui-icon-disk" onclick="#{customerRegistryCtrl.submit}" actionListener="#{customerRegistryCtrl.submit}"/>                
+                <p:commandButton value="Bli medlem" icon="ui-icon-disk" actionListener="#{customerRegistryCtrl.submit}"/>                
             </h:panelGrid>
         </h:form>
     </h:body>

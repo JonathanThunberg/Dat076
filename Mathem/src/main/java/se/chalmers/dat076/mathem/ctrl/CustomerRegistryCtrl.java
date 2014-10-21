@@ -28,15 +28,14 @@ public class CustomerRegistryCtrl {
 
     @Inject
     private Shop shop;
-     
+    
     @Inject
     public void setCustomerRegistryBB(CustomerRegistryBB regBB) {
         this.regBB = regBB;
     }
 
     public void submit() {
-        
-        System.out.println("nu är vi rätt");
+            
         adress = new Adress(regBB.getCity(),regBB.getStreetname());
         adress.setPostalcode(regBB.getPostcode());
         
@@ -47,9 +46,7 @@ public class CustomerRegistryCtrl {
         customer.setUsers(user);
         customer.setPhone(regBB.getPhone());
         customer.setEmail(regBB.getEmail());
-        customer.setAdresses(adress);
-        
-        System.out.println("name = " + regBB.getName());
+        customer.setAdresses(adress);        
         
         shop.getCustomerCatalogue().create(customer);       
     }

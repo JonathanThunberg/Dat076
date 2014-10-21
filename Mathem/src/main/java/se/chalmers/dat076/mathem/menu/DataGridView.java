@@ -21,14 +21,12 @@ public class DataGridView implements Serializable {
     @Inject
     private Shop shop;
 
-    private static final Logger LOG = Logger.getLogger(DataGridView.class.getName());
-
     private List<Product> products; 
     private Product selectedProd;
 
     @PostConstruct
     public void init() {   
-        //this.products = this.shop.getProductCatalogue().findAll();'
+        this.products = this.shop.getProductCatalogue().findAll();
     }
 
     public List<Product> getProducts() {
