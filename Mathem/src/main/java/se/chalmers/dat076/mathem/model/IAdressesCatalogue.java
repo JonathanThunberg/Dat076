@@ -3,15 +3,17 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package se.chalmers.dat076.mathem.catalogue;
+package se.chalmers.dat076.mathem.model;
 
+import javax.ejb.Local;
 import se.chalmers.dat076.mathem.model.entityclasses.Adress;
 import se.chalmers.dat076.mathem.model.entityclasses.AdressesPK;
 
 /**
  *
- * @author tuna
+ * @author Julia
  */
-public interface IAdressCatalogue extends ICatalogue<Adress, AdressesPK> {
+@Local
+public interface IAdressesCatalogue extends ICatalogue<Adress, AdressesPK>{
     
 }

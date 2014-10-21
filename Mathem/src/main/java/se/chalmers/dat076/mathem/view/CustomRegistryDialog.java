@@ -18,7 +18,6 @@ public class CustomRegistryDialog {
     public void openRegistry() {
         
         RequestContext.getCurrentInstance().openDialog("contact.xhtml");
-        System.out.println("open registry");
     }
 
 }

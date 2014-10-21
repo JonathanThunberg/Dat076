@@ -7,7 +7,8 @@ import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
-import se.chalmers.dat076.mathem.catalogue.ICatalogue;
+import org.primefaces.context.RequestContext;
+import se.chalmers.dat076.mathem.model.ICatalogue;
 import se.chalmers.dat076.mathem.model.Shop;
 import se.chalmers.dat076.mathem.model.entityclasses.User;
 import se.chalmers.dat076.mathem.view.LoginBB;
@@ -38,16 +39,21 @@ public class LoginCtrl implements Serializable {
     
     public void login() {
         FacesContext context = FacesContext.getCurrentInstance();
-        
         ICatalogue uc = shop.getUserCatalogue();
         if(!uc.getByKey(loginBB.getUser()).isEmpty()) {
             if(((User)(uc.getByKey(loginBB.getUser()).get(0))).getPassword().equals(loginBB.getPassword())){
                 context.getExternalContext().getSessionMap().put("user", loginBB.getUser());
+                RequestContext.getCurrentInstance().closeDialog("login.xhtml");
+                context.getPartialViewContext().getRenderIds().add("template_menu");
+                RequestContext.getCurrentInstance().update("template_menu");
+
             }else{
-                context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Fel lösenord", null));
+                context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN, "Fel lösenord", ""));
+                context.getExternalContext().getFlash().setKeepMessages(true);
             }
         }else{
-            context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Användaren finns ej", null));
+            context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN, "Användaren finns ej", ""));
+            context.getExternalContext().getFlash().setKeepMessages(true);
         }
         
     }

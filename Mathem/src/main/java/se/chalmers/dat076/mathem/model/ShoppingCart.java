@@ -7,12 +7,15 @@ package se.chalmers.dat076.mathem.model;
 
 import java.io.Serializable;
 import java.util.List;
+import javax.enterprise.context.SessionScoped;
 
 
 /**
  *
  * @author Julia
  */
+
+@SessionScoped
 public class ShoppingCart implements Serializable{
     
     private List<OrderItem> items;

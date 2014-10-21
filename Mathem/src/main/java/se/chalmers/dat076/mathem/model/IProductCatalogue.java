@@ -3,15 +3,17 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package se.chalmers.dat076.mathem.catalogue;
+package se.chalmers.dat076.mathem.model;
 
 import java.util.List;
+import javax.ejb.Local;
 import se.chalmers.dat076.mathem.model.entityclasses.Product;
 
 /**
  *
  * @author tuna
  */
+@Local
 public interface IProductCatalogue extends ICatalogue<Product, Integer> {
     public List<Product> getByPrice(double price);
     public List<Product> getByName(String name);

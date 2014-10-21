@@ -8,6 +8,7 @@ package se.chalmers.dat076.mathem.ctrl;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
+import org.primefaces.context.RequestContext;
 import se.chalmers.dat076.mathem.model.entityclasses.Adress;
 import se.chalmers.dat076.mathem.model.entityclasses.Customer;
 import se.chalmers.dat076.mathem.model.entityclasses.User;
@@ -20,11 +21,8 @@ import se.chalmers.dat076.mathem.model.Shop;
 @Named
 @RequestScoped
 public class CustomerRegistryCtrl {
-    
-    private Customer customer;
+
     private CustomerRegistryBB regBB;
-    private Adress adress;
-    private User user;
 
     @Inject
     private Shop shop;
@@ -36,18 +34,20 @@ public class CustomerRegistryCtrl {
 
     public void submit() {
             
-        adress = new Adress(regBB.getCity(),regBB.getStreetname());
+        Adress adress = new Adress(regBB.getCity(),regBB.getStreetname());
         adress.setPostalcode(regBB.getPostcode());
+        shop.getAdressCatalogue().create(adress);
         
-        user = new User(regBB.getUsername(),regBB.getPassword());
-        
-        customer.setName(regBB.getName());
+        User user = new User(regBB.getUsername(),regBB.getPassword());
+        shop.getUserCatalogue().create(user);
+        Customer customer = new Customer(regBB.getName());
         customer.setUsername(regBB.getUsername());
         customer.setUsers(user);
         customer.setPhone(regBB.getPhone());
         customer.setEmail(regBB.getEmail());
         customer.setAdresses(adress);        
         
-        shop.getCustomerCatalogue().create(customer);       
+        shop.getCustomerCatalogue().create(customer);     
+        RequestContext.getCurrentInstance().closeDialog("contact.xhtml");
     }
 }

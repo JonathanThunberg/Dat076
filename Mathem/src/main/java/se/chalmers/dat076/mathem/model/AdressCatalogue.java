@@ -3,23 +3,24 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package se.chalmers.dat076.mathem.catalogue;
+package se.chalmers.dat076.mathem.model;
 
 import java.util.ArrayList;
 import java.util.List;
+import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import se.chalmers.dat076.mathem.model.entityclasses.Adress;
 import se.chalmers.dat076.mathem.model.entityclasses.AdressesPK;
-import se.chalmers.dat076.mathem.model.entityclasses.Customer;
 import se.chalmers.dat076.mathem.model.persistance.AbstractDAO;
 
 /**
  *
  * @author tuna
  */
+@Stateless
 public class AdressCatalogue extends AbstractDAO <Adress, AdressesPK>
-            implements IAdressCatalogue{
+            implements IAdressesCatalogue{
   
     @PersistenceContext
     protected EntityManager eM;

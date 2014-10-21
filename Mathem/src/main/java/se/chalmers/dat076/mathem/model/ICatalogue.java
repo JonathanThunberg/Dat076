@@ -4,17 +4,17 @@
  * and open the template in the editor.
  */
 
-package se.chalmers.dat076.mathem.catalogue;
+package se.chalmers.dat076.mathem.model;
 
 import java.util.List;
-import javax.persistence.EntityManager;
-import se.chalmers.dat076.mathem.model.entityclasses.Product;
+import javax.ejb.Local;
 import se.chalmers.dat076.mathem.model.persistance.IDAO;
 
 /**
  *
  * @author tuna 
  */
+@Local
 public interface ICatalogue<T, K> extends IDAO<T, K> {
     
     public List<T> getByKey(K k);

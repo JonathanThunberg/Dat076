@@ -31,7 +31,7 @@ public class RenderBB {
     
     public boolean isUserCustomer() {
         if(isUserLoggedIn()) {
-            return (shop.getUserCatalogue().getByKey(FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("user")).get(0).getClass().equals(Customer.class));
+            return !(shop.getCustomerCatalogue().getByKey(FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("user").toString()).isEmpty());
         }else{
              return false;
         }
@@ -39,7 +39,7 @@ public class RenderBB {
     
     public boolean isUserAdmin() {
         if(isUserLoggedIn()) {
-            return (shop.getUserCatalogue().getByKey(FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("user")).get(0).getClass().equals(Admin.class));
+            return (shop.getUserCatalogue().getByKey(FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("user").toString()).isEmpty());
         }else{
             return false;
         }

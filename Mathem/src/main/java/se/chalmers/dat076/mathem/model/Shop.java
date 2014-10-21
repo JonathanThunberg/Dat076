@@ -1,15 +1,11 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+* To change this license header, choose License Headers in Project Properties.
+* To change this template file, choose Tools | Templates
+* and open the template in the editor.
+*/
 
 package se.chalmers.dat076.mathem.model;
 
-import se.chalmers.dat076.mathem.catalogue.IProductCatalogue;
-import se.chalmers.dat076.mathem.catalogue.IRecipeCatalogue;
-import se.chalmers.dat076.mathem.catalogue.ICustomerCatalogue;
-import se.chalmers.dat076.mathem.catalogue.ICatalogue;
 import javax.ejb.EJB;
 import javax.enterprise.context.ApplicationScoped;
 
@@ -18,8 +14,9 @@ import javax.enterprise.context.ApplicationScoped;
  *
  * @author tuna
  */
-@ApplicationScoped 
-public class Shop{
+@ApplicationScoped
+public class Shop {
+    
     @EJB
     private IProductCatalogue pC;
     
@@ -31,7 +28,14 @@ public class Shop{
     
     @EJB
     private ICatalogue uC;
-       
+    
+    @EJB
+    private IAdressesCatalogue aC;
+    
+    public IAdressesCatalogue getAdressCatalogue() {
+        return aC;
+    }
+    
     public IProductCatalogue getProductCatalogue() {
         return pC;
     }
@@ -48,4 +52,4 @@ public class Shop{
         return uC;
     }
     
-    }
+}

@@ -17,7 +17,7 @@
     </h:head>
     <h:body>
         <h:form>
-            <p:tabMenu activeIndex="#{param.i}">
+            <p:tabMenu id="template_menu" activeIndex="#{param.i}">
                 <p:menuitem value="Matbutik" outcome="index.xhtml" icon="ui-icon-cart">
                     <f:param name="i" value="0" />
                 </p:menuitem>
@@ -39,7 +39,7 @@
                 <p:menuitem value="Registrera dig" icon="ui-icon-pencil" actionListener="#{customRegistryDialog.openRegistry()}" rendered="#{!renderBB.isUserLoggedIn()}">
                     <f:param name="i" value="6" />
                 </p:menuitem>
-                <p:menuitem value="Välkommen #{sessionScope.user.name}" rendered="#{renderBB.isUserLoggedIn()}">
+                <p:menuitem value="Logga ut" actionListener="#{loginCtrl.logout()}" rendered="#{renderBB.isUserLoggedIn()}">
                     <f:param name="i" value="7" />
                 </p:menuitem>
             </p:tabMenu>
