@@ -33,21 +33,21 @@
 
                 <div id="matbutiken_big_menu">
                     <h:form id="form">
-                        <p:dataGrid var="prod" value="#{dataGridView.products}" columns="4" layout="grid"
-                                    rows="16" paginator="true" id="products"
+                        <p:dataGrid var="prod" value="#{dataGridView.products}" columns="3" layout="grid"
+                                    rows="9" paginator="true" id="products"
                                     paginatorTemplate="{PreviousPageLink} {CurrentPageReport} {NextPageLink}">
 
-                            <p:panel header="#{prod.id}" style="text-align:center">
-                                <h:panelGrid columns="1" style="width:100%">
-                                    <p:graphicImage value= "/img/Products/#{prod.name}.jpg"/>
-
-                                    <h:outputText value="#{prod.name}" />
-                                    <h:outputText value="#{prod.price}" />
-
-                                    <p:commandLink update=":form:productDetail" oncomplete="PF('productDialog').show()" title="View Detail">
-                                        <h:outputText styleClass="ui-icon ui-icon-search" style="margin:0 auto;" />
-                                        <f:setPropertyActionListener value="#{product}" target="#{dataGridView.selectedProd}" />
-                                    </p:commandLink>
+                            <p:panel header="#{prod.name}" style="text-align:center">
+                                <h:panelGrid columns="1" style="width:100%;">
+                                    <p:row> <p:graphicImage value= "/img/Products/#{prod.name}.jpg"/>
+                                    </p:row>
+                                    <h:outputText value="#{prod.price} kr/st" />
+                                    <p:row>  
+                                        <p:spinner style="float:left; " size="5"  min="1" value="1">
+                                            <p:ajax listener="#{shoppingCartCtrl.setQuantity(item,quantity)}" update="@form" process="@this" />
+                                        </p:spinner> 
+                                        <p:commandButton style="float: left; width: 60px; font-size: 15px; margin-left: 6px;" title="Köp" value="Köp" actionListener="#{CustomerRegistryCtrl.submit}"/>                                                     
+                                    </p:row>
                                 </h:panelGrid>
                             </p:panel>
 
