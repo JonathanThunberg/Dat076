@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.ejb.Stateless;
 import se.chalmers.dat076.mathem.model.entityclasses.Product;
-import javax.inject.Inject; 
+import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.EntityManager;
@@ -17,22 +17,21 @@ import javax.persistence.PersistenceContext;
 import se.chalmers.dat076.mathem.model.entityclasses.Product;
 import se.chalmers.dat076.mathem.model.persistance.AbstractDAO;
 
-/** 
+/**
  *
  * @author tuna
  */
 @Stateless
 public class ProductCatalogue extends AbstractDAO<Product, Integer>
-implements IProductCatalogue  {
+        implements IProductCatalogue {
 
     @PersistenceContext
     protected EntityManager eM;
-    
+
     public ProductCatalogue() {
         super(Product.class);
     }
- 
-    
+
     @Override
     public List<Product> getByName(String name) {
         List<Product> found = new ArrayList<>();
@@ -43,7 +42,7 @@ implements IProductCatalogue  {
         }
         return found;
     }
-    
+
     @Override
     public List<Product> getByKey(Integer id) {
         List<Product> found = new ArrayList<>();
@@ -54,7 +53,6 @@ implements IProductCatalogue  {
         }
         return found;
     }
-    
 
     @Override
     public List<Product> getByPrice(double price) {
@@ -66,12 +64,21 @@ implements IProductCatalogue  {
         }
         return found;
     }
-    
-    
+
+    @Override
+    public List<Product> getByCategory(String category) {
+        List<Product> found = new ArrayList<>();
+        for (Product p : findRange(0, count())) {
+            if (p.getCategory().getName().equals(category)) {
+                found.add(p);
+            }
+        }
+        return found;
+    }
+
     @Override
     protected EntityManager getEntityManager() {
         return eM;
     }
 
 }
-

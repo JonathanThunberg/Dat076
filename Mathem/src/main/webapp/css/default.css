@@ -34,10 +34,12 @@ body{
 {
     width: 95%; 
 }
-
+.ui-menu {
+    width: 140px;
+}
 #matbutiken_left_menu
 {
-    font-size: 15px;
+    font-size: 14px;
 
 }
 #customSeparator {

@@ -15,4 +15,5 @@ import se.chalmers.dat076.mathem.model.entityclasses.Product;
 public interface IProductCatalogue extends ICatalogue<Product, Integer> {
     public List<Product> getByPrice(double price);
     public List<Product> getByName(String name);
+    public List<Product> getByCategory (String category);
 }

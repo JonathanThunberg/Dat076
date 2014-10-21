@@ -13,22 +13,19 @@
         <ui:composition template="/WEB-INF/template.xhtml">
             <ui:define name="content"> 
                 <div id="matbutiken_left_menu">
-                    <h:form> 
-                        <p:growl id="messages" showDetail="false"/>
-
                         <p:menu>
                             <p:submenu label="Kategorier">
-                                <p:menuitem value="Frukt &amp; Grönt" actionListener="#{menuView.save}" update="messages" />
-                                <p:menuitem value="Dryck" actionListener="#{menuView.update}" update="messages" />
-                                <p:menuitem value="Kött &amp; Chark" actionListener="#{menuView.update}" update="messages" />
-                                <p:menuitem value="Fisk &amp; Skaldjur" actionListener="#{menuView.update}" update="messages" />
-                                <p:menuitem value="Mejeri" actionListener="#{menuView.update}" update="messages" />
-                                <p:menuitem value="Skafferi" actionListener="#{menuView.update}" update="messages" />
-                                <p:menuitem value="Godis" actionListener="#{menuView.update}" update="messages" />
+
+                                <p:menuitem value="Alla" outcome="index.xhtml" actionListener="#{dataGridView.category}"/>
+                                <p:menuitem value="Frukt &amp; Grönt" outcome="index.xhtml" />
+                                <p:menuitem value="Dryck" outcome="index.xhtml" />
+                                <p:menuitem value="Kött &amp; Chark" outcome="index.xhtml"/>
+                                <p:menuitem value="Fisk &amp; Skaldjur" outcome="index.xhtml"/>
+                                <p:menuitem value="Mejeri" outcome="index.xhtml"/>
+                                <p:menuitem value="Skafferi" outcome="index.xhtml"/>
+                                <p:menuitem value="Godis" outcome="index.xhtml"/>
                             </p:submenu>
                         </p:menu>
-                    </h:form>
-
                 </div>
 
                 <div id="matbutiken_big_menu">
