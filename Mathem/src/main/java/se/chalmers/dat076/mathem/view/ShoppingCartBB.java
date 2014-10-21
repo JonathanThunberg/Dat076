@@ -6,17 +6,14 @@
 package se.chalmers.dat076.mathem.view;
 
 import java.io.Serializable;
-import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.RequestScoped;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
-import se.chalmers.dat076.mathem.model.OrderItem;
 import se.chalmers.dat076.mathem.model.Shop;
 import se.chalmers.dat076.mathem.model.ShoppingCart;
 import se.chalmers.dat076.mathem.model.entityclasses.Customer;
-import se.chalmers.dat076.mathem.model.entityclasses.User;
  
 
 /**

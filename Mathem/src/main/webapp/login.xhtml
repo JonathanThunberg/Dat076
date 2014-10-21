@@ -29,7 +29,7 @@ and open the template in the editor.
                 <p:inputText type="password" id="password" value="#{loginBB.password}" />
                 
                 <p:commandButton value="Logga in" update="display" icon="ui-icon-check" />
-                <h:outputText id="display" value="#{loginCtrl.login}" />
+                <h:outputText id="display" value="#{loginCtrl.login()}" />
             </h:panelGrid>
         </h:form>
     </h:body>
