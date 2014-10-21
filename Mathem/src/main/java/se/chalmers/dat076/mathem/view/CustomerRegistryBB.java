@@ -90,6 +90,7 @@ public class CustomerRegistryBB implements Serializable{
     
     public String getPostcode() {
         return postcode;
+
     }
         
     public void setPostcode(String postcode) {
