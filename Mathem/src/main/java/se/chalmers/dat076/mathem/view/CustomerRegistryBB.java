@@ -8,8 +8,6 @@ package se.chalmers.dat076.mathem.view;
 import java.io.Serializable;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Named;
-import se.chalmers.dat076.mathem.model.entityclasses.Adress;
-import se.chalmers.dat076.mathem.model.entityclasses.Customer;
 
 /**
  *
@@ -17,19 +15,18 @@ import se.chalmers.dat076.mathem.model.entityclasses.Customer;
  */
 @Named
 @RequestScoped
-public class CustomerRegistryBB implements Serializable{
-   
-    private Customer customer;
+public class CustomerRegistryBB {    
     
-    private String name = customer.getName();
-    private String username = customer.getUsername();
-    private String password = customer.getUsers().getPassword();
-    private Integer phone = customer.getPhone();
-    private String email = customer.getEmail();
-    private Adress adress = customer.getAdresses();
-    private String streetname = adress.getAdressesPK().getStreetname();
-    private String city = adress.getAdressesPK().getCity();
-    private String postcode = adress.getPostalcode();
+    private String name; 
+    private String username;
+    private String password;
+    private Integer phone;
+    private String email;
+    
+    private String streetname;
+    private String city;
+    private String postcode;
+    
     
     public String getName() {
         return name;
@@ -70,14 +67,6 @@ public class CustomerRegistryBB implements Serializable{
     public void setEmail(String email) {
         this.email = email;
     }
-    
-    public Adress getAdress() {
-        return adress;
-    }
-    
-    public void setAdress(Adress adress) {
-        this.adress = adress;
-    }      
     
     public String getStreetname() {
         return streetname;

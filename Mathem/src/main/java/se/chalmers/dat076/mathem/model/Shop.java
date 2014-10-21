@@ -24,10 +24,17 @@ public class Shop{
     private IProductCatalogue pC;
     
     @EJB
+    private ICustomerCatalogue cC;
+    
+    @EJB
     private ICatalogue uC;
        
     public IProductCatalogue getProductCatalogue() {
         return pC;
+    }
+    
+    public ICustomerCatalogue getCustomerCatalogue() {
+        return cC;
     }
     
     public ICatalogue getUserCatalogue() {

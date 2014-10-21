@@ -28,7 +28,7 @@ public class DataGridView implements Serializable {
      
     @PostConstruct
     public void init() {   
-        this.products = this.shop.getProductCatalogue().findAll();
+        //this.products = this.shop.getProductCatalogue().findAll();
         System.out.println("hej");
     }
 
