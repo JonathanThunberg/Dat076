@@ -15,9 +15,11 @@ hs_err_pid*
 .DS_Store
 
 /Mathem/target/
+/Mathem/MatHem/
 
 #nb-configuration.xml
 #pom.xml
 
 Class Files
 *.class
+*.log
