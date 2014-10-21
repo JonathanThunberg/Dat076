@@ -5,34 +5,55 @@
  */
 
 package se.chalmers.dat076.mathem.view;
-import javax.faces.bean.ManagedBean;
+ 
+import java.io.Serializable;
+import javax.enterprise.context.RequestScoped;
+import javax.inject.Named;
 import se.chalmers.dat076.mathem.model.entityclasses.Adress;
 import se.chalmers.dat076.mathem.model.entityclasses.Customer;
-import se.chalmers.dat076.mathem.model.entityclasses.Customers;
-import se.chalmers.dat076.mathem.model.entityclasses.Users;
+
 /**
  *
  * @author victor_nordh92
  */
-/*
-@ManagedBean
-public class CustomerRegistryBB {
+@Named
+@RequestScoped
+public class CustomerRegistryBB implements Serializable{
    
     private Customer customer;
-    private Users user;
     
     private String name = customer.getName();
+    private String username = customer.getUsername();
+    private String password = customer.getUsers().getPassword();
     private Integer phone = customer.getPhone();
     private String email = customer.getEmail();
     private Adress adress = customer.getAdresses();
-    private String password = user.getPassword();
-   
+    private String streetname = adress.getAdressesPK().getStreetname();
+    private String city = adress.getAdressesPK().getCity();
+    private String postcode = adress.getPostalcode();
+
     public String getName() {
         return name;
     }
     
     public void setName(String name) {
         this.name = name;
+    }
+    
+    public String getUsername() {
+        return username;
+    }
+    
+    public void setUsername(String username) {
+        this.username = username;
+    }
+    
+    public String getPassword() {
+        return password;
+    }
+    
+    public void setPassword(String password) {
+        this.password = password;
     }
     
     public Integer getPhone() {
@@ -54,16 +75,33 @@ public class CustomerRegistryBB {
     public Adress getAdress() {
         return adress;
     }
-        
-    public void setEmail(Adress adress) {
+    
+    public void setAdress(Adress adress) {
         this.adress = adress;
+    }      
+    
+    public String getStreetname() {
+        return streetname;
     }
-    public String getPassword() {
-        return password;
+        
+    public void setStreetname(String streetname) {
+        this.streetname = streetname;
     }
     
-    public void setPassword(String password) {
-        this.password = password;
+    public String getPostcode() {
+        return postcode;
+    }
+        
+    public void setPostcode(String postcode) {
+        this.postcode = postcode;
+    }
+    
+    public String getCity() {
+        return city;
+    }
+        
+    public void setCity(String city) {
+        this.city = city;
     }
 }
-*/
+

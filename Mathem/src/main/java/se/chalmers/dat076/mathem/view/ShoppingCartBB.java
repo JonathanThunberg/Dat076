@@ -9,11 +9,14 @@ import java.io.Serializable;
 import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.RequestScoped;
+import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
 import se.chalmers.dat076.mathem.model.OrderItem;
 import se.chalmers.dat076.mathem.model.Shop;
 import se.chalmers.dat076.mathem.model.ShoppingCart;
+import se.chalmers.dat076.mathem.model.entityclasses.Customer;
+import se.chalmers.dat076.mathem.model.entityclasses.User;
  
 
 /**
@@ -26,22 +29,15 @@ public class ShoppingCartBB implements Serializable{
      
     @Inject
     private Shop shop;
-
-     
+    
     @PostConstruct
     public void init() {
         ;
     }
-     
-    public List<OrderItem> getItems() {
-        return null;
-        //return shop.getCustomer().getCart().getOrderItems();
-    }
    
 
     public ShoppingCart getCart() {
-        return null;
-        //return shop.getCustomer().getCart();
+        return ((Customer)shop.getUserCatalogue().getByKey(FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("user")).get(0)).getCart();
     }
     
     

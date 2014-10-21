@@ -28,10 +28,10 @@ and open the template in the editor.
                 <p:inputText id="username" value="#{CustomerRegistryBB.username}" required="true"/>
 
                 <h:outputLabel for="pwd1" value="Lösenord:" style="font-weight:bold" class="ui-outputlabel ui-widget"/>
-                <p:password id="feedback" value="#{CustomerRegistryBB.password}" match="pwd2" label="Password 1" required="true" feedback="true" />
+                <p:password id="password" value="#{CustomerRegistryBB.password}" match="pwd2" required="true" feedback="true" />
 
                 <p:outputLabel for="pwd2" value="Lösenord igen:" style="font-weight:bold" />
-                <p:password id="pwd2" value="#{CustomerRegistryBB.password}" label="Password 2" required="true" />
+                <p:password id="pwd2" value="#{CustomerRegistryBB.password}" required="true" />
 
                 <p:outputLabel for="phone" value="Telefonnr:" style="font-weight:bold" />
                 <p:inputText id="phone" value="#{CustomerRegistryBB.phone}" required="true"/>
@@ -39,12 +39,15 @@ and open the template in the editor.
                 <p:outputLabel for="email" value="E-mail:" style="font-weight:bold" />
                 <p:inputText id="email" value="#{CustomerRegistryBB.email}" required="true"/>
 
-                <p:outputLabel for="adress" value="Adress:" style="font-weight:bold" />
-                <p:inputText id="adress" value="#{CustomerRegistryBB.adress}" required="true"/>
+                <p:outputLabel for="streetname" value="Adress:" style="font-weight:bold" />
+                <p:inputText id="streetname" value="#{CustomerRegistryBB.streetname}" required="true"/>
 
                 <p:outputLabel for="city" value="Postort:" style="font-weight:bold" />
-                <p:inputText id="city" value="#{CustomerRegistryBB.text}" required="true"/>
-
+                <p:inputText id="city" value="#{CustomerRegistryBB.city}" required="true"/>
+                
+                <p:outputLabel for="postcode" value="Postnr:" style="font-weight:bold" />
+                <p:inputText id="postcode" value="#{CustomerRegistryBB.postcode}" required="true"/>
+                
                 <p:commandButton value="Bli medlem" icon="ui-icon-disk" actionListener="#{CustomerRegistryCtrl.submit}"/>                
             </h:panelGrid>
         </h:form>
