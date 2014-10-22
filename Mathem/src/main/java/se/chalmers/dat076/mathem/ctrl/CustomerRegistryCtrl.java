@@ -6,6 +6,7 @@
 package se.chalmers.dat076.mathem.ctrl;
 
 import javax.enterprise.context.RequestScoped;
+import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
 import org.primefaces.context.RequestContext;
@@ -14,6 +15,7 @@ import se.chalmers.dat076.mathem.model.entityclasses.Customer;
 import se.chalmers.dat076.mathem.model.entityclasses.User;
 import se.chalmers.dat076.mathem.view.CustomerRegistryBB;
 import se.chalmers.dat076.mathem.model.Shop;
+import se.chalmers.dat076.mathem.util.PasswordUtil;
 /**
  *
  * @author victor_nordh92
@@ -38,7 +40,7 @@ public class CustomerRegistryCtrl {
         adress.setPostalcode(regBB.getPostcode());
         shop.getAdressCatalogue().create(adress);
         
-        User user = new User(regBB.getUsername(),regBB.getPassword());
+        User user = new User(regBB.getUsername(),PasswordUtil.PasswordToHash(regBB.getPassword()));
         shop.getUserCatalogue().create(user);
         Customer customer = new Customer(regBB.getName());
         customer.setUsername(regBB.getUsername());
@@ -47,7 +49,8 @@ public class CustomerRegistryCtrl {
         customer.setEmail(regBB.getEmail());
         customer.setAdresses(adress);        
         
-        shop.getCustomerCatalogue().create(customer);     
-        RequestContext.getCurrentInstance().closeDialog("contact.xhtml");
+        shop.getCustomerCatalogue().create(customer); 
+        FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("user", customer);
+        RequestContext.getCurrentInstance().closeDialog("customerregistry.xhtml");
     }
 }

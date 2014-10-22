@@ -1,16 +1,22 @@
 package se.chalmers.dat076.mathem.ctrl;
 
+import java.io.IOException;
 import java.io.Serializable;
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.RequestScoped;
+import javax.faces.FacesException;
 import javax.faces.application.FacesMessage;
+import javax.faces.application.ViewHandler;
+import javax.faces.component.UIViewRoot;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
+import javax.servlet.http.HttpServletRequest;
 import org.primefaces.context.RequestContext;
 import se.chalmers.dat076.mathem.model.catalogue.ICatalogue;
 import se.chalmers.dat076.mathem.model.Shop;
 import se.chalmers.dat076.mathem.model.entityclasses.User;
+import se.chalmers.dat076.mathem.util.PasswordUtil;
 import se.chalmers.dat076.mathem.view.LoginBB;
 
 /**
@@ -37,16 +43,26 @@ public class LoginCtrl implements Serializable {
         ;
     }
     
-    public void login() {
+    public void login() throws IOException {
         FacesContext context = FacesContext.getCurrentInstance();
         ICatalogue uc = shop.getUserCatalogue();
         if(!uc.getByKey(loginBB.getUser()).isEmpty()) {
-            if(((User)(uc.getByKey(loginBB.getUser()).get(0))).getPassword().equals(loginBB.getPassword())){
+            if(((User)(uc.getByKey(loginBB.getUser()).get(0))).getPassword().equals(PasswordUtil.PasswordToHash(loginBB.getPassword()))){
                 context.getExternalContext().getSessionMap().put("user", loginBB.getUser());
                 RequestContext.getCurrentInstance().closeDialog("login.xhtml");
-                context.getPartialViewContext().getRenderIds().add("template_menu");
-                RequestContext.getCurrentInstance().update("template_menu");
-
+                
+                String url = context.getExternalContext().encodeActionURL(context.getApplication().getViewHandler().getActionURL(context, "/products.xhtml"));
+                
+                try {
+                    context.getExternalContext().redirect(url);
+                } catch (IOException ioe) {
+                    throw new FacesException(ioe);
+                }
+                
+                
+                
+                
+                
             }else{
                 context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN, "Fel lösenord", ""));
                 context.getExternalContext().getFlash().setKeepMessages(true);
@@ -61,6 +77,7 @@ public class LoginCtrl implements Serializable {
     public void logout() {
         FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
     }
+    
     
     
 }

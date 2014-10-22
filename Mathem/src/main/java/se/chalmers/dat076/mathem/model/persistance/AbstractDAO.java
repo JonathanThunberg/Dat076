@@ -2,9 +2,7 @@ package se.chalmers.dat076.mathem.model.persistance;
 
 import java.util.ArrayList;
 import java.util.List;
-import javax.enterprise.inject.Produces;
 import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 
 public abstract class AbstractDAO<T, K> implements IDAO<T, K> {
@@ -20,27 +18,33 @@ public abstract class AbstractDAO<T, K> implements IDAO<T, K> {
     this.clazz=clazz;    
     }
     
+    @Override
     public void create(T t) {
         getEntityManager().persist(t);
     }
 
+    @Override
     public void delete(K id) {
         T t = getEntityManager().getReference(clazz, id);
         getEntityManager().remove(t);
     }
 
+    @Override
     public void update(T t) {
         getEntityManager().merge(t);
     }
 
+    @Override
     public T find(K id) {
         return getEntityManager().find(clazz, id);
     }
 
+    @Override
     public List<T> findAll() {
         return get(true, -1, -1);
     }
 
+    @Override
     public List<T> findRange(int first, int n) {
         return get(false, first, n);
     }

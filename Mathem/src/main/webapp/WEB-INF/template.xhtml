@@ -16,6 +16,7 @@
         <div id ="header"></div>
     </h:head>
     <h:body>
+        
         <h:form>
             <p:tabMenu id="template_menu" activeIndex="#{param.i}">
                 <p:menuitem value="Matbutik" outcome="products" icon="ui-icon-cart">
@@ -39,9 +40,13 @@
                 <p:menuitem value="Registrera dig" icon="ui-icon-pencil" actionListener="#{customerRegistryDialog.openRegistry()}" rendered="#{!renderBB.isUserLoggedIn()}">
                     <f:param name="i" value="6" />
                 </p:menuitem>
+                <p:menuitem value="Min Sida" actionListener="#{loginCtrl.logout()}" rendered="#{renderBB.isUserLoggedIn()}">
+                    <f:param name="i" value="8" />
+                </p:menuitem>
                 <p:menuitem value="Logga ut" actionListener="#{loginCtrl.logout()}" rendered="#{renderBB.isUserLoggedIn()}">
                     <f:param name="i" value="7" />
                 </p:menuitem>
+                    
             </p:tabMenu>
         </h:form>
             
@@ -52,7 +57,7 @@
     <div id="footer">
         <p:layout style="height: 100%">
             <p:layoutUnit position="center">
-                    
+                
                 <div class="inner_foot">Chalmers Tekniska Högskola  <br/> Sven Hultins gata 8 <br/> 41258 Göteborg </div>
                 <div class="inner_foot"><a style="font-size: 14px;">Kontakta Oss </a> <br/> <br/> <a href="mailto:info@matbutiken.se">info@matbutiken.se</a> <br/> Tlf: 0707-123456</div>
                 <div class="inner_foot">Text3</div>
