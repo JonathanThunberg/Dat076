@@ -1,41 +1,45 @@
 <?xml version='1.0' encoding='UTF-8'?>
 
 <faces-config version="2.0"
-    xmlns="http://java.sun.com/xml/ns/javaee" 
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-    xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_2_0.xsd">
+              xmlns="http://java.sun.com/xml/ns/javaee" 
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+              xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_2_0.xsd">
 
-<!-- Main router -->
- <navigation-rule>
-     <from-view-id>*</from-view-id>
-    <navigation-case>
-        <from-outcome>products</from-outcome>
-        <to-view-id>/products.xhtml</to-view-id>
-    </navigation-case>
-     <navigation-case>
-        <from-outcome>recipe</from-outcome>
-        <to-view-id>/recipe.xhtml</to-view-id>
-    </navigation-case>
-     <navigation-case>
-        <from-outcome>aboutus</from-outcome>
-        <to-view-id>/aboutus.xhtml</to-view-id>
-    </navigation-case>  
-    <navigation-case>
-        <from-outcome>campaign</from-outcome>
-        <to-view-id>/campaign.xhtml</to-view-id>
-    </navigation-case>
-</navigation-rule>     
- <application>
-    <action-listener>
-        org.primefaces.application.DialogActionListener
-    </action-listener>
-    <navigation-handler>
-        org.primefaces.application.DialogNavigationHandler
-    </navigation-handler>
-    <view-handler>
-        org.primefaces.application.DialogViewHandler
-    </view-handler>
-</application>   
+    <!-- Main router -->
+    <navigation-rule>
+        <from-view-id>*</from-view-id>
+        <navigation-case>
+            <from-outcome>products</from-outcome>
+            <to-view-id>/products.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>recipe</from-outcome>
+            <to-view-id>/recipe.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>aboutus</from-outcome>
+            <to-view-id>/aboutus.xhtml</to-view-id>
+        </navigation-case>  
+        <navigation-case>
+            <from-outcome>campaign</from-outcome>
+            <to-view-id>/campaign.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>mypage</from-outcome>
+            <to-view-id>/mypage.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>     
+    <application>
+        <action-listener>
+            org.primefaces.application.DialogActionListener
+        </action-listener>
+        <navigation-handler>
+            org.primefaces.application.DialogNavigationHandler
+        </navigation-handler>
+        <view-handler>
+            org.primefaces.application.DialogViewHandler
+        </view-handler>
+    </application>   
 
 
 </faces-config>

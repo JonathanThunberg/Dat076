@@ -25,7 +25,6 @@ public class ShoppingCart implements Serializable{
     public void add(OrderItem item) {
         boolean itemAdded = false;
         for(int i = 0; i<items.size(); i++) {
-            System.out.println(item.getProduct().getName());
             if(items.get(i).getProduct().getName().equalsIgnoreCase(item.getProduct().getName())) {
                 changeQuantity(items.get(i), items.get(i).getQuantity()+item.getQuantity());
                 itemAdded = true;
@@ -48,10 +47,6 @@ public class ShoppingCart implements Serializable{
 
 
     public List<OrderItem> getOrderItems() {
-        for(OrderItem i: items) {
-            //System.out.println(i.getProduct().getName());
-        }
-        System.out.println(items.size());
         return items;
     }
      

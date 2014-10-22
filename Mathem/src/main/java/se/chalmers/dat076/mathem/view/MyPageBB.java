@@ -1,14 +1,16 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+* To change this license header, choose License Headers in Project Properties.
+* To change this template file, choose Tools | Templates
+* and open the template in the editor.
+*/
 
 package se.chalmers.dat076.mathem.view;
- 
+
 import java.io.Serializable;
+import javax.annotation.PostConstruct;
 import javax.enterprise.context.RequestScoped;
 import javax.faces.context.FacesContext;
+import javax.inject.Inject;
 import javax.inject.Named;
 import se.chalmers.dat076.mathem.model.Shop;
 import se.chalmers.dat076.mathem.model.entityclasses.Customer;
@@ -19,9 +21,13 @@ import se.chalmers.dat076.mathem.model.entityclasses.Customer;
  */
 @Named
 @RequestScoped
-public class CustomerRegistryBB implements Serializable{    
+public class MyPageBB implements Serializable{
     
-    private String name; 
+    @Inject
+    private Shop shop;
+    
+    private Customer customer;
+    private String name;
     private String username;
     private String password;
     private Integer phone;
@@ -30,9 +36,24 @@ public class CustomerRegistryBB implements Serializable{
     private String streetname;
     private String city;
     private String postcode;
+    private String newPassword;
+    
+    
+    @PostConstruct
+    public void init() {
+        customer = shop.getCustomerCatalogue().getByKey(FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("user").toString()).get(0);
+        name = customer.getName();
+        username = customer.getUsername();
+        password = customer.getUsers().getPassword();
+        phone = customer.getPhone();
+        email = customer.getEmail();
+        streetname = customer.getAdresses().getAdressesPK().getStreetname();
+        city = customer.getAdresses().getAdressesPK().getCity();
+        postcode = customer.getAdresses().getPostalcode();
+        newPassword = "";
+    }
     
     public String getName() {
-        //return ((Customer) shop.getCustomerCatalogue().getByKey(FacesContext.getCurrentInstance())).getName; 
         return name;
     }
     
@@ -67,7 +88,7 @@ public class CustomerRegistryBB implements Serializable{
     public String getEmail() {
         return email;
     }
-        
+    
     public void setEmail(String email) {
         this.email = email;
     }
@@ -75,16 +96,16 @@ public class CustomerRegistryBB implements Serializable{
     public String getStreetname() {
         return streetname;
     }
-        
+    
     public void setStreetname(String streetname) {
         this.streetname = streetname;
     }
     
     public String getPostcode() {
         return postcode;
-
-    }
         
+    }
+    
     public void setPostcode(String postcode) {
         this.postcode = postcode;
     }
@@ -92,9 +113,17 @@ public class CustomerRegistryBB implements Serializable{
     public String getCity() {
         return city;
     }
-        
+    
     public void setCity(String city) {
         this.city = city;
+    }
+    
+    public String getNewPassword() {
+        return newPassword;
+    }
+    
+    public void setNewPassword(String password) {
+        newPassword = password;
     }
 }
 

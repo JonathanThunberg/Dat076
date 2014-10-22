@@ -33,7 +33,6 @@ public class ProductsCtrl {
     }
     
     public void buy(Product product) {
-        System.out.println(product.toString() +" "+ productsBB.getAmount());
         cart.add(new OrderItem(product, productsBB.getAmount()));
     }
     

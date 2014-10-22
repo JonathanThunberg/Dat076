@@ -5,6 +5,7 @@ package se.chalmers.dat076.mathem.view;
  * @author victor_nordh92
  */
 import java.io.Serializable;
+import java.util.Iterator;
 import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
@@ -27,8 +28,7 @@ public class ProductsBB implements Serializable {
 
 
     public List<Product> getProducts() {
-        System.out.print("1");
-        for(Category c : shop.getCategoryCatalogue().findAll()){
+        for (Category c : shop.getCategoryCatalogue().findAll()) {
             if(c.getName().equals(category)){
                 return shop.getProductCatalogue().getByCategory(category);
             }
@@ -54,12 +54,10 @@ public class ProductsBB implements Serializable {
 
 
     public void setCategory(String category) {
-        System.out.println("5");
         this.category = category;
     }
     
     public void editCategory() {
-        System.out.println("4");
         category = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("category");
     }
     

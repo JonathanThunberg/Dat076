@@ -13,7 +13,9 @@ import se.chalmers.dat076.mathem.model.catalogue.IProductCatalogue;
 import se.chalmers.dat076.mathem.model.catalogue.IAdressesCatalogue;
 import javax.ejb.EJB;
 import javax.enterprise.context.ApplicationScoped;
+import se.chalmers.dat076.mathem.model.catalogue.IAdminCatalogue;
 import se.chalmers.dat076.mathem.model.catalogue.ICategoryCatalogue;
+import se.chalmers.dat076.mathem.model.catalogue.IUserCatalogue;
 
 
 /**
@@ -36,10 +38,17 @@ public class Shop {
     private IRecipeCatalogue rC;
     
     @EJB
-    private ICatalogue uC;
+    private IUserCatalogue uC;
     
     @EJB
     private IAdressesCatalogue aC;
+    
+    @EJB
+    private IAdminCatalogue adC;
+    
+    public IAdminCatalogue getAdminCatalogue() {
+        return adC;
+    }
     
     public IAdressesCatalogue getAdressCatalogue() {
         return aC;
@@ -61,7 +70,7 @@ public class Shop {
         return rC;
     }
     
-    public ICatalogue getUserCatalogue() {
+    public IUserCatalogue getUserCatalogue() {
         return uC;
     }
     

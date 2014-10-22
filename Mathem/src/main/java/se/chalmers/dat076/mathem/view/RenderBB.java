@@ -10,8 +10,6 @@ import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
 import se.chalmers.dat076.mathem.model.Shop;
-import se.chalmers.dat076.mathem.model.entityclasses.Admin;
-import se.chalmers.dat076.mathem.model.entityclasses.Customer;
 
 /**
  *

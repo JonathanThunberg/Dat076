@@ -19,7 +19,7 @@ import se.chalmers.dat076.mathem.model.persistance.AbstractDAO;
  */
 @Stateless
 public class UserCatalogue extends AbstractDAO<User, String>
-implements ICatalogue<User, String>{
+implements IUserCatalogue{
     
     @PersistenceContext
     protected EntityManager eM;

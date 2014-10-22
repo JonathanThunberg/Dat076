@@ -40,11 +40,11 @@
                 <p:menuitem value="Registrera dig" icon="ui-icon-pencil" actionListener="#{customerRegistryDialog.openRegistry()}" rendered="#{!renderBB.isUserLoggedIn()}">
                     <f:param name="i" value="6" />
                 </p:menuitem>
-                <p:menuitem value="Min Sida" actionListener="#{loginCtrl.logout()}" rendered="#{renderBB.isUserLoggedIn()}">
-                    <f:param name="i" value="8" />
+                <p:menuitem value="Min Sida" outcome="mypage" rendered="#{renderBB.isUserLoggedIn()}">
+                    <f:param name="i" value="7" />
                 </p:menuitem>
                 <p:menuitem value="Logga ut" actionListener="#{loginCtrl.logout()}" rendered="#{renderBB.isUserLoggedIn()}">
-                    <f:param name="i" value="7" />
+                    <f:param name="i" value="8" />
                 </p:menuitem>
                     
             </p:tabMenu>

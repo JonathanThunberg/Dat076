@@ -18,7 +18,6 @@ public class ShoppingCartDialog {
     public void openCart() {
         
         RequestContext.getCurrentInstance().openDialog("shoppingcart.xhtml");
-        System.out.println("open cart");
     }
 
 }
