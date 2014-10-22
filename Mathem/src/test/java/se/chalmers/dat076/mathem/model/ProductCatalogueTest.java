@@ -4,7 +4,7 @@
 * and open the template in the editor.
 */
 
-package se.chalmers.dat076.mathem.model;
+/**package se.chalmers.dat076.mathem.model;
 
 import java.util.List;
 import javax.enterprise.inject.Default;
@@ -33,7 +33,7 @@ import se.chalmers.dat076.mathem.model.entityclasses.Product;
  * @author tuna
  */
 
-@RunWith(Arquillian.class)
+/**@RunWith(Arquillian.class)
 public class ProductCatalogueTest {
     
     
@@ -85,3 +85,4 @@ public class ProductCatalogueTest {
         
     }
 }
+* */
