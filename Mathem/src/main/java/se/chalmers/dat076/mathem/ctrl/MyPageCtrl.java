@@ -39,8 +39,7 @@ public class MyPageCtrl {
             Adress adress = new Adress(regBB.getCity(),regBB.getStreetname());
             adress.setPostalcode(regBB.getPostcode());
             if(!shop.getAdressCatalogue().getByKey(new AdressesPK(regBB.getCity(),regBB.getStreetname())).isEmpty()){
-                shop.getAdressCatalogue().delete(new AdressesPK(regBB.getCity(), regBB.getStreetname()));
-                shop.getAdressCatalogue().create(adress);
+                shop.getAdressCatalogue().update(adress);
             }else{
                 shop.getAdressCatalogue().delete(new AdressesPK(regBB.getCity(), regBB.getStreetname()));
                 shop.getAdressCatalogue().create(adress);
@@ -48,8 +47,7 @@ public class MyPageCtrl {
             if(!regBB.getNewPassword().equals("")){
                 User user = new User(regBB.getUsername());
                 user.setPassword(PasswordUtil.PasswordToHash(regBB.getNewPassword()));
-                shop.getUserCatalogue().delete(user.getUsername());
-                shop.getUserCatalogue().create(user);
+                shop.getUserCatalogue().update(user);
             }
             
             Customer customer = new Customer(regBB.getUsername());
@@ -57,8 +55,7 @@ public class MyPageCtrl {
             customer.setPhone(regBB.getPhone());
             customer.setEmail(regBB.getEmail());
             customer.setAdresses(adress);
-            shop.getCustomerCatalogue().delete(regBB.getUsername());
-            shop.getCustomerCatalogue().create(customer);
+            shop.getCustomerCatalogue().update(customer);
             
             
         }else{

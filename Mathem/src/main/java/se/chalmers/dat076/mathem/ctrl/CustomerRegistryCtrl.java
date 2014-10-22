@@ -42,8 +42,8 @@ public class CustomerRegistryCtrl {
         
         User user = new User(regBB.getUsername(),PasswordUtil.PasswordToHash(regBB.getPassword()));
         shop.getUserCatalogue().create(user);
-        Customer customer = new Customer(regBB.getName());
-        customer.setUsername(regBB.getUsername());
+        Customer customer = new Customer(regBB.getUsername());
+        customer.setName(regBB.getName());
         customer.setUsers(user);
         customer.setPhone(regBB.getPhone());
         customer.setEmail(regBB.getEmail());

@@ -8,10 +8,7 @@ package se.chalmers.dat076.mathem.view;
  
 import java.io.Serializable;
 import javax.enterprise.context.RequestScoped;
-import javax.faces.context.FacesContext;
 import javax.inject.Named;
-import se.chalmers.dat076.mathem.model.Shop;
-import se.chalmers.dat076.mathem.model.entityclasses.Customer;
 
 /**
  *
@@ -32,7 +29,6 @@ public class CustomerRegistryBB implements Serializable{
     private String postcode;
     
     public String getName() {
-        //return ((Customer) shop.getCustomerCatalogue().getByKey(FacesContext.getCurrentInstance())).getName; 
         return name;
     }
     
