@@ -48,13 +48,13 @@
                                     rows="9" paginator="true" id="products"
                                     paginatorTemplate="{PreviousPageLink} {CurrentPageReport} {NextPageLink}">
 
-                            <p:panel header="#{prod.name}" style="text-align:center">
+                            <p:panel header="#{prod.product.name}" style="text-align:center">
                                 <h:panelGrid columns="1" style="width:100%;">
-                                    <p:row> <p:graphicImage value= "/img/Products/#{prod.name}.jpg"/>
+                                    <p:row> <p:graphicImage value= "/img/Products/#{prod.product.name}.jpg"/>
                                     </p:row>
-                                    <h:outputText value="#{prod.price} kr/st" />
+                                    <h:outputText value="#{prod.product.price} kr/st" />
                                     <p:row>  
-                                        <p:spinner style="float:left; " size="5"  min="1" value="#{productsBB.amount}"/>
+                                        <p:spinner style="float:left; " size="5"  min="1" value="#{prod.quantity}"/>
                                         <p:commandButton style="float: left; width: 60px; font-size: 15px; margin-left: 6px;" title="Köp" value="Köp"  actionListener="#{productsCtrl.buy(prod)}"/>                                                     
                                     </p:row>
                                 </h:panelGrid>

@@ -32,8 +32,8 @@ public class ProductsCtrl {
         this.productsBB = productsBB;
     }
     
-    public void buy(Product product) {
-        cart.add(new OrderItem(product, productsBB.getAmount()));
+    public void buy(OrderItem product) {
+        cart.add(product);
     }
     
 }
