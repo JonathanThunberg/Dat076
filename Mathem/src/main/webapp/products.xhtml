@@ -12,22 +12,34 @@
         <ui:composition template="/WEB-INF/template.xhtml">
             <ui:define name="content"> 
                 <div id="matbutiken_left_menu">
-                        <p:menu>
-                            <p:submenu label="Kategorier">
-                                <p:menuitem value="Alla" outcome="products" action="#{productsBB.editCategory()}">
-                                    <f:param name="category" value="Alla"/>
-                                </p:menuitem>
-                                <p:menuitem value="Frukt &amp; Grönt" outcome="products"/>
-                                <p:menuitem value="Dryck" outcome="products" action="#{productsBB.editCategory()}">
-                                    <f:param name="category" value="Dryck"/>
-                                </p:menuitem>
-                                <p:menuitem value="Kött &amp; Chark" outcome="products"/>
-                                <p:menuitem value="Fisk &amp; Skaldjur" outcome="products"/>
-                                <p:menuitem value="Mejeri" outcome="products" action="#{productsBB.setCategory(Mejeri)}"/>
-                                <p:menuitem value="Skafferi" outcome="products" action="#{productsBB.setCategory(Skafferi)}"/>
-                                <p:menuitem value="Godis" outcome="products" action="#{productsBB.setCategory(Godis)}"/>
-                            </p:submenu>
-                        </p:menu>
+                    <p:menu>
+                        <p:submenu label="Kategorier">
+                            <p:menuitem value="Alla" outcome="products">
+                                <f:param name="category" value="Alla"/>
+                            </p:menuitem>
+                            <p:menuitem value="Frukt &amp; Grönt" outcome="products"> 
+                                <f:param name="category" value="Frukt &amp; Grönt"/>
+                            </p:menuitem>
+                            <p:menuitem value="Dryck" outcome="products">
+                                <f:param name="category" value="Dryck"/>
+                            </p:menuitem>
+                            <p:menuitem value="Kött &amp; Chark" outcome="products">
+                                <f:param name="category" value="Kött &amp; Chark"/>    
+                            </p:menuitem>
+                            <p:menuitem value="Fisk &amp; Skaldjur" outcome="products">
+                                <f:param name="category" value="Fisk &amp; Skaldjur"/>
+                            </p:menuitem>
+                            <p:menuitem value="Mejeri" outcome="products">
+                                <f:param name="category" value="Mejeri"/>    
+                            </p:menuitem>
+                            <p:menuitem value="Skafferi" outcome="products">
+                                <f:param name="category" value="Skafferi"/>    
+                            </p:menuitem>
+                            <p:menuitem value="Godis" outcome="products">
+                                <f:param name="category" value="Godis"/>    
+                            </p:menuitem>
+                        </p:submenu>
+                    </p:menu>
                 </div>
 
                 <div id="matbutiken_big_menu">
@@ -50,22 +62,6 @@
 
                         </p:dataGrid>
 
-                        <p:dialog header="Product Info" widgetVar="productDialog" modal="true" showEffect="fade" hideEffect="fade" resizable="false">
-                            <p:outputPanel id="productDetail" style="text-align:center;">
-                                <p:panelGrid  columns="2" rendered="#{not empty productsBB.selectedProd}" columnClasses="label,value">
-                                    <f:facet name="header">
-                                        <p:graphicImage name="demo/images/car/#{productsBB.selectedProd.name}-big.gif"/> 
-                                    </f:facet>
-
-                                    <h:outputText value="Namn:" />
-                                    <h:outputText value="#{productsBB.selectedProd.name}" />
-
-                                    <h:outputText value="Pris" />
-                                    <h:outputText value="#{productsBB.selectedProd.price}" />
-
-                                </p:panelGrid>
-                            </p:outputPanel>
-                        </p:dialog>
                     </h:form>
 
                 </div>

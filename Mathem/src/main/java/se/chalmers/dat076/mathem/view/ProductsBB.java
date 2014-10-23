@@ -7,6 +7,8 @@ package se.chalmers.dat076.mathem.view;
 import java.io.Serializable;
 import java.util.Iterator;
 import java.util.List;
+import javax.annotation.PostConstruct;
+import javax.ejb.Init;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
@@ -26,7 +28,11 @@ public class ProductsBB implements Serializable {
     private String category;
     private int amount = 1;
 
-
+    @PostConstruct
+    public void init() {
+        category = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("category");
+    }
+    
     public List<Product> getProducts() {
         for (Category c : shop.getCategoryCatalogue().findAll()) {
             if(c.getName().equals(category)){
@@ -57,9 +63,9 @@ public class ProductsBB implements Serializable {
         this.category = category;
     }
     
-    public void editCategory() {
-        category = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("category");
-    }
+    //public void editCategory() {
+        
+    //}
     
     public int getAmount() {
         return amount;
