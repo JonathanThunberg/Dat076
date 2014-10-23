@@ -6,49 +6,53 @@ and open the template in the editor.
 -->
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-    xmlns:h="http://java.sun.com/jsf/html"
-    xmlns:p="http://primefaces.org/ui">
-     
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    
     <h:head>
         <title>Varukorg</title>
-                <style type="text/css">
+        <style type="text/css">
             .ui-widget {
                 font-size: 90%;
             }
         </style>
     </h:head>
-     
+    
     <h:body>
-        <h:form>
-            <p:dataTable var="item" value="#{shoppingCartBB.cart.orderItems}">
-                <p:column headerText="Namn">
-                    <h:outputText value="#{item.product.name}" />
-                </p:column>
- 
-                <p:column headerText="Pris/st">
-                    <h:outputText value="#{item.product.price}kr" />
-                </p:column>
-                
-                
-                <p:column id="quantity" headerText="Antal">
-                    <p:spinner size="5" value="#{item.quantity}"  min="1">
-                        <p:ajax listener="#{shoppingCartCtrl.setQuantity(item,item.quantity)}" update="@form" />
-                    </p:spinner>
-                    
-                </p:column>
-                
-                <p:column headerText="Pris">
-                    <h:outputText value="#{shoppingCartBB.cart.getPrice(item)} kr" />
-                </p:column>
- 
-                <p:column headerText="Ta bort">
-                    <p:commandButton icon="ui-icon-closethick" actionListener="#{shoppingCartCtrl.deleteItem(item)}" update="@form" />
-                </p:column>
-            </p:dataTable>
-            <p:commandButton icon ="ui-icon-trash" value="Töm varukorg" actionListener="#{shoppingCartCtrl.emptyCart}" update="@form" />
-            <p:commandButton value="Köp" actionListener="#{shoppingCartCtrl.buy}" />
-            <p:outputLabel value="Summa: #{shoppingCartBB.cart.totalPrice} kr" />
-        </h:form>
+        <p:layout>
+            <p:layoutUnit position="center">
+                <h:form>
+                    <p:dataTable var="item" value="#{shoppingCartBB.cart.orderItems}">
+                        <p:column headerText="Namn">
+                            <h:outputText value="#{item.product.name}" />
+                        </p:column>
+                        
+                        <p:column headerText="Pris/st">
+                            <h:outputText value="#{item.product.price}kr" />
+                        </p:column>
+                        
+                        
+                        <p:column id="quantity" headerText="Antal">
+                            <p:spinner size="5" value="#{item.quantity}"  min="1">
+                                <p:ajax listener="#{shoppingCartCtrl.setQuantity(item,item.quantity)}" update="@form" />
+                            </p:spinner>
+                            
+                        </p:column>
+                        
+                        <p:column headerText="Pris">
+                            <h:outputText value="#{shoppingCartBB.cart.getPrice(item)} kr" />
+                        </p:column>
+                        
+                        <p:column headerText="Ta bort">
+                            <p:commandButton icon="ui-icon-closethick" actionListener="#{shoppingCartCtrl.deleteItem(item)}" update="@form" />
+                        </p:column>
+                    </p:dataTable>
+                    <p:commandButton icon ="ui-icon-trash" value="Töm varukorg" actionListener="#{shoppingCartCtrl.emptyCart}" update="@form" />
+                    <p:commandButton value="Köp" actionListener="#{shoppingCartCtrl.buy}" />
+                    <p:outputLabel value="Summa: #{shoppingCartBB.cart.totalPrice} kr"/>
+                </h:form>
+            </p:layoutUnit>
+        </p:layout>
     </h:body>
-     
+    
 </html>
