@@ -26,7 +26,7 @@ and open the template in the editor.
                 </p:column>
  
                 <p:column headerText="Pris/st">
-                    <h:outputText value="#{item.product.price}" />
+                    <h:outputText value="#{item.product.price}kr" />
                 </p:column>
                 
                 
@@ -38,7 +38,7 @@ and open the template in the editor.
                 </p:column>
                 
                 <p:column headerText="Pris">
-                    <h:outputText value="#{item.product.price*item.quantity}" />
+                    <h:outputText value="#{shoppingCartBB.cart.getPrice(item)} kr" />
                 </p:column>
  
                 <p:column headerText="Ta bort">
@@ -47,7 +47,7 @@ and open the template in the editor.
             </p:dataTable>
             <p:commandButton icon ="ui-icon-trash" value="Töm varukorg" actionListener="#{shoppingCartCtrl.emptyCart}" update="@form" />
             <p:commandButton value="Köp" actionListener="#{shoppingCartCtrl.buy}" />
-            <p:outputLabel value="Summa: #{shoppingCartBB.cart.totalPrice}" />
+            <p:outputLabel value="Summa: #{shoppingCartBB.cart.totalPrice} kr" />
         </h:form>
     </h:body>
      
