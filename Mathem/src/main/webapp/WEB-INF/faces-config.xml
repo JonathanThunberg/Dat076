@@ -28,7 +28,16 @@
             <from-outcome>mypage</from-outcome>
             <to-view-id>/mypage.xhtml</to-view-id>
         </navigation-case>
-    </navigation-rule>     
+        <navigation-case>
+            <from-outcome>login</from-outcome>
+            <to-view-id>/login.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>customerregistry</from-outcome>
+            <to-view-id>/customerregistry.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>  
+  
     <application>
         <action-listener>
             org.primefaces.application.DialogActionListener

@@ -8,48 +8,55 @@
     <h:head>
         <link rel="stylesheet" type="text/css" href="css/default.css"/>
     </h:head>
-    <h:body>
+    <h:body style="text-align: center">
         <ui:composition template="/WEB-INF/template.xhtml">
             <ui:define name="content"> 
-                <h:form>
-                    <h:panelGrid columns="4" cellpadding="5" bgcolor="white">
-                        <p:outputLabel id="username" value="Användarnamn: " style="font-weight:bold" />
-                        <p:outputLabel id="user" value="#{myPageBB.username}" style="font-weight:bold" />
-                        
-                        <p:outputLabel for="name" value="Namn:" style="font-weight:bold" />
-                        <p:inputText id="name" value="#{myPageBB.name}"/>
-                        
-                        <p:outputLabel for="phone" value="Telefonnr:" style="font-weight:bold" />
-                        <p:inputText id="phone" value="#{myPageBB.phone}"/>
-                        
-                        <p:outputLabel for="email" value="E-mail:" style="font-weight:bold" />
-                        <p:inputText id="email" value="#{myPageBB.email}"/>
-                        
-                        <p:outputLabel for="streetname" value="Adress:" style="font-weight:bold" />
-                        <p:inputText id="streetname" value="#{myPageBB.streetname}"/>
-                        
-                        <p:outputLabel for="city" value="Postort:" style="font-weight:bold" />
-                        <p:inputText id="city" value="#{myPageBB.city}" />
-                        
-                        <p:outputLabel for="postcode" value="Postnr:" style="font-weight:bold" />
-                        <p:inputText id="postcode" value="#{myPageBB.postcode}"/>
-                        
-                        <p:outputLabel />
-                        <p:outputLabel />
-                        
-                        <h:outputLabel for="password" value="Nytt lösenord:" style="font-weight:bold" class="ui-outputlabel ui-widget"/>
-                        <p:password id="password" value="#{myPageBB.newPassword}" match="pwd2" feedback="true" />
-                        
-                        <p:outputLabel for="pwd2" value="Nytt lösenord igen:" style="font-weight:bold" />
-                        <p:password id="pwd2" value="#{myPageBB.newPassword}"/>
-                        
-                        <p:outputLabel for="pwd" value="Lösenord för att spara:" style="font-weight:bold" />
-                        <p:password id="pwd" value="#{myPageBB.password}" required="true" />
-                        <p:commandButton value="Uppdatera information" icon="ui-icon-disk" actionListener="#{myPageCtrl.submit}"/>                
-                    </h:panelGrid>
-                </h:form>
+                <p:layout style="height: 300px; width: 100%; ">
+                    <p:layoutUnit position="center">
+                        <div style="margin:0 auto;width:83%;text-align:left">
+                            <h:form>
+                                <h:panelGrid columns="4" cellpadding="5">
+                                    <p:outputLabel id="username" value="Användarnamn: " style="font-weight:bold" />
+                                    <p:outputLabel id="user" value="#{myPageBB.username}" style="font-weight:bold" />
+                                        
+                                    <p:outputLabel for="name" value="Namn:" style="font-weight:bold" />
+                                    <p:inputText id="name" value="#{myPageBB.name}"/>
+                                        
+                                    <p:outputLabel for="phone" value="Telefonnr:" style="font-weight:bold" />
+                                    <p:inputText id="phone" value="#{myPageBB.phone}"/>
+                                        
+                                    <p:outputLabel for="email" value="E-mail:" style="font-weight:bold" />
+                                    <p:inputText id="email" value="#{myPageBB.email}"/>
+                                        
+                                    <p:outputLabel for="streetname" value="Adress:" style="font-weight:bold" />
+                                    <p:inputText id="streetname" value="#{myPageBB.streetname}"/>
+                                        
+                                    <p:outputLabel for="city" value="Postort:" style="font-weight:bold" />
+                                    <p:inputText id="city" value="#{myPageBB.city}" />
+                                        
+                                    <p:outputLabel for="postcode" value="Postnr:" style="font-weight:bold" />
+                                    <p:inputText id="postcode" value="#{myPageBB.postcode}"/>
+                                        
+                                    <p:outputLabel />
+                                    <p:outputLabel />
+                                        
+                                    <h:outputLabel for="password" value="Nytt lösenord:" style="font-weight:bold" class="ui-outputlabel ui-widget"/>
+                                    <p:password id="password" value="#{myPageBB.newPassword}" match="pwd2" feedback="true" />
+                                        
+                                    <p:outputLabel for="pwd2" value="Nytt lösenord igen:" style="font-weight:bold" />
+                                    <p:password id="pwd2" value="#{myPageBB.newPassword}"/>
+                                        
+                                    <p:outputLabel for="pwd" value="Nuvarande lösenord:" style="font-weight:bold" />
+                                    <p:password id="pwd" value="#{myPageBB.password}" required="true" />
+                                    <p:outputLabel/>
+                                    <p:commandButton style="width:100%" value="Spara information" actionListener="#{myPageCtrl.submit}"/>                
+                                </h:panelGrid>
+                            </h:form>
+                        </div>
+                    </p:layoutUnit>
+                </p:layout>
             </ui:define>
         </ui:composition>
     </h:body>
-    
+        
 </html>

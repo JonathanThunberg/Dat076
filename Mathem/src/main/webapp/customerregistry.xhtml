@@ -1,56 +1,59 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:p="http://primefaces.org/ui">
-
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    
     <h:head>
-        <title>Registrera dig hos Matbutiken Online</title>
-        <style type="text/css">
-            .ui-widget {
-                font-size: 90%;
-            }
-        </style>
+        <link rel="stylesheet" type="text/css" href="css/default.css"/>
     </h:head>
-
-    <h:body>
-        <h:form>
-            <h:panelGrid columns="4" cellpadding="5">
-                <p:outputLabel for="name" value="Förnamn:" style="font-weight:bold" />
-                <p:inputText id="name" value="#{customerRegistryBB.name}" required="true"/>
-
-                <p:outputLabel for="username" value="Användarnamn:" style="font-weight:bold" />
-                <p:inputText id="username" value="#{customerRegistryBB.username}" required="true"/>
-
-                <h:outputLabel for="password" value="Lösenord:" style="font-weight:bold" class="ui-outputlabel ui-widget"/>
-                <p:password id="password" value="#{customerRegistryBB.password}" match="pwd2" required="true" feedback="true" />
-
-                <p:outputLabel for="pwd2" value="Lösenord igen:" style="font-weight:bold" />
-                <p:password id="pwd2" value="#{customerRegistryBB.password}" required="true" />
-
-                <p:outputLabel for="phone" value="Telefonnr:" style="font-weight:bold" />
-                <p:inputText id="phone" value="#{customerRegistryBB.phone}" required="true"/>
-
-                <p:outputLabel for="email" value="E-mail:" style="font-weight:bold" />
-                <p:inputText id="email" value="#{customerRegistryBB.email}" required="true"/>
-
-                <p:outputLabel for="streetname" value="Adress:" style="font-weight:bold" />
-                <p:inputText id="streetname" value="#{customerRegistryBB.streetname}" required="true"/>
-
-                <p:outputLabel for="city" value="Postort:" style="font-weight:bold" />
-                <p:inputText id="city" value="#{customerRegistryBB.city}" required="true"/>
-                
-                <p:outputLabel for="postcode" value="Postnr:" style="font-weight:bold" />
-                <p:inputText id="postcode" value="#{customerRegistryBB.postcode}" required="true"/>
-                
-                <p:commandButton value="Bli medlem" icon="ui-icon-disk" actionListener="#{customerRegistryCtrl.submit}"/>                
-            </h:panelGrid>
-        </h:form>
+    <h:body style="text-align: center">
+        <ui:composition template="/WEB-INF/template.xhtml">
+            <ui:define name="content"> 
+                <p:layout style="height: 250px; width: 100%; ">
+                    <p:layoutUnit position="center">
+                        <div style="margin:0 auto;width:75%;text-align:left">
+                            <h:form>
+                                <h:panelGrid columns="4" cellpadding="5">
+                                    <p:outputLabel for="name" value="Förnamn:" style="font-weight:bold" />
+                                    <p:inputText id="name" value="#{customerRegistryBB.name}" required="true"/>
+                                    
+                                    <p:outputLabel for="username" value="Användarnamn:" style="font-weight:bold" />
+                                    <p:inputText id="username" value="#{customerRegistryBB.username}" required="true"/>
+                                    
+                                    <h:outputLabel for="password" value="Lösenord:" style="font-weight:bold" class="ui-outputlabel ui-widget"/>
+                                    <p:password id="password" value="#{customerRegistryBB.password}" match="pwd2" required="true" feedback="true" />
+                                    
+                                    <p:outputLabel for="pwd2" value="Lösenord igen:" style="font-weight:bold" />
+                                    <p:password id="pwd2" value="#{customerRegistryBB.password}" required="true" />
+                                    
+                                    <p:outputLabel for="phone" value="Telefonnr:" style="font-weight:bold" />
+                                    <p:inputText id="phone" value="#{customerRegistryBB.phone}" required="true"/>
+                                    
+                                    <p:outputLabel for="email" value="E-mail:" style="font-weight:bold" />
+                                    <p:inputText id="email" value="#{customerRegistryBB.email}" required="true"/>
+                                    
+                                    <p:outputLabel for="streetname" value="Adress:" style="font-weight:bold" />
+                                    <p:inputText id="streetname" value="#{customerRegistryBB.streetname}" required="true"/>
+                                    
+                                    <p:outputLabel for="city" value="Postort:" style="font-weight:bold" />
+                                    <p:inputText id="city" value="#{customerRegistryBB.city}" required="true"/>
+                                    
+                                    <p:outputLabel for="postcode" value="Postnr:" style="font-weight:bold" />
+                                    <p:inputText id="postcode" value="#{customerRegistryBB.postcode}" required="true"/>
+                                    
+                                    <p:outputLabel/>
+                                    
+                                    <p:commandButton style= "width: 100%" value="Bli medlem" icon="ui-icon-disk" actionListener="#{customerRegistryCtrl.submit}"/>                
+                                </h:panelGrid>
+                            </h:form>
+                        </div>
+                    </p:layoutUnit>
+                </p:layout>
+            </ui:define>
+        </ui:composition>
     </h:body>
-
+    
 </html>

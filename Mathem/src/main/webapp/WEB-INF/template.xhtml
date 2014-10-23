@@ -34,17 +34,17 @@
                 <p:menuitem value="Varukorg" icon="ui-icon-cart" actionListener="#{shoppingCartDialog.openCart()}" rendered="#{renderBB.isUserCustomer()}">
                     <f:param name="i" value="4" />
                 </p:menuitem>
-                <p:menuitem value="Logga in" icon="ui-icon-contact" actionListener="#{loginDialog.login()}" rendered="#{!renderBB.isUserLoggedIn()}">
+                <p:menuitem value="Logga in" icon="ui-icon-contact"  outcome="login" rendered="#{!renderBB.isUserLoggedIn()}">
+                    <f:param name="i" value="4" />
+                </p:menuitem>
+                <p:menuitem value="Registrera dig" icon="ui-icon-pencil" outcome="customerregistry" rendered="#{!renderBB.isUserLoggedIn()}">
                     <f:param name="i" value="5" />
                 </p:menuitem>
-                <p:menuitem value="Registrera dig" icon="ui-icon-pencil" actionListener="#{customerRegistryDialog.openRegistry()}" rendered="#{!renderBB.isUserLoggedIn()}">
-                    <f:param name="i" value="6" />
-                </p:menuitem>
                 <p:menuitem value="Min Sida" outcome="mypage" rendered="#{renderBB.isUserLoggedIn()}">
-                    <f:param name="i" value="7" />
+                    <f:param name="i" value="5" />
                 </p:menuitem>
                 <p:menuitem value="Logga ut" actionListener="#{loginCtrl.logout()}" rendered="#{renderBB.isUserLoggedIn()}">
-                    <f:param name="i" value="8" />
+                    <f:param name="i" value="6" />
                 </p:menuitem>
                     
             </p:tabMenu>
