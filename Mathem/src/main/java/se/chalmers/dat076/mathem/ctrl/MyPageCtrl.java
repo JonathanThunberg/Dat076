@@ -5,9 +5,13 @@
 */
 package se.chalmers.dat076.mathem.ctrl;
 
+import java.io.IOException;
 import javax.enterprise.context.RequestScoped;
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
+import org.primefaces.context.RequestContext;
 import se.chalmers.dat076.mathem.model.Shop;
 import se.chalmers.dat076.mathem.model.entityclasses.Adress;
 import se.chalmers.dat076.mathem.model.entityclasses.AdressesPK;
@@ -34,20 +38,18 @@ public class MyPageCtrl {
         this.regBB = regBB;
     }
     
-    public void submit() {
+    public void submit() throws IOException {
         if(PasswordUtil.PasswordToHash(regBB.getPassword()).equals(shop.getUserCatalogue().getByKey(regBB.getUsername()).get(0).getPassword())){
             Adress adress = new Adress(regBB.getCity(),regBB.getStreetname());
             adress.setPostalcode(regBB.getPostcode());
-            if(!shop.getAdressCatalogue().getByKey(new AdressesPK(regBB.getCity(),regBB.getStreetname())).isEmpty()){
-                shop.getAdressCatalogue().update(adress);
-            }else{
-                shop.getAdressCatalogue().delete(new AdressesPK(regBB.getCity(), regBB.getStreetname()));
-                shop.getAdressCatalogue().create(adress);
-            }
+            shop.getAdressCatalogue().delete(new AdressesPK(regBB.getCity(), regBB.getStreetname()));
+            shop.getAdressCatalogue().create(adress);
+            
             if(!regBB.getNewPassword().equals("")){
                 User user = new User(regBB.getUsername());
                 user.setPassword(PasswordUtil.PasswordToHash(regBB.getNewPassword()));
-                shop.getUserCatalogue().update(user);
+                shop.getUserCatalogue().delete(user.getUsername());
+                shop.getUserCatalogue().create(user);
             }
             
             Customer customer = new Customer(regBB.getUsername());
@@ -55,9 +57,9 @@ public class MyPageCtrl {
             customer.setPhone(regBB.getPhone());
             customer.setEmail(regBB.getEmail());
             customer.setAdresses(adress);
-            shop.getCustomerCatalogue().update(customer);
-            
-            
+            shop.getCustomerCatalogue().delete(customer.getUsername());
+            shop.getCustomerCatalogue().create(customer);
+            FacesContext.getCurrentInstance().getExternalContext().redirect("products.xhtml");
         }else{
             //Send wrong password
         }

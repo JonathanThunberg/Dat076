@@ -5,6 +5,7 @@
  */
 package se.chalmers.dat076.mathem.ctrl;
 
+import java.io.IOException;
 import javax.enterprise.context.RequestScoped;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
@@ -34,7 +35,7 @@ public class CustomerRegistryCtrl {
         this.regBB = regBB;
     }
 
-    public void submit() {
+    public void submit() throws IOException {
             
         Adress adress = new Adress(regBB.getCity(),regBB.getStreetname());
         adress.setPostalcode(regBB.getPostcode());
@@ -51,6 +52,6 @@ public class CustomerRegistryCtrl {
         
         shop.getCustomerCatalogue().create(customer); 
         FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("user", customer);
-        RequestContext.getCurrentInstance().closeDialog("customerregistry.xhtml");
+        FacesContext.getCurrentInstance().getExternalContext().redirect("products.xhtml");
     }
 }
