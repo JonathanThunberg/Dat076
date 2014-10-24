@@ -20,7 +20,7 @@ and open the template in the editor.
     <h:body>
         <ui:composition template="/WEB-INF/template.xhtml">
             <ui:define name="content"> 
-                
+
                 <div id ="inner_main">
                     <p:imageSwitch style="margin:5px 0 0 60px;" effect="scrollLeft">
                         <p:graphicImage class="recipe_img" value= "../img/introRecipe/bild2.jpg"/>
@@ -29,7 +29,7 @@ and open the template in the editor.
                         <p:graphicImage class="recipe_img" value= "../img/introRecipe/bild6.jpg"/>
                     </p:imageSwitch>
                 </div>
-                
+
                 <div id="recipes_big_menu">
                     <h:form id="form">
                         <p:dataGrid var="recipes" value="#{recipeBB.recipes}" columns="3" layout="grid"
@@ -41,8 +41,9 @@ and open the template in the editor.
                                         <p:graphicImage class="recipe_img" value= "/img/Recipes/#{recipes.name}.jpg"/>
 
                                         <h:link value ="läs mer" outcome="recipedetail.xhtml">
-                                             <f:param id="name" value="#{recipes.name}"/>
+                                            <f:param id="name" value="#{recipes.name}"/>
                                             <f:param id="description" value="#{recipes.description}"/>
+                                            <f:param name="i" value="1" />
                                         </h:link>
                                     </p:row>
                                 </h:panelGrid>
