@@ -12,10 +12,11 @@
     <h:body style="text-align: center">
         <ui:composition template="/WEB-INF/template.xhtml">
             <ui:define name="content"> 
-                <p:layout style="height: 250px; width: 100%; ">
+                <p:layout style="height: 300px; width: 100%; ">
                     <p:layoutUnit position="center">
                         <div style="margin:0 auto;width:75%;text-align:left">
                             <h:form>
+                                <p:messages id="messages" showDetail="true" autoUpdate="true" closable="true" />
                                 <h:panelGrid columns="4" cellpadding="5">
                                     <p:outputLabel for="name" value="Förnamn:" style="font-weight:bold" />
                                     <p:inputText id="name" value="#{customerRegistryBB.name}" required="true"/>
