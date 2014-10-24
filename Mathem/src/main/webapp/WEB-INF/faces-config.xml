@@ -28,12 +28,7 @@
             <from-outcome>mypage</from-outcome>
             <to-view-id>/mypage.xhtml</to-view-id>
         </navigation-case>
-        <navigation-case>
-            <from-view-id>/redirect/recipe.xhtml</from-view-id>
-            <from-outcome>recipedetail</from-outcome>
-            <to-view-id>redirect/recipedetail.xhtml</to-view-id>
-        </navigation-case>
-    </navigation-rule>     
+        <navigation-case>    
             <from-outcome>login</from-outcome>
             <to-view-id>/login.xhtml</to-view-id>
         </navigation-case>
@@ -41,7 +36,14 @@
             <from-outcome>customerregistry</from-outcome>
             <to-view-id>/customerregistry.xhtml</to-view-id>
         </navigation-case>
-    </navigation-rule>  
+    </navigation-rule> 
+    <navigation-rule>
+    <from-view-id>/redirect/recipe.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>recipedetail</from-outcome>
+            <to-view-id>redirect/recipedetail.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule> 
     <application>
         <action-listener>
             org.primefaces.application.DialogActionListener
