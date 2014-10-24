@@ -44,6 +44,8 @@
 
                 <div id="matbutiken_big_menu">
                     <h:form id="form">
+                        <p:layout class="product_content">
+                        <p:layoutUnit position="center">
                         <p:dataGrid var="prod" value="#{productsBB.products}" columns="3" layout="grid"
                                     rows="9" paginator="true" id="products"
                                     paginatorTemplate="{PreviousPageLink} {CurrentPageReport} {NextPageLink}">
@@ -61,7 +63,8 @@
                             </p:panel>
 
                         </p:dataGrid>
-
+                        </p:layoutUnit>
+                    </p:layout>
                     </h:form>
 
                 </div>
