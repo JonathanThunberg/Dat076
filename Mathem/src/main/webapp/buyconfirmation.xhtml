@@ -33,22 +33,31 @@ and open the template in the editor.
                         
                         
                         <p:column id="quantity" headerText="Antal">
-                            <p:spinner size="5" value="#{item.quantity}"  min="1">
-                                <p:ajax listener="#{shoppingCartCtrl.setQuantity(item,item.quantity)}" update="@form" />
-                            </p:spinner>
-                            
+                            <h:outputText value="#{item.quantity}"/>
                         </p:column>
                         
                         <p:column headerText="Pris">
                             <h:outputText value="#{shoppingCartBB.cart.getPrice(item)} kr" />
                         </p:column>
                         
-                        <p:column headerText="Ta bort">
-                            <p:commandButton icon="ui-icon-closethick" actionListener="#{shoppingCartCtrl.deleteItem(item)}" update="@form" />
-                        </p:column>
                     </p:dataTable>
-                    <p:commandButton icon ="ui-icon-trash" value="Töm varukorg" actionListener="#{shoppingCartCtrl.emptyCart}" update="@form" />
-                    <p:commandButton value="Köp" actionListener="#{shoppingCartCtrl.buy}" />
+                   <h:panelGrid columns="8" cellpadding="5">
+                   <h:outputText value="Leveransadress: " />
+                   <h:outputText value="#{shoppingCartBB.customer.adresses.adressesPK.streetname}" />
+                    
+                    <h:outputText value="Postort: "/>
+                        <h:outputText value="#{shoppingCartBB.customer.adresses.adressesPK.city}" />
+                    
+                    
+                    <h:outputText value="Postnr: "/>
+                        <h:outputText value="#{shoppingCartBB.customer.adresses.postalcode}"/>
+                    
+                    <h:outputText value="Motagare: "/>
+                        <h:outputText value="#{shoppingCartBB.customer.name}" />
+                    </h:panelGrid>
+                    
+                    <p:commandButton value="Avbryt" actionListener="#{shoppingCartCtrl.cancel()}" update="@form" />
+                    <p:commandButton value="Köp" actionListener="#{shoppingCartCtrl.confirm()}" />
                     <p:outputLabel value="Summa: #{shoppingCartBB.cart.totalPrice} kr"/>
                 </h:form>
             </p:layoutUnit>

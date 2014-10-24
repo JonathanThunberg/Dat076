@@ -8,9 +8,10 @@
     <class>se.chalmers.dat076.mathem.model.entityclasses.Admin</class>
     <class>se.chalmers.dat076.mathem.model.entityclasses.Adress</class>
     <class>se.chalmers.dat076.mathem.model.entityclasses.Category</class>
-    <class>se.chalmers.dat076.mathem.model.entityclasses.Order</class>
     <class>se.chalmers.dat076.mathem.model.entityclasses.Recipe</class>
     <class>se.chalmers.dat076.mathem.model.entityclasses.User</class>
+    <class>se.chalmers.dat076.mathem.model.entityclasses.CustomerOrder</class>
+    <class>se.chalmers.dat076.mathem.model.entityclasses.OrderQuantity</class>
     <exclude-unlisted-classes>true</exclude-unlisted-classes>
     <properties>
       <property name="javax.persistence.schema-generation.database.action" value="create"/>

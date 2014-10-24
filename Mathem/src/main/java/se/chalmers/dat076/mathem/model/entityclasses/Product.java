@@ -8,6 +8,7 @@ package se.chalmers.dat076.mathem.model.entityclasses;
 import java.io.Serializable;
 import java.util.Collection;
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -19,11 +20,13 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
+import org.codehaus.jackson.annotate.JsonIgnore;
 
 /**
  *
@@ -38,6 +41,8 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Product.findByName", query = "SELECT p FROM Product p WHERE p.name = :name"),
     @NamedQuery(name = "Product.findByPrice", query = "SELECT p FROM Product p WHERE p.price = :price")})
 public class Product implements Serializable {
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "product")
+    private Collection<OrderQuantity> hasCollection;
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -57,7 +62,7 @@ public class Product implements Serializable {
         @JoinColumn(name = "PRODUCT", referencedColumnName = "ID")}, inverseJoinColumns = {
         @JoinColumn(name = "ORDERID", referencedColumnName = "ID")})
     @ManyToMany
-    private Collection<Order> ordersCollection;
+    private Collection<CustomerOrder> ordersCollection;
     @JoinTable(name = "FAVORITES", joinColumns = {
         @JoinColumn(name = "PRODUCT", referencedColumnName = "ID")}, inverseJoinColumns = {
         @JoinColumn(name = "USERNAME", referencedColumnName = "USERNAME")})
@@ -110,11 +115,11 @@ public class Product implements Serializable {
     }
 
     @XmlTransient
-    public Collection<Order> getOrdersCollection() {
+    public Collection<CustomerOrder> getOrdersCollection() {
         return ordersCollection;
     }
 
-    public void setOrdersCollection(Collection<Order> ordersCollection) {
+    public void setOrdersCollection(Collection<CustomerOrder> ordersCollection) {
         this.ordersCollection = ordersCollection;
     }
 
@@ -167,6 +172,16 @@ public class Product implements Serializable {
     @Override
     public String toString() {
         return "se.chalmers.dat076.mathem.model.entityclasses.Products[ id=" + id + " ]";
+    }
+
+    @XmlTransient
+    @JsonIgnore
+    public Collection<OrderQuantity> getHasCollection() {
+        return hasCollection;
+    }
+
+    public void setHasCollection(Collection<OrderQuantity> hasCollection) {
+        this.hasCollection = hasCollection;
     }
     
 }

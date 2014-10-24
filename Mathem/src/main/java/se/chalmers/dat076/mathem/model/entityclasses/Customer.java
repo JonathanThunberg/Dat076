@@ -59,7 +59,7 @@ public class Customer implements Serializable {
     @ManyToMany(mappedBy = "customersCollection")
     private Collection<Product> productsCollection;
     @ManyToMany(mappedBy = "customersCollection")
-    private Collection<Order> ordersCollection;
+    private Collection<CustomerOrder> ordersCollection;
     @JoinColumn(name = "USERNAME", referencedColumnName = "USERNAME", insertable = false, updatable = false)
     @OneToOne(optional = false)
     private User users;
@@ -124,11 +124,11 @@ public class Customer implements Serializable {
     }
 
     @XmlTransient
-    public Collection<Order> getOrdersCollection() {
+    public Collection<CustomerOrder> getOrdersCollection() {
         return ordersCollection;
     }
 
-    public void setOrdersCollection(Collection<Order> ordersCollection) {
+    public void setOrdersCollection(Collection<CustomerOrder> ordersCollection) {
         this.ordersCollection = ordersCollection;
     }
 

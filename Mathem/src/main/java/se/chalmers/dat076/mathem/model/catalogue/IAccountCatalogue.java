@@ -6,13 +6,12 @@
 package se.chalmers.dat076.mathem.model.catalogue;
 
 import javax.ejb.Local;
-import se.chalmers.dat076.mathem.model.entityclasses.Admin;
+import se.chalmers.dat076.mathem.model.entityclasses.Account;
 
 /**
  *
  * @author tuna
  */
 @Local
-public interface IAdminCatalogue extends ICatalogue<Admin, String> {
-    
+public interface IAccountCatalogue extends ICatalogue<Account, String>{    
 }

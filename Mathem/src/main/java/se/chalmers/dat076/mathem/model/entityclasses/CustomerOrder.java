@@ -9,6 +9,7 @@ import java.io.Serializable;
 import java.util.Collection;
 import java.util.Date;
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -19,11 +20,13 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
+import org.codehaus.jackson.annotate.JsonIgnore;
 
 /**
  *
@@ -33,10 +36,12 @@ import javax.xml.bind.annotation.XmlTransient;
 @Table(name = "ORDERS")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Orders.findAll", query = "SELECT o FROM Order o"),
-    @NamedQuery(name = "Orders.findById", query = "SELECT o FROM Order o WHERE o.id = :id"),
-    @NamedQuery(name = "Orders.findByDate", query = "SELECT o FROM Order o WHERE o.date = :date")})
-public class Order implements Serializable {
+    @NamedQuery(name = "CustomerOrders.findAll", query = "SELECT o FROM CustomerOrder o"),
+    @NamedQuery(name = "CustomerOrders.findById", query = "SELECT o FROM CustomerOrder o WHERE o.id = :id"),
+    @NamedQuery(name = "CustomerOrders.findByDate", query = "SELECT o FROM CustomerOrder o WHERE o.date = :date")})
+public class CustomerOrder implements Serializable {
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "customerOrder")
+    private Collection<OrderQuantity> hasCollection;
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -54,10 +59,10 @@ public class Order implements Serializable {
     @ManyToMany
     private Collection<Customer> customersCollection;
 
-    public Order() {
+    public CustomerOrder() {
     }
 
-    public Order(Integer id) {
+    public CustomerOrder(Integer id) {
         this.id = id;
     }
 
@@ -105,10 +110,10 @@ public class Order implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Order)) {
+        if (!(object instanceof CustomerOrder)) {
             return false;
         }
-        Order other = (Order) object;
+        CustomerOrder other = (CustomerOrder) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
@@ -118,6 +123,16 @@ public class Order implements Serializable {
     @Override
     public String toString() {
         return "se.chalmers.dat076.mathem.model.entityclasses.Orders[ id=" + id + " ]";
+    }
+
+    @XmlTransient
+    @JsonIgnore
+    public Collection<OrderQuantity> getHasCollection() {
+        return hasCollection;
+    }
+
+    public void setHasCollection(Collection<OrderQuantity> hasCollection) {
+        this.hasCollection = hasCollection;
     }
     
 }

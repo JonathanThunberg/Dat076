@@ -5,9 +5,12 @@
  */
 package se.chalmers.dat076.mathem.ctrl;
 
+import java.io.IOException;
 import javax.enterprise.context.RequestScoped;
+import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
+import org.primefaces.context.RequestContext;
 import se.chalmers.dat076.mathem.model.OrderItem;
 import se.chalmers.dat076.mathem.view.ShoppingCartBB;
 
@@ -35,9 +38,17 @@ public class ShoppingCartCtrl {
         cartBB.getCart().emptyCart();
     }
     
-    public void buy() {
-        //TODO
+    public void buy() throws IOException{
+        FacesContext.getCurrentInstance().getExternalContext().redirect("buyconfirmation.xhtml");
     } 
+    
+    public void confirm(){
+        
+    }
+    
+    public void cancel() throws IOException{
+        FacesContext.getCurrentInstance().getExternalContext().redirect("shoppingcart.xhtml");
+    }
     
     public void setQuantity(OrderItem item, int quantity) {
         
