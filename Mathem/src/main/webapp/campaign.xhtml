@@ -11,71 +11,28 @@
     </h:head>
     <h:body>
         <ui:composition template="/WEB-INF/template.xhtml">
-            <ui:define name="content"> 
-                <div id="matbutiken_left_menu">
-                    <h:form> 
-                        <p:growl id="messages" showDetail="false"/>
-
-                        <p:menu>
-                            <p:submenu label="Kategorier">
-                                <p:menuitem value="Frukt &amp; Grönt" actionListener="#{menuView.save}" update="messages" />
-                                <p:menuitem value="Godis" actionListener="#{menuView.update}" update="messages" />
-                                <p:menuitem value="Godis" actionListener="#{menuView.update}" update="messages" />
-                                <p:menuitem value="Godis" actionListener="#{menuView.update}" update="messages" />
-                                <p:menuitem value="Godis" actionListener="#{menuView.update}" update="messages" />
-                                <p:menuitem value="Godis" actionListener="#{menuView.update}" update="messages" />
-                                <p:menuitem value="Godis" actionListener="#{menuView.update}" update="messages" />
-                            </p:submenu>
-                            <p:submenu label="Non-Ajax">
-                                <p:menuitem value="Delete" actionListener="#{menuView.delete}" update="messages" ajax="false"/>
-                            </p:submenu>
-                            <p:submenu label="Navigations">
-                                <p:menuitem value="External" url="http://www.primefaces.org" />
-                                <p:menuitem value="Internal" outcome="products" />
-                            </p:submenu>
-                        </p:menu>
-                    </h:form>
-
-                </div>
+            <ui:define name="content">                 
 
                 <div id="matbutiken_big_menu">
                     <h:form id="form">
-                        <p:dataGrid var="prod" value="#{productsBB.products}" columns="4" layout="grid"
-                                    rows="16" paginator="true" id="products"
+                        <p:dataGrid var="prod" value="#{campaignBB.products}" columns="3" layout="grid"
+                                    rows="9" paginator="true" id="products"
                                     paginatorTemplate="{PreviousPageLink} {CurrentPageReport} {NextPageLink}">
 
-                            <p:panel header="#{product.id}" style="text-align:center">
-                                <h:panelGrid columns="1" style="width:100%">
-                                    <p:graphicImage name="/img/Products/#{product.name}.gif"/>
-
-                                    <h:outputText value="#{product.name}" />
-                                    <h:outputText value="#{product.price}" />
-
-                                    <p:commandLink update=":form:productDetail" oncomplete="PF('productDialog').show()" title="View Detail">
-                                        <h:outputText styleClass="ui-icon ui-icon-search" style="margin:0 auto;" />
-                                        <f:setPropertyActionListener value="#{product}" target="#{productsBB.selectedProd}" />
-                                    </p:commandLink>
+                            <p:panel header="#{prod.name}" style="text-align:center">
+                                <h:panelGrid columns="1" style="width:100%;">
+                                    <p:row> <p:graphicImage value= "/img/Products/#{prod.name}.jpg"/>
+                                    </p:row>
+                                    <h:outputText value="#{prod.price} kr/st" />
+                                    <p:row>  
+                                        <p:spinner style="float:left; " size="5"  min="1" value="#{campaignBB.amount}"/>
+                                        <p:commandButton style="float: left; width: 60px; font-size: 15px; margin-left: 6px;" title="Köp" value="Köp"  actionListener="#{productsCtrl.buy(prod)}"/>                                                     
+                                    </p:row>
                                 </h:panelGrid>
                             </p:panel>
 
                         </p:dataGrid>
 
-                        <p:dialog header="Product Info" widgetVar="productDialog" modal="true" showEffect="fade" hideEffect="fade" resizable="false">
-                            <p:outputPanel id="productDetail" style="text-align:center;">
-                                <p:panelGrid  columns="2" rendered="#{not empty productsBB.selectedProd}" columnClasses="label,value">
-                                    <f:facet name="header">
-                                        <p:graphicImage name="demo/images/car/#{productsBB.selectedProd.name}-big.gif"/> 
-                                    </f:facet>
-
-                                    <h:outputText value="Namn:" />
-                                    <h:outputText value="#{productsBB.selectedProd.name}" />
-
-                                    <h:outputText value="Pris" />
-                                    <h:outputText value="#{productsBB.selectedProd.price}" />
-
-                                </p:panelGrid>
-                            </p:outputPanel>
-                        </p:dialog>
                     </h:form>
 
                 </div>

@@ -6,12 +6,12 @@ and open the template in the editor.
 -->
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:p="http://primefaces.org/ui" >
 
-    <!-- <ui:insert name="metadata" /> Denna gör något och misstänker att den borde vara med!-->
+    <ui:insert name="metadata" />
     <h:head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />        
         <link rel="stylesheet" type="text/css" href="css/default.css"/>
@@ -32,36 +32,23 @@ and open the template in the editor.
                 
                 <div id="recipes_big_menu">
                     <h:form id="form">
-                        <p:dataGrid var="recipes" value="#{recipeBB.recipes}" columns="5" layout="grid"
-                                    rows="15" paginator="true" id="products"
+                        <p:dataGrid var="recipes" value="#{recipeBB.recipes}" columns="3" layout="grid"
+                                    rows="9" paginator="true"
                                     paginatorTemplate="{PreviousPageLink} {CurrentPageReport} {NextPageLink}">
-
                             <p:panel header="#{recipes.name}" style="text-align:center">
-                                <h:panelGrid columns="1" style="width:100%;">
-                                    <p:row> <p:graphicImage value= "/img/Recipes/#{recipes.name}.jpg"/>
-                                    </p:row>
-                                    <h:outputText value="#{recipes.description}" />
-                                    <p:row>
-                                        <p:commandButton style="float: left; width: 60px; font-size: 15px; margin-left: 6px;" title="Läs mer" value="Läs mer" actionListener="#{CustomerRegistryCtrl.submit}"/>                                                     
+                                <h:panelGrid columns="1" style="width:100%;">                                    
+                                    <p:row>                                        
+                                        <p:graphicImage class="recipe_img" value= "/img/Recipes/#{recipes.name}.jpg"/>
+
+                                        <h:link value ="läs mer" outcome="recipedetail.xhtml">
+                                             <f:param id="name" value="#{recipes.name}"/>
+                                            <f:param id="description" value="#{recipes.description}"/>
+                                        </h:link>
                                     </p:row>
                                 </h:panelGrid>
                             </p:panel>
 
-                        </p:dataGrid>
-
-                        <p:dialog header="Product Info" widgetVar="productDialog" modal="true" showEffect="fade" hideEffect="fade" resizable="false">
-                            <p:outputPanel id="productDetail" style="text-align:center;">
-                                <p:panelGrid  columns="2" rendered="#{not empty reciperecipeBBtedRecp}" columnClasses="label,value">
-                                    <f:facet name="header">
-                                        <p:graphicImage name="demo/images/car/#{recipeGridVirecipeBBp.name}-big.gif"/> 
-                                    </f:facet>
-
-                                    <h:outputText value="Namn:" />
-                                    <h:outputText value="#{recipeGridView.selrecipeBB}" />
-                                   
-                                </p:panelGrid>
-                            </p:outputPanel>
-                        </p:dialog>
+                        </p:dataGrid>                        
                     </h:form>
 
                 </div>
