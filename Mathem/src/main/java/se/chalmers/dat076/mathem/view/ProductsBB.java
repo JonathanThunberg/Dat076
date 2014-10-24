@@ -2,7 +2,7 @@ package se.chalmers.dat076.mathem.view;
 
 /**
  *
- * @author victor_nordh92
+ * @author victor_norxdh92
  */
 import java.io.Serializable;
 import java.util.ArrayList;

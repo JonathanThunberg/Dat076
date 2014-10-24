@@ -44,7 +44,7 @@ public class MyPageBB implements Serializable{
         customer = shop.getCustomerCatalogue().getByKey(FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("user").toString()).get(0);
         name = customer.getName();
         username = customer.getUsername();
-        password = customer.getUsers().getPassword();
+        password = shop.getUserCatalogue().getByKey(username).get(0).getPassword();
         phone = customer.getPhone();
         email = customer.getEmail();
         streetname = customer.getAdresses().getAdressesPK().getStreetname();

@@ -1,37 +1,38 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
-<!DOCTYPE html>
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:p="http://primefaces.org/ui">
-
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    
     <h:head>
-        <title>Logga in</title>
-        <style type="text/css">
-            .ui-widget {
-                font-size: 90%;
-            }
-        </style>
+        <link rel="stylesheet" type="text/css" href="css/default.css"/>
     </h:head>
-
-    <h:body>
-        <h:form>
-            <p:messages id="messages" showDetail="true" autoUpdate="true" closable="true" />
-            <h:panelGrid columns="1" cellpadding="5">
-                <p:outputLabel for="user" value="Användarnamn:" style="font-weight:bold" />
-                <p:inputText id="user" value="#{loginBB.user}" />
-                
-                <p:outputLabel for="password" value="Lösenord:" style="font-weight:bold" />
-                <p:inputText type="password" id="password" value="#{loginBB.password}" />
-                
-                <p:commandButton value="Logga in" update="display" icon="ui-icon-check"/>
-                <h:outputText id="display" value="#{loginCtrl.login()}"/>
-            </h:panelGrid>
-        </h:form>
+    <h:body style="text-align: center">
+        <ui:composition template="/WEB-INF/template.xhtml">
+            <ui:define name="content"> 
+                <p:layout style="height: 250px; width: 100%; ">
+                    <p:layoutUnit position="center">
+                        <div style="margin:0 auto;width:25%;text-align:left">
+                        <h:form style="text-align: center">
+                            <p:messages id="messages" showDetail="true" autoUpdate="true" closable="true" />
+                            <h:panelGrid columns="1" cellpadding="5">
+                                <p:outputLabel for="user" value="Användarnamn:" style="font-weight:bold" />
+                                <p:inputText id="user" value="#{loginBB.user}" />
+                                
+                                <p:outputLabel for="password" value="Lösenord:" style="font-weight:bold" />
+                                <p:inputText type="password" id="password" value="#{loginBB.password}" />
+                                
+                                <p:commandButton value="Logga in" icon="ui-icon-check" actionListener="#{loginCtrl.login()}"/>
+                            </h:panelGrid>
+                        </h:form>
+                        </div>
+                    </p:layoutUnit>
+                </p:layout>
+            </ui:define>
+        </ui:composition>
     </h:body>
-
+    
+    
 </html>

@@ -6,6 +6,8 @@
 package se.chalmers.dat076.mathem.model;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.ArrayList;
 import java.util.List;
 import javax.enterprise.context.SessionScoped;
@@ -20,7 +22,6 @@ import javax.enterprise.context.SessionScoped;
 public class ShoppingCart implements Serializable{
     
     private List<OrderItem> items = new ArrayList<>();
-    private double price = 0;
     
     public void add(OrderItem item) {
         boolean itemAdded = false;
@@ -32,7 +33,6 @@ public class ShoppingCart implements Serializable{
         }
         if(!itemAdded) {
             items.add(item);
-            price = price+(item.getQuantity()*item.getProduct().getPrice());
         }  
     }
 
@@ -41,7 +41,6 @@ public class ShoppingCart implements Serializable{
     }
     
     public void changeQuantity(OrderItem item, int quantity) {
-        price = price + ((quantity-item.getQuantity())*item.getProduct().getPrice());
         item.setQuantity(quantity);
     }
 
@@ -54,8 +53,17 @@ public class ShoppingCart implements Serializable{
         items.clear();
     }
     
+    public double getPrice(OrderItem item){
+            return new BigDecimal(item.getQuantity()*item.getProduct().getPrice()).setScale(3, RoundingMode.HALF_UP).doubleValue();
+    
+    }
+    
     public double getTotalPrice() {
-        return price;
+        double price = 0;
+        for(OrderItem o: items){
+            price+=o.getQuantity()*o.getProduct().getPrice();
+        }
+        return new BigDecimal(price).setScale(3, RoundingMode.HALF_UP).doubleValue();
     }
 
     

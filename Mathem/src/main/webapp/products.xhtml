@@ -54,8 +54,8 @@
                                     </p:row>
                                     <h:outputText value="#{prod.product.price} kr/st" />
                                     <p:row>  
-                                        <p:spinner style="float:left; " size="5"  min="1" value="#{prod.quantity}"/>
-                                        <p:commandButton style="float: left; width: 60px; font-size: 15px; margin-left: 6px;" title="Köp" value="Köp"  actionListener="#{productsCtrl.buy(prod)}"/>                                                     
+                                        <p:spinner style="float:left; " size="5"  min="1" value="#{prod.quantity}" rendered="#{renderBB.userCustomer}"/>
+                                        <p:commandButton style="float: left; width: 60px; font-size: 15px; margin-left: 6px;" title="Köp" value="Köp"  actionListener="#{productsCtrl.buy(prod)}" rendered="#{renderBB.userCustomer}"/>                                                     
                                     </p:row>
                                 </h:panelGrid>
                             </p:panel>

@@ -17,6 +17,7 @@ hs_err_pid*
 /Mathem/target/
 /Mathem/MatHem/
 /Mathem/src/main/webapp/img/Products/
+/gitinspector-0.3.2/
 
 #nb-configuration.xml
 #pom.xml
