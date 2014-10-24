@@ -11,7 +11,6 @@ import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
-import org.primefaces.context.RequestContext;
 import se.chalmers.dat076.mathem.model.Shop;
 import se.chalmers.dat076.mathem.model.entityclasses.Adress;
 import se.chalmers.dat076.mathem.model.entityclasses.AdressesPK;
@@ -39,12 +38,9 @@ public class MyPageCtrl {
     }
     
     public void submit() throws IOException {
+        FacesContext context = FacesContext.getCurrentInstance();
         if(PasswordUtil.PasswordToHash(regBB.getPassword()).equals(shop.getUserCatalogue().getByKey(regBB.getUsername()).get(0).getPassword())){
-            Adress adress = new Adress(regBB.getCity(),regBB.getStreetname());
-            adress.setPostalcode(regBB.getPostcode());
-            shop.getAdressCatalogue().delete(new AdressesPK(regBB.getCity(), regBB.getStreetname()));
-            shop.getAdressCatalogue().create(adress);
-            
+            Customer customer = new Customer(regBB.getUsername());
             if(!regBB.getNewPassword().equals("")){
                 User user = new User(regBB.getUsername());
                 user.setPassword(PasswordUtil.PasswordToHash(regBB.getNewPassword()));
@@ -52,19 +48,48 @@ public class MyPageCtrl {
                 shop.getUserCatalogue().create(user);
             }
             
-            Customer customer = new Customer(regBB.getUsername());
-            customer.setName(regBB.getName());
-            customer.setPhone(regBB.getPhone());
-            customer.setEmail(regBB.getEmail());
-            customer.setAdresses(adress);
-            shop.getCustomerCatalogue().delete(customer.getUsername());
-            shop.getCustomerCatalogue().create(customer);
-            FacesContext.getCurrentInstance().getExternalContext().redirect("products.xhtml");
+            if(!shop.getCustomerCatalogue().getByKey(regBB.getUsername()).get(0).getAdresses().getAdressesPK().equals(new AdressesPK(regBB.getStreetname(),regBB.getCity()))) {
+                if(shop.getAdressCatalogue().getByKey(new AdressesPK(regBB.getStreetname(), regBB.getCity())).isEmpty()) {
+                    Adress adress = new Adress(regBB.getStreetname(), regBB.getCity());
+                    adress.setPostalcode(regBB.getPostcode());
+                    
+                    shop.getCustomerCatalogue().delete(customer.getUsername());
+                    shop.getAdressCatalogue().delete(new AdressesPK(regBB.getStreetname(), regBB.getCity()));
+                    shop.getAdressCatalogue().create(adress);
+                    customer.setAdresses(adress);
+                    updateCustomer(customer);
+                }else{
+                    context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN, "Adress upptagen", ""));
+                    context.getExternalContext().getFlash().setKeepMessages(true);
+                }
+                
+            }else{
+                
+                Adress adress = new Adress(new AdressesPK(regBB.getStreetname(),regBB.getCity()));
+                adress.setPostalcode(regBB.getPostcode());
+                
+                shop.getCustomerCatalogue().delete(customer.getUsername());
+                shop.getAdressCatalogue().delete(new AdressesPK(regBB.getStreetname(), regBB.getCity()));
+                shop.getAdressCatalogue().create(adress);
+                customer.setAdresses(adress);
+                updateCustomer(customer);
+                
+            }
         }else{
-            //Send wrong password
+            context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN, "Fel lösenord", ""));
+            context.getExternalContext().getFlash().setKeepMessages(true);
         }
         
         //Feedback
+    }
+    
+    private void updateCustomer(Customer customer) throws IOException {
+        
+        customer.setName(regBB.getName());
+        customer.setPhone(regBB.getPhone());
+        customer.setEmail(regBB.getEmail());
+        shop.getCustomerCatalogue().create(customer);
+        FacesContext.getCurrentInstance().getExternalContext().redirect("products.xhtml");
     }
     
 }

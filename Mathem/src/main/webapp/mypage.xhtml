@@ -11,31 +11,32 @@
     <h:body style="text-align: center">
         <ui:composition template="/WEB-INF/template.xhtml">
             <ui:define name="content"> 
-                <p:layout style="height: 300px; width: 100%; ">
+                <p:layout style="height: 350px; width: 100%; ">
                     <p:layoutUnit position="center">
                         <div style="margin:0 auto;width:83%;text-align:left">
                             <h:form>
+                                <p:messages id="messages" showDetail="true" autoUpdate="true" closable="true" />
                                 <h:panelGrid columns="4" cellpadding="5">
                                     <p:outputLabel id="username" value="Användarnamn: " style="font-weight:bold" />
                                     <p:outputLabel id="user" value="#{myPageBB.username}" style="font-weight:bold" />
                                         
                                     <p:outputLabel for="name" value="Namn:" style="font-weight:bold" />
-                                    <p:inputText id="name" value="#{myPageBB.name}"/>
+                                    <p:inputText id="name" value="#{myPageBB.name}" required="true"/>
                                         
                                     <p:outputLabel for="phone" value="Telefonnr:" style="font-weight:bold" />
-                                    <p:inputText id="phone" value="#{myPageBB.phone}"/>
+                                    <p:inputText id="phone" value="#{myPageBB.phone}" required="true"/>
                                         
                                     <p:outputLabel for="email" value="E-mail:" style="font-weight:bold" />
-                                    <p:inputText id="email" value="#{myPageBB.email}"/>
+                                    <p:inputText id="email" value="#{myPageBB.email}" required="true"/>
                                         
                                     <p:outputLabel for="streetname" value="Adress:" style="font-weight:bold" />
-                                    <p:inputText id="streetname" value="#{myPageBB.streetname}"/>
+                                    <p:inputText id="streetname" value="#{myPageBB.streetname}" required="true"/>
                                         
                                     <p:outputLabel for="city" value="Postort:" style="font-weight:bold" />
-                                    <p:inputText id="city" value="#{myPageBB.city}" />
+                                    <p:inputText id="city" value="#{myPageBB.city}" required="true"/>
                                         
                                     <p:outputLabel for="postcode" value="Postnr:" style="font-weight:bold" />
-                                    <p:inputText id="postcode" value="#{myPageBB.postcode}"/>
+                                    <p:inputText id="postcode" value="#{myPageBB.postcode}" required="true"/>
                                         
                                     <p:outputLabel />
                                     <p:outputLabel />

@@ -10,7 +10,6 @@ import javax.enterprise.context.RequestScoped;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
-import org.primefaces.context.RequestContext;
 import se.chalmers.dat076.mathem.model.entityclasses.Adress;
 import se.chalmers.dat076.mathem.model.entityclasses.Customer;
 import se.chalmers.dat076.mathem.model.entityclasses.User;
@@ -37,7 +36,7 @@ public class CustomerRegistryCtrl {
 
     public void submit() throws IOException {
             
-        Adress adress = new Adress(regBB.getCity(),regBB.getStreetname());
+        Adress adress = new Adress(regBB.getStreetname(), regBB.getCity());
         adress.setPostalcode(regBB.getPostcode());
         shop.getAdressCatalogue().create(adress);
         
