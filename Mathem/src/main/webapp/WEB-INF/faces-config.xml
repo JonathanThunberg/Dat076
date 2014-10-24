@@ -21,10 +21,6 @@
             <to-view-id>/aboutus.xhtml</to-view-id>
         </navigation-case>  
         <navigation-case>
-            <from-outcome>campaign</from-outcome>
-            <to-view-id>/campaign.xhtml</to-view-id>
-        </navigation-case>
-        <navigation-case>
             <from-outcome>mypage</from-outcome>
             <to-view-id>/mypage.xhtml</to-view-id>
         </navigation-case>
@@ -38,10 +34,10 @@
         </navigation-case>
     </navigation-rule> 
     <navigation-rule>
-    <from-view-id>/redirect/recipe.xhtml</from-view-id>
+    
         <navigation-case>
             <from-outcome>recipedetail</from-outcome>
-            <to-view-id>redirect/recipedetail.xhtml</to-view-id>
+            <to-view-id>/recipedetail.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule> 
     <application>
