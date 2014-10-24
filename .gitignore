@@ -16,6 +16,7 @@ hs_err_pid*
 
 /Mathem/target/
 /Mathem/MatHem/
+/Mathem/src/main/webapp/img/Products/
 
 #nb-configuration.xml
 #pom.xml
