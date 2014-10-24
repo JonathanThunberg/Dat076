@@ -55,7 +55,6 @@ public class CustomerRegistryCtrl {
                 customer.setAdresses(adress);
                 
                 shop.getCustomerCatalogue().create(customer);
-                context.getExternalContext().getSessionMap().put("user", user);
                 context.getExternalContext().redirect("products.xhtml");
             }else{
                 context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN, "Adress upptagen", ""));
