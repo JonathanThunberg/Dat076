@@ -8,6 +8,7 @@ package se.chalmers.dat076.mathem.model.entityclasses;
 import java.io.Serializable;
 import java.util.Collection;
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -38,6 +39,8 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Customer.findByPhone", query = "SELECT c FROM Customer c WHERE c.phone = :phone"),
     @NamedQuery(name = "Customer.findByEmail", query = "SELECT c FROM Customer c WHERE c.email = :email")})
 public class Customer implements Serializable {
+    @OneToOne(cascade = CascadeType.ALL, mappedBy = "customer1")
+    private Payswith payswith;
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
@@ -171,6 +174,14 @@ public class Customer implements Serializable {
     @Override
     public String toString() {
         return "se.chalmers.dat076.mathem.model.entityclasses.Customers[ username=" + username + " ]";
+    }
+
+    public Payswith getPayswith() {
+        return payswith;
+    }
+
+    public void setPayswith(Payswith payswith) {
+        this.payswith = payswith;
     }
     
 }

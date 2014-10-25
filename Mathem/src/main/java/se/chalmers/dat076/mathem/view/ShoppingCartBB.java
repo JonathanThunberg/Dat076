@@ -27,18 +27,11 @@ public class ShoppingCartBB implements Serializable{
     private ShoppingCart cart;
     @Inject
     private Shop shop;
-    private Customer customer;
    
 
     public ShoppingCart getCart() {
         return cart;
     }
-    
-    public Customer getCustomer() {
-        return customer = shop.getCustomerCatalogue().getByKey(FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("user").toString()).get(0);
-    }
-    
-    
-
+ 
 }
 

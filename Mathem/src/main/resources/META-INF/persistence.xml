@@ -12,6 +12,8 @@
     <class>se.chalmers.dat076.mathem.model.entityclasses.User</class>
     <class>se.chalmers.dat076.mathem.model.entityclasses.CustomerOrder</class>
     <class>se.chalmers.dat076.mathem.model.entityclasses.OrderQuantity</class>
+    <class>se.chalmers.dat076.mathem.model.entityclasses.Payswith</class>
+    <class>se.chalmers.dat076.mathem.model.entityclasses.Account</class>
     <exclude-unlisted-classes>true</exclude-unlisted-classes>
     <properties>
       <property name="javax.persistence.schema-generation.database.action" value="create"/>

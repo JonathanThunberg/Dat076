@@ -22,6 +22,7 @@ and open the template in the editor.
         <p:layout>
             <p:layoutUnit position="center">
                 <h:form>
+                    <p:messages id="messages" showDetail="true" autoUpdate="true" closable="true" />
                     <p:dataTable var="item" value="#{shoppingCartBB.cart.orderItems}">
                         <p:column headerText="Namn">
                             <h:outputText value="#{item.product.name}" />
