@@ -35,11 +35,13 @@ public class ProductsBB implements Serializable {
     }
     
     public List<OrderItem> getProducts() {
+        products.clear();
         for (Category c : shop.getCategoryCatalogue().findAll()) {
             if(c.getName().equals(category)){
                 for (Product p : shop.getProductCatalogue().getByCategory(category)) {
                     products.add(new OrderItem(p,1));
                 }
+                System.out.println("I kategorin: " + category + "finns det så här många produkter: " + products.size());
                 return products;
             }
         }
@@ -47,6 +49,7 @@ public class ProductsBB implements Serializable {
         for (Product p : shop.getProductCatalogue().findAll()) {
             products.add(new OrderItem(p,1));
         }
+        
         return products;
         
     }

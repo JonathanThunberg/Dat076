@@ -1,0 +1,102 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <h:head>
+        <link rel="stylesheet" type="text/css" href="css/default.css"/>
+    </h:head>
+    <h:body>
+        <ui:composition template="/WEB-INF/template.xhtml">
+            <ui:define name="content"> 
+                <div id="matbutiken_left_menu">
+                    <h:form>                         
+                        <p:menu>
+                            <p:submenu label="Allmänt">
+                                <p:menuitem value="Om Företaget" outcome="aboutus.xhtml">
+                                    <f:param name="i" value="2" />
+                                </p:menuitem>
+                                <p:menuitem value="Trygg E-handel" outcome="safeshopping.xhtml">
+                                    <f:param name="i" value="2" />
+                                </p:menuitem>
+                                <p:menuitem value="Jobba på Matbutiken Online" outcome="workhere.xhtml">
+                                    <f:param name="i" value="2" />
+                                </p:menuitem>
+                                <p:menuitem value="Allmänna villkor" outcome="generalconditions.xhtml">
+                                    <f:param name="i" value="2" />
+                                </p:menuitem>
+                                <p:menuitem value="Kontakta oss" outcome="contactus.xhtml">
+                                    <f:param name="i" value="2" />
+                                </p:menuitem>
+                            </p:submenu>
+                        </p:menu> 
+                    </h:form>
+                </div>
+
+                <h:form>
+                    <p:layout class="aboutus_content">
+                        <p:layoutUnit position="center">
+                            <h2>Allmänna Villkor</h2>
+                            <h4>Som registrerad användare godkänner jag att:</h4>
+                            <p> Jag är över 18 år och myndig och har full juridisk rätt att ingå avtal med annan part. MatHem lagrar mina
+                                personliga uppgifter samt de inköp som jag gör. Mathems policy är att ingen del av dina personliga uppgifter
+                                lämnas vidare till tredje part i någon form utan ditt uttryckliga medgivande. De recept som jag lägger in kan bli
+                                offentliga för andra användare. Speciella erbjudanden kan komma till mig baserat på mina inköp. Jag kommer att
+                                kunna få erbjudanden skickat till mig via e­post, post och SMS. </p>
+                            <h4> Pris och Betalning </h4>
+                            <p>Priset för de varor du beställer är de du ser på dagen för din order. Skulle priset ändras till dagen för leverans gäller
+                                priset för den tidpunkt när du placerade din order. För abonnemang gäller priset då varje unik order skapas vilket
+                                normalt sker 6 dagar innan leverans. Alla priser är angivna inklusive moms om inte annat anges. Betalning görs
+                                med bank/kontokort eller faktura. Betalning med bank/konto sker via betalningslösningsleverantören PayEx Finance
+                                AB (www.payex.se). När betalning görs med betalkort reserveras totalbeloppet vid orderläggningen. Beloppet
+                                debiteras ditt konto under leveransdagen. Det kan i vissa fall ta upp till 7 bankdagar innan din bank registrerat
+                                köpet på ditt konto. Avbokar du din order släpper PayEx det reserverade beloppet. Det kan i vissa fall dröja upp till 7
+                                bankdagar innan banken noterar detta och att reservationen försvinner helt från ditt konto. Fakturabetalning sker
+                                genom våra samarbetspartners Klarna eller PayEx. Fakturan skickas som en PDF­fil via e­mail med Klarna (fakturor
+                                via PayEx skickas som brev till angiven fakturaadress).Matbutiken accepterar inte av säkerhetsskäl betalning med
+                                kontanter eller checkar. De produkter där pant förekommer anges priset exklusive pant om inte annat anges. Vi
+                                erbjuder dig möjligheten returnera pantburkar och flaskor. Pengarna från panten går oavkortat till BRIS verksamhet
+                                – Barnens Rätt I Samhället. </p>
+                            <h4>Leverans</h4>
+                            <p>Leveransen av dina varor sker, om ej annat anges, till den adress du angivit. Finns ingen hemma lämnas varorna
+                                utanför dörren. Om det är din första leverans och betalningen sker mot faktura krävs en signatur för överlämnande
+                                av order. Om din leverans innehåller alkoholdrycker eller läkemedel kommer denna inte att lämnas vid din dörr. Vid
+                                leverans av alkoholdrycker med procenthalt över 2,25% och läkemedel måste leveransen tas emot av myndig person.
+                                Kontroll av legitimation kan ske. Det är Du som kund som är ansvarig för att hålla Matbutiken uppdaterad om dina
+                                uppgifter och därmed ge oss möjlighet att leverera till rätt adress. Det är din uppgift att se till att vi kan komma fram
+                                till dörren. Om vi av någon anledning inte kan nå dig med varorna debiteras du med f.n. 250 kr samt kostnaderna
+                                för ev. varor som vi måste kassera. </p>
+                            <h4>Produkter</h4>
+                            <p>Vår målsättning är att alltid leverera fräscha varor med bra hållbarhet. De varor vi visar på www.Matbutiken.se finns vid
+                                beställningstillfället i lager. Vi plockar i första hand de varor du beställt, skulle det dock vara så att en vara inte
+                                finns så tar vi en motsvarande vara. Är den motsvarande varan dyrare så bjuder vi på mellanskillnaden. Är den
+                                motsvarande varan
+                                billigare krediteras du mellanskillnaden, är en vara ej levererbar krediteras hela varans belopp. Samtliga våra
+                                produkter är möjliga att använda i Sverige.</p>
+                            <h4>Leveranstid</h4>
+                            <p>Vår ambition är att komma inom 30 minuter från det tidsintervall du önskat. Skulle tiden avvika från det önskade
+                                tidsintervallet kontaktar vi dig. Om vi kommer med leverans vid den tid du önskat och du inte är hemma så ställer vi
+                                varorna vid dörren, dock ej varor innehållandes alkohol med procenthalt 2,25 % och uppåt eller läkemedel, samt ej
+                                om det är din första leverans och betalning sker mot faktura.</p>
+                            <h4>Kvalitet</h4>
+                            <p>Är det fel på någon vara eller om en vara saknas kontakta oss direkt. Om en vara saknas eller är skadad krediteras
+                                den felaktiga varan. Vårt ansvar är begränsat till varans värde, samt eventuella returkostnader. Återbetalning
+                                kommer att ske inom 30 dagar.</p>
+                            <h4>Ångerrätt</h4>
+                            <p>Som kund hos MatHem har du rätt att frånträda köpeavtalet (utnyttja din ångerrätt) inom 14 dagar från den dag
+                                du tar emot varan, eller väsentlig del av den. Ångerrätten gäller dock inte vid köp av dagligvaror från MatHem.
+                                Ångerrätten gäller under förutsättning att varan är i väsentligen oförändrat skick. För att utnyttja din ångerrätt är
+                                det tillräckligt att du skickar ett
+                                meddelande till oss (till exempel per brev eller e­post) om att du vill utnyttja ångerrätten eller att du skickar tillbaka
+                                varan före fristens utgång.
+                            </p>
+                        </p:layoutUnit>
+                    </p:layout>
+                </h:form>
+            </ui:define>
+        </ui:composition>                
+    </h:body>
+</html>

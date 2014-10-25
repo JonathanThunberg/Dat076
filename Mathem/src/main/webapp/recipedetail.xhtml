@@ -27,11 +27,9 @@ and open the template in the editor.
             </ui:define>
             
             <ui:define name="content">
-                <p:layout style="height: 75%; width: 75%">
-                    <p:layoutUnit position="center">
-                        <div id="recipes_detail" >
+                
                             <h:form id="form" >                               
-                                <p:fieldset legend="#{recipeDetailBB.name}" style="margin-bottom:20px">
+                                <p:fieldset legend="#{recipeDetailBB.name}" style="margin-bottom:50px">
                                     <h:panelGrid columns="2" cellpadding="5">
                                         <p:graphicImage class="recipe_img" value= "/img/Recipes/#{recipeDetailBB.name}.jpg"/>
                                         <h:outputText value="#{recipeDetailBB.description}" />
@@ -39,9 +37,7 @@ and open the template in the editor.
                                     </h:panelGrid>
                                 </p:fieldset>
                             </h:form>
-                        </div>
-                    </p:layoutUnit>
-                </p:layout>             
+                
             </ui:define>
         </ui:composition>
     </h:body>
