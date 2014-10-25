@@ -28,6 +28,22 @@ public class BuyConfirmationBB implements Serializable{
     private Shop shop;
     
     private String cardnumber;
+
+    public void setCardnumber(String cardnumber) {
+        this.cardnumber = cardnumber;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setExpdate(String expdate) {
+        this.expdate = expdate;
+    }
+
+    public void setCvc(String cvc) {
+        this.cvc = cvc;
+    }
     private String name;
     private String expdate;
     private String cvc;

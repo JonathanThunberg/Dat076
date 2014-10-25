@@ -3,6 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+/*
 package se.chalmers.dat076.mathem.model;
 
 import java.util.List;
@@ -25,11 +26,14 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import se.chalmers.dat076.mathem.model.entityclasses.Product;
 import se.chalmers.dat076.mathem.model.entityclasses.Recipe;
+*/
 
 /**
  *
  * @author tuna
  */
+
+/*
 @RunWith(Arquillian.class)
 public class CatalogueTest {
 
@@ -188,3 +192,4 @@ public class CatalogueTest {
     }
     
 }
+*/

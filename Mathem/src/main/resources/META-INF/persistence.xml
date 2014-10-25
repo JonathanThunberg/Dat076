@@ -4,7 +4,6 @@
     <jta-data-source>jdbc/mathem</jta-data-source>
     <class>se.chalmers.dat076.mathem.model.entityclasses.Customer</class>
     <class>se.chalmers.dat076.mathem.model.entityclasses.Product</class>
-    <class>se.chalmers.dat076.mathem.model.entityclasses.Account</class>
     <class>se.chalmers.dat076.mathem.model.entityclasses.Admin</class>
     <class>se.chalmers.dat076.mathem.model.entityclasses.Adress</class>
     <class>se.chalmers.dat076.mathem.model.entityclasses.Category</class>
