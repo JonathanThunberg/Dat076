@@ -60,8 +60,10 @@ public class BuyConfirmationCtrl {
         }
         System.out.println("Färdig med ordern");
         buyConBB.getCart().emptyCart();
+        FacesContext context = FacesContext.getCurrentInstance();
+        context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Ditt köp har gått igenom", ""));
+        context.getExternalContext().getFlash().setKeepMessages(true);
         FacesContext.getCurrentInstance().getExternalContext().redirect("shoppingcart.xhtml");
-        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Ditt köp har gått igenom", ""));
     }
 
     public void cancel() {
