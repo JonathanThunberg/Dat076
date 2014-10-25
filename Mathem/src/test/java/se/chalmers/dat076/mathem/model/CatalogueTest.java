@@ -24,12 +24,12 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import se.chalmers.dat076.mathem.model.entityclasses.Product;
+import se.chalmers.dat076.mathem.model.entityclasses.Recipe;
 
 /**
  *
  * @author tuna
  */
-/**
 @RunWith(Arquillian.class)
 public class CatalogueTest {
 
@@ -121,13 +121,13 @@ public class CatalogueTest {
         List<Product> list = shop.getProductCatalogue().getByName("aaa");
         assertTrue(list.size() == 1);
     }
-    
+
     @Test
     public void testPrice() throws Exception {
 
         Product p1 = new Product(1, "aaa", 999);
-        Product p2 = new Product(2, "bbb", 999);
-        Product p3 = new Product(3, "ccc", 999);
+        Product p2 = new Product(2, "bbb", 111);
+        Product p3 = new Product(3, "ccc", 222);
         shop.getProductCatalogue().create(p1);
         shop.getProductCatalogue().create(p2);
         shop.getProductCatalogue().create(p3);
@@ -142,5 +142,49 @@ public class CatalogueTest {
         em.createQuery("delete from Product").executeUpdate();
         utx.commit();
     }
+
+    @Test
+    public void testCategory() throws Exception {
+
+        Product p1 = new Product(1, "aaa", 999);
+        Product p2 = new Product(2, "bbb", 999);
+        Product p3 = new Product(3, "ccc", 999);
+        p1.setCategory("Dryck");
+        p2.setCategory("Dryck");
+        p3.setCategory("Godis");
+        shop.getProductCatalogue().create(p1);
+        shop.getProductCatalogue().create(p2);
+        shop.getProductCatalogue().create(p3);
+
+        List<Product> list = shop.getProductCatalouge().getByCategory("Godis");
+        assertTrue(list.size() == 1);
+    }
+    
+    @Test
+    public void testKey () throws Exception {
+        Product p1 = new Product(1, "aaa", 999);
+        Product p2 = new Product(2, "bbb", 999);
+        Product p3 = new Product(3, "ccc", 999);
+        shop.getProductCatalogue().create(p1);
+        shop.getProductCatalogue().create(p2);
+        shop.getProductCatalogue().create(p3);
+
+        List<Product> list = shop.getProductCatalouge().getByKey(2);
+        assertTrue(list.size() == 1);
+    }
+         
+    @Test
+    public void testDescription () throws Exception {
+        
+        Recipe r1 = new Recipe("aa","descr1");
+        Recipe r2 = new Recipe("bb","descr2");
+        Recipe r3 = new Recipe("cc","descr3");
+        shop.getRecipeCatalogue().create(r1);
+        shop.getRecipeCatalogue().create(r2);
+        shop.getRecipeCatalogue().create(r3);
+        
+        List<Recipe> list = shop.getRecipeCatalogue().getByDescription("descr2");
+        assertTrue(list.size() == 1);
+    }
+    
 }
-**/
