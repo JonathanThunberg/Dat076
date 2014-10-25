@@ -22,12 +22,21 @@ p{
     min-width:400px;
     min-height:700px;
 }
+.recipe_intro{
+    min-width:600px;
+}
 body{
     margin:2% 15%;
     background-image: url(../img/background.jpg);
 }
 #matbutiken_left_menu{
     float: left;
+    width: 13%;
+    font-size: 15px;
+    overflow:hidden;
+}
+#search_menu{
+    float:left;
     width: 13%;
     font-size: 15px;
     overflow:hidden;

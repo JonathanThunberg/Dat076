@@ -33,7 +33,9 @@ and open the template in the editor.
                                     <h:panelGrid columns="2" cellpadding="5">
                                         <p:graphicImage class="recipe_img" value= "/img/Recipes/#{recipeDetailBB.name}.jpg"/>
                                         <h:outputText value="#{recipeDetailBB.description}" />
-                                        <p:commandButton style=" width: 80px; font-size: 15px; margin-left: auto;" title="Tillbaka" value="Tillbaka" action="recipe?faces-redirect=true"/>
+                                        <p:button style=" width: 80px; font-size: 15px; margin-left: auto;" title="Tillbaka" value="Tillbaka" outcome="recipe">
+                                            <f:param name="i" value="1" />
+                                        </p:button>
                                     </h:panelGrid>
                                 </p:fieldset>
                             </h:form>

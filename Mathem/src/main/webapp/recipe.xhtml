@@ -21,20 +21,19 @@ and open the template in the editor.
         <ui:composition template="/WEB-INF/template.xhtml">
             <ui:define name="content"> 
 
-                <div id ="inner_main">
+                <div id ="inner_main">                    
                     <p:imageSwitch style="margin:5px 0 0 60px;" effect="scrollLeft">
                         <p:graphicImage class="recipe_img" value= "../img/introRecipe/bild2.jpg"/>
                         <p:graphicImage class="recipe_img" value= "../img/introRecipe/bild3.jpg"/>
                         <p:graphicImage class="recipe_img" value= "../img/introRecipe/bild5.jpg"/>
-                        <p:graphicImage class="recipe_img" value= "../img/introRecipe/bild6.jpg"/>
+                        <p:graphicImage class="recipe_img" value= "../img/introRecipe/bild6.jpg"/>       
                     </p:imageSwitch>
                 </div>
 
                 <div id="recipes_big_menu">
                     <h:form>
                         <p:dataGrid var="recipes" value="#{recipeBB.recipes}" columns="3" layout="grid"
-                                    rows="6" paginator="true"
-                                    paginatorTemplate="{PreviousPageLink} {CurrentPageReport} {NextPageLink}">
+                                    rows="100">
                             <p:panel header="#{recipes.name}" style="text-align:center">
                                 <h:panelGrid columns="1" style="width:100%;">                                    
                                     <p:row>                                        
@@ -42,7 +41,8 @@ and open the template in the editor.
                                         <p:button outcome="recipedetail" value="Läs mer">
                                             <f:param name="name" id="name" value="#{recipes.name}" />
                                             <f:param name="description" id="description" value="#{recipes.description}" />
-                                        </p:button>                                        
+                                            <f:param name="i" value="1" />
+                                        </p:button>
                                     </p:row>
                                 </h:panelGrid>
                             </p:panel>

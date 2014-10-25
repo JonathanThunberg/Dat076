@@ -10,7 +10,6 @@ import javax.inject.Inject;
 import javax.inject.Named;
 import se.chalmers.dat076.mathem.model.OrderItem;
 import se.chalmers.dat076.mathem.model.ShoppingCart;
-import se.chalmers.dat076.mathem.model.entityclasses.Product;
 import se.chalmers.dat076.mathem.view.ProductsBB;
 
 /**
