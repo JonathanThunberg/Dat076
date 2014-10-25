@@ -18,6 +18,10 @@ p{
     min-width:400px;
     min-height:500px;
 }
+.product_content{
+    min-width:400px;
+    min-height:700px;
+}
 body{
     margin:2% 15%;
     background-image: url(../img/background.jpg);
