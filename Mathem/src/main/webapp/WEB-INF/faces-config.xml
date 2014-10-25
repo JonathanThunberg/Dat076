@@ -32,12 +32,21 @@
             <from-outcome>customerregistry</from-outcome>
             <to-view-id>/customerregistry.xhtml</to-view-id>
         </navigation-case>
-    </navigation-rule> 
-    <navigation-rule>
-    
+        <navigation-case>
+            <from-outcome>recipe</from-outcome>
+            <to-view-id>/recipe.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>editProduct</from-outcome>
+            <to-view-id>/editProduct.xhtml</to-view-id>
+        </navigation-case>
         <navigation-case>
             <from-outcome>recipedetail</from-outcome>
             <to-view-id>/recipedetail.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>productdetail</from-outcome>
+            <to-view-id>/productdetail.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule> 
     <application>

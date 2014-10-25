@@ -10,6 +10,12 @@
     </h:head>
     <h:body>
         <ui:composition template="/WEB-INF/template.xhtml">
+            <ui:define name="metadata">
+                <f:metadata>
+                    <f:viewParam name="name" value="#{productDetailBB.name}"/>                    
+                </f:metadata>
+            </ui:define>
+
             <ui:define name="content"> 
                 <div id="matbutiken_left_menu">
                     <p:menu>
@@ -39,43 +45,42 @@
                                 <f:param name="category" value="Godis"/>    
                             </p:menuitem>
                         </p:submenu>
-                    </p:menu>                    
-                    <h:form>
-                        <h:panelGrid columns="1" cellpadding="5" >                        
-                            <p:inputText id="productname" size="15" value="#{searchBB.productname}"/>
-                            <p:commandButton value="Sök Produkt" actionListener="#{searchCtrl.search()}"/>
+                    </p:menu>
 
+                    <h:form>
+                        <h:panelGrid columns="1" cellpadding="5">                        
+                            <p:inputText id="productname" size="15" value="#{searchBB.productname}"/>
+                            <p:commandButton value="Sök Produkt" actionListener="#{searchCtrl.search}" />
                         </h:panelGrid>
                     </h:form>
                 </div>
-                <p:button value="Lägg till ny vara" outcome="addProduct" rendered="#{renderBB.userAdmin}" />
-                </div>               
-                <p:dataGrid var="prod" value="#{productsBB.products}" columns="3" layout="grid"
-                            rows="99" id="products">
 
-                    <p:panel header="#{prod.product.name}" style="text-align:center">
-                        <h:panelGrid columns="1" style="width:100%;">
-                            <p:row> <p:graphicImage value= "/img/Products/#{prod.product.name}.jpg"/>
-                            </p:row>
-                            <h:outputText value="#{prod.product.price} kr/st"/>
-                            <p:row>  
-                                <p:spinner style="float:left; " size="5"  min="1" value="#{prod.quantity}" rendered="#{renderBB.userCustomer}"/>
-                                <p:commandButton style="float: left; width: 60px; font-size: 15px; margin-left: 6px;" title="Köp" value="Köp"  actionListener="#{productsCtrl.buy(prod)}" rendered="#{renderBB.userCustomer}"/> 
-                                <p:button style="width: 72%" title="Ändra" value="Ändra" rendered="#{renderBB.userAdmin}" outcome="editProduct">
-                                    <f:param name="name" id="name" value="#{prod.product.name}"/>
-                                    <f:param name="price" id="price" value="#{prod.product.price}"/>
-                                    <f:param name="id" id="id" value="#{prod.product.id}"/>
-                                </p:button>
-                                <p:commandButton style="width: 72%" title="Ta bort" value="Ta bort"  actionListener="#{productsCtrl.delete(prod.product)}" rendered="#{renderBB.userAdmin}"/>
-                            </p:row>
-                        </h:panelGrid>
-                    </p:panel>
 
-                </p:dataGrid>
-                </p:layoutUnit>
-                </p:layout>
-                </h:form>
+                <div id="matbutiken_big_menu">
+                    <h:form id="form">
+                        <p:layout class="product_content">
+                            <p:layoutUnit position="center">
+                                <p:dataGrid var="prod" value="#{searchDetailBB.products}" columns="4" layout="grid"
+                                            rows="99" id="products">
 
+                                    <p:panel header="#{prod.product.name}" style="text-align:center">
+                                        <h:panelGrid columns="1" style="width:100%;">
+                                            <p:row> <p:graphicImage value= "/img/Products/#{prod.product.name}.jpg"/>
+                                            </p:row>
+                                            <h:outputText value="#{prod.product.price} kr/st" />
+                                            <p:row>  
+                                                <p:spinner style="float:left; " size="5"  min="1" value="#{prod.quantity}" rendered="#{renderBB.userCustomer}"/>
+                                                <p:commandButton style="float: left; width: 60px; font-size: 15px; margin-left: 6px;" title="Köp" value="Köp"  actionListener="#{productsCtrl.buy(prod)}" rendered="#{renderBB.userCustomer}"/>                                                     
+                                                <p:button style=" width: 80px; font-size: 15px; margin-left: auto;" title="Tillbaka" value="Tillbaka" outcome="products">
+                                                    <f:param name="i" value="0" />
+                                                </p:button>
+                                            </p:row>
+                                        </h:panelGrid>
+                                    </p:panel>
+                                </p:dataGrid>
+                            </p:layoutUnit>
+                        </p:layout>
+                    </h:form>
                 </div>
             </ui:define>
         </ui:composition>                
