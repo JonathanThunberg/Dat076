@@ -40,30 +40,37 @@
                             </p:menuitem>
                         </p:submenu>
                     </p:menu>
+                    <p:button value="Lägg till ny vara" outcome="addProduct"/>
                 </div>
-
+                    
                 <div id="matbutiken_big_menu">
                     <h:form id="form">
                         <p:dataGrid var="prod" value="#{productsBB.products}" columns="3" layout="grid"
                                     rows="9" paginator="true" id="products"
                                     paginatorTemplate="{PreviousPageLink} {CurrentPageReport} {NextPageLink}">
-
+                                        
                             <p:panel header="#{prod.product.name}" style="text-align:center">
                                 <h:panelGrid columns="1" style="width:100%;">
                                     <p:row> <p:graphicImage value= "/img/Products/#{prod.product.name}.jpg"/>
                                     </p:row>
-                                    <h:outputText value="#{prod.product.price} kr/st" />
+                                    <h:outputText value="#{prod.product.price} kr/st"/>
                                     <p:row>  
                                         <p:spinner style="float:left; " size="5"  min="1" value="#{prod.quantity}" rendered="#{renderBB.userCustomer}"/>
-                                        <p:commandButton style="float: left; width: 60px; font-size: 15px; margin-left: 6px;" title="Köp" value="Köp"  actionListener="#{productsCtrl.buy(prod)}" rendered="#{renderBB.userCustomer}"/>                                                     
+                                        <p:commandButton style="float: left; width: 60px; font-size: 15px; margin-left: 6px;" title="Köp" value="Köp"  actionListener="#{productsCtrl.buy(prod)}" rendered="#{renderBB.userCustomer}"/> 
+                                        <p:button style="width: 72%" title="Ändra" value="Ändra" rendered="#{renderBB.userAdmin}" outcome="editProduct">
+                                            <f:param name="name" id="name" value="#{prod.product.name}"/>
+                                            <f:param name="price" id="price" value="#{prod.product.price}"/>
+                                            <f:param name="id" id="id" value="#{prod.product.id}"/>
+                                        </p:button>
+                                        <p:commandButton style="width: 72%" title="Ta bort" value="Ta bort"  actionListener="#{productsCtrl.delete(prod.product)}" rendered="#{renderBB.userAdmin}"/>
                                     </p:row>
                                 </h:panelGrid>
                             </p:panel>
-
+                                
                         </p:dataGrid>
-
+                            
                     </h:form>
-
+                        
                 </div>
             </ui:define>
         </ui:composition>                

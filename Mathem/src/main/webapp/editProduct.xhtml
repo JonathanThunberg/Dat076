@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui" >
+    
+    
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />        
+        <link rel="stylesheet" type="text/css" href="css/default.css"/>
+        
+    </h:head>    
+    <h:body style="text-align: center">
+        <ui:composition template="/WEB-INF/template.xhtml">
+            <ui:define name="metadata">
+                <f:metadata>
+                    <f:viewParam name="name" value="#{editProductBB.name}"/>
+                    <f:viewParam name="price" value="#{editProductBB.price}"/>
+                    <f:viewParam name="id" value="#{editProductBB.id}"/>
+                </f:metadata>
+            </ui:define>
+            
+            <ui:define name="content">
+                <p:layout style="height: 370px; width: 100%;">
+                    <p:layoutUnit position="center">
+                         <div style="margin:0 auto;width:15%;text-align:left">
+                            <p:outputLabel value="Ändra vara" style=" font-size: larger; font-weight: bold"/>
+                            <br/>
+                        </div>
+                        <div style="margin:0 auto;width:25%;text-align:left">
+                            <h:form>
+                                <div style="margin:0 auto;width:75%;text-align:left">
+                                    <h:panelGrid columns="1">
+                                        <br />
+                                        <p:inputText id="name" size="15" value="#{editProductBB.name}"/>
+                                        <br />
+                                        <p:graphicImage value= "/img/Products/#{editProductBB.name}.jpg"/>
+                                        <h:panelGrid columns="2" cellpadding="5">
+                                            <p:outputLabel for="price" value="Pris: "/>
+                                            <p:spinner id="price" value="#{editProductBB.price}" size="5" min="0" stepFactor="0.05"/>
+                                        </h:panelGrid>
+                                    </h:panelGrid>
+                                </div>
+                                <h:panelGrid columns="2" cellpadding="5">
+                                    <p:commandButton value="Tillbaka" action="products?faces-redirect=true"/>
+                                    <p:commandButton value="Ändra" actionListener="#{editProductCtrl.edit()}"/>
+                                </h:panelGrid>
+                            </h:form>
+                        </div>
+                    </p:layoutUnit>
+                </p:layout>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>

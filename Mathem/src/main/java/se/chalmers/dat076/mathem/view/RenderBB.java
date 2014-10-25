@@ -37,7 +37,7 @@ public class RenderBB {
     
     public boolean isUserAdmin() {
         if(isUserLoggedIn()) {
-            return (shop.getUserCatalogue().getByKey(FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("user").toString()).isEmpty());
+            return !(shop.getAdminCatalogue().getByKey(FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("user").toString()).isEmpty());
         }else{
             return false;
         }

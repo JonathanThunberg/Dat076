@@ -6,7 +6,6 @@
 
 package se.chalmers.dat076.mathem.model;
 
-import se.chalmers.dat076.mathem.model.catalogue.ICatalogue;
 import se.chalmers.dat076.mathem.model.catalogue.ICustomerCatalogue;
 import se.chalmers.dat076.mathem.model.catalogue.IRecipeCatalogue;
 import se.chalmers.dat076.mathem.model.catalogue.IProductCatalogue;
@@ -73,5 +72,5 @@ public class Shop {
     public IUserCatalogue getUserCatalogue() {
         return uC;
     }
-    
+   
 }
