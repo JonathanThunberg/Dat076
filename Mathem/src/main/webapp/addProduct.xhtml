@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui" >
+    
+    
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />        
+        <link rel="stylesheet" type="text/css" href="css/default.css"/>
+        
+    </h:head>    
+    <h:body style="text-align: center">
+        <ui:composition template="/WEB-INF/template.xhtml">
+            <ui:define name="content">
+                <p:layout style="height: 220px; width: 100%;">
+                    <p:layoutUnit position="center">
+                        <div style="margin:0 auto;width:20%;text-align:left">
+                            <p:outputLabel value="Lägg till vara" style=" font-size: larger; font-weight: bold"/>
+                            <br/>
+                            <br/>
+                        </div>
+                        <div style="margin:0 auto;width:25%;text-align:left">
+                            <h:form>
+                                <h:panelGrid columns="2">
+                                    <p:outputLabel for="name" value="Namn:"/>
+                                    <p:inputText id="name" size="15" value="#{addProductBB.name}"/>
+                                    <p:outputLabel for="price" value="Pris: "/>
+                                    <p:spinner id="price" value="#{addProductBB.price}" size="5" min="0" stepFactor="0.05"/>
+                                    <p:outputLabel for="category" value="Kategori: " />
+                                    <p:selectOneMenu id="category" value="#{addProductBB.category}" style="width:150px">
+                                        <f:selectItem itemLabel="Välj kategori" itemValue="" noSelectionOption="true" />
+                                        <f:selectItems value="#{addProductBB.categories}" />
+                                    </p:selectOneMenu>
+                                </h:panelGrid>   
+                                <h:panelGrid columns="2" cellpadding="5">
+                                    <p:commandButton value="Tillbaka" action="products?faces-redirect=true"/>
+                                    <p:commandButton value="Lägg till" actionListener="#{addProductCtrl.add}"/>
+                                </h:panelGrid>
+                            </h:form>
+                        </div>
+                    </p:layoutUnit>
+                </p:layout>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>

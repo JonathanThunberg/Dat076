@@ -32,7 +32,7 @@ public class ShoppingCart implements Serializable{
             }
         }
         if(!itemAdded) {
-            items.add(item);
+            items.add(new OrderItem(item.getProduct(),item.getQuantity()));
         }  
     }
 

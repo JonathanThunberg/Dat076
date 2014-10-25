@@ -6,10 +6,8 @@ package se.chalmers.dat076.mathem.view;
  */
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 import javax.annotation.PostConstruct;
-import javax.ejb.Init;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
@@ -26,8 +24,8 @@ public class ProductsBB implements Serializable {
     @Inject
     private Shop shop;
     private List<OrderItem> products= new ArrayList<>();
-    private Product selectedProd;
     private String category;
+    private double price;
     
     @PostConstruct
     public void init() {
@@ -41,7 +39,6 @@ public class ProductsBB implements Serializable {
                 for (Product p : shop.getProductCatalogue().getByCategory(category)) {
                     products.add(new OrderItem(p,1));
                 }
-                System.out.println("I kategorin: " + category + "finns det så här många produkter: " + products.size());
                 return products;
             }
         }
@@ -57,14 +54,7 @@ public class ProductsBB implements Serializable {
     public void setProducts(List<OrderItem> p) {
         products = p;
     }
-    
-    public Product getSelectedProd() {
-        return selectedProd;
-    }
-    
-    public void setSelectedProd(Product selectedProd) {
-        this.selectedProd = selectedProd;
-    }
+
     
     public String getCategory() {
         return category;
@@ -75,9 +65,14 @@ public class ProductsBB implements Serializable {
         this.category = category;
     }
     
-    //public void editCategory() {
+    public void setPrice(double price) {
+        System.out.println("Priset sätts till: " + price);
+        this.price = price;
+    }
     
-    //}
+    public double getPrice() {
+        return price;
+    }
     
    
 }

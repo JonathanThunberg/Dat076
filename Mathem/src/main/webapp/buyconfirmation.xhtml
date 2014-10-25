@@ -22,7 +22,7 @@ and open the template in the editor.
         <p:layout>
             <p:layoutUnit position="center">
                 <h:form>
-                    <p:dataTable var="item" value="#{shoppingCartBB.cart.orderItems}">
+                    <p:dataTable var="item" value="#{buyConfirmationBB.cart.orderItems}">
                         <p:column headerText="Namn">
                             <h:outputText value="#{item.product.name}" />
                         </p:column>
@@ -37,29 +37,49 @@ and open the template in the editor.
                         </p:column>
                         
                         <p:column headerText="Pris">
-                            <h:outputText value="#{shoppingCartBB.cart.getPrice(item)} kr" />
+                            <h:outputText value="#{buyConfirmationBB.cart.getPrice(item)} kr" />
                         </p:column>
                         
-                    </p:dataTable>
-                   <h:panelGrid columns="8" cellpadding="5">
-                   <h:outputText value="Leveransadress: " />
-                   <h:outputText value="#{shoppingCartBB.customer.adresses.adressesPK.streetname}" />
+                    </p:dataTable> 
                     
-                    <h:outputText value="Postort: "/>
-                        <h:outputText value="#{shoppingCartBB.customer.adresses.adressesPK.city}" />
-                    
-                    
-                    <h:outputText value="Postnr: "/>
-                        <h:outputText value="#{shoppingCartBB.customer.adresses.postalcode}"/>
-                    
-                    <h:outputText value="Motagare: "/>
-                        <h:outputText value="#{shoppingCartBB.customer.name}" />
+                    <h:panelGrid columns="8" cellpadding="5">
+                        <h:outputText value="Leveransadress: " />
+                        <h:outputText value="#{buyConfirmationBB.customer.adresses.adressesPK.streetname}" />
+                        
+                        <h:outputText value="Postort: "/>
+                        <h:outputText value="#{buyConfirmationBB.customer.adresses.adressesPK.city}" />
+                        
+                        <h:outputText value="Postnr: "/>
+                        <h:outputText value="#{buyConfirmationBB.customer.adresses.postalcode}"/>
+                        
+                        <h:outputText value="Motagare: "/>
+                        <h:outputText value="#{buyConfirmationBB.customer.name}" />
                     </h:panelGrid>
                     
-                    <p:commandButton value="Avbryt" actionListener="#{shoppingCartCtrl.cancel()}" update="@form" />
-                    <p:commandButton value="Köp" actionListener="#{shoppingCartCtrl.confirm()}" />
-                    <p:outputLabel value="Summa: #{shoppingCartBB.cart.totalPrice} kr"/>
+                    <h:outputText value="Betalinfo: " />
+                    <h:panelGrid columns="4" cellpadding="5">
+                        <h:outputText value="Kortnummer :" />
+                        <h:inputText value="#{buyConfirmationBB.cardnumber}"/>
+                        
+                        <h:outputText value="CVC: "/>
+                        <h:inputText value="#{buyConfirmationBB.cvc}" />
+                        
+                        <h:outputText value="Giltig till: "/>
+                        <h:inputText value="#{buyConfirmationBB.expdate}"/>
+                        
+                        <h:outputText value="Innehavarens namn: "/>                        
+                        <h:inputText value="#{buyConfirmationBB.name}" />
+                        
+                        
+                        <h:outputText value="Spara kortuppgifter: " />
+                        <p:selectBooleanCheckbox value="#{buyConfirmationBB.saveInfo}" />
+                    </h:panelGrid>
+                    <p:commandButton value="Avbryt" actionListener="#{buyConfirmationCtrl.cancel}"  />
+                    <p:commandButton value="Köp" actionListener="#{buyConfirmationCtrl.confirm}"  />
+                    <p:outputLabel value="Totalt: #{buyConfirmationBB.cart.totalPrice} kr"/>
+                    
                 </h:form>
+                
             </p:layoutUnit>
         </p:layout>
     </h:body>

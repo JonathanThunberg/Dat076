@@ -6,16 +6,20 @@
 package se.chalmers.dat076.mathem.model.entityclasses;
 
 import java.io.Serializable;
+import java.util.Collection;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
+import org.codehaus.jackson.annotate.JsonIgnore;
 
 /**
  *
@@ -31,6 +35,8 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "Accounts.findByExpdate", query = "SELECT a FROM Account a WHERE a.expdate = :expdate"),
     @NamedQuery(name = "Accounts.findByCvc", query = "SELECT a FROM Account a WHERE a.cvc = :cvc")})
 public class Account implements Serializable {
+    @OneToMany(mappedBy = "account")
+    private Collection<Payswith> payswithCollection;
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
@@ -123,6 +129,16 @@ public class Account implements Serializable {
     @Override
     public String toString() {
         return "se.chalmers.dat076.mathem.model.entityclasses.Accounts[ cardnumber=" + cardnumber + " ]";
+    }
+
+    @XmlTransient
+    @JsonIgnore
+    public Collection<Payswith> getPayswithCollection() {
+        return payswithCollection;
+    }
+
+    public void setPayswithCollection(Collection<Payswith> payswithCollection) {
+        this.payswithCollection = payswithCollection;
     }
     
 }

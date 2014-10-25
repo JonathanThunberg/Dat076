@@ -37,7 +37,7 @@
                 <p:menuitem value="Registrera dig" icon="ui-icon-pencil" outcome="customerregistry" rendered="#{!renderBB.isUserLoggedIn()}">
                     <f:param name="i" value="4" />
                 </p:menuitem>
-                <p:menuitem value="Min Sida" outcome="mypage" rendered="#{renderBB.isUserLoggedIn()}">
+                <p:menuitem value="Min Sida" outcome="mypage" rendered="#{renderBB.isUserCustomer()}">
                     <f:param name="i" value="4" />
                 </p:menuitem>
                 <p:menuitem value="Logga ut" actionListener="#{loginCtrl.logout()}" rendered="#{renderBB.isUserLoggedIn()}">

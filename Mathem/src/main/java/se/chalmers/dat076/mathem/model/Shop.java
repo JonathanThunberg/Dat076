@@ -6,15 +6,18 @@
 
 package se.chalmers.dat076.mathem.model;
 
-import se.chalmers.dat076.mathem.model.catalogue.ICatalogue;
 import se.chalmers.dat076.mathem.model.catalogue.ICustomerCatalogue;
 import se.chalmers.dat076.mathem.model.catalogue.IRecipeCatalogue;
 import se.chalmers.dat076.mathem.model.catalogue.IProductCatalogue;
 import se.chalmers.dat076.mathem.model.catalogue.IAdressesCatalogue;
 import javax.ejb.EJB;
 import javax.enterprise.context.ApplicationScoped;
+import se.chalmers.dat076.mathem.model.catalogue.IAccountCatalogue;
 import se.chalmers.dat076.mathem.model.catalogue.IAdminCatalogue;
 import se.chalmers.dat076.mathem.model.catalogue.ICategoryCatalogue;
+import se.chalmers.dat076.mathem.model.catalogue.IOrderCatalogue;
+import se.chalmers.dat076.mathem.model.catalogue.IOrderQuantityCatalogue;
+import se.chalmers.dat076.mathem.model.catalogue.IPayswithCatalogue;
 import se.chalmers.dat076.mathem.model.catalogue.IUserCatalogue;
 
 
@@ -27,6 +30,9 @@ public class Shop {
     
     @EJB
     private IProductCatalogue pC;
+    
+    @EJB
+    private IAccountCatalogue acC;
     
     @EJB
     private ICustomerCatalogue cC;
@@ -45,6 +51,12 @@ public class Shop {
     
     @EJB
     private IAdminCatalogue adC;
+    @EJB
+    private IPayswithCatalogue pwc;
+    @EJB
+    private IOrderCatalogue oC;
+    @EJB
+    private IOrderQuantityCatalogue oQC;
     
     public IAdminCatalogue getAdminCatalogue() {
         return adC;
@@ -74,4 +86,20 @@ public class Shop {
         return uC;
     }
     
+    public IAccountCatalogue getAccountCatalogue() {
+        return acC;
+    }
+
+    public IPayswithCatalogue getPaysWithCatalogue() {
+        return pwc;
+    }
+
+    public IOrderCatalogue getOrderCatalogue() {
+        return oC;
+    }
+
+    public IOrderQuantityCatalogue getOrderQuantityCatalogue() {
+        return oQC;
+    }
+
 }

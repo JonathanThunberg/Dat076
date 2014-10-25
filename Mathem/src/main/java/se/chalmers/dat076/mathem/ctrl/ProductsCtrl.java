@@ -9,7 +9,9 @@ import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 import se.chalmers.dat076.mathem.model.OrderItem;
+import se.chalmers.dat076.mathem.model.Shop;
 import se.chalmers.dat076.mathem.model.ShoppingCart;
+import se.chalmers.dat076.mathem.model.entityclasses.Product;
 import se.chalmers.dat076.mathem.view.ProductsBB;
 
 /**
@@ -24,6 +26,9 @@ public class ProductsCtrl {
     private ProductsBB productsBB;
     
     @Inject
+    private Shop shop;
+    
+    @Inject
     private ShoppingCart cart;
     
     @Inject
@@ -33,6 +38,11 @@ public class ProductsCtrl {
     
     public void buy(OrderItem product) {
         cart.add(product);
+    }
+    
+    public void delete(Product product) {
+        System.out.println(product.getName());
+        shop.getProductCatalogue().delete(product.getId());
     }
     
 }
