@@ -10,44 +10,42 @@
     </h:head>
     <h:body>
         <ui:composition template="/WEB-INF/template.xhtml">            
-
             <ui:define name="content"> 
                 <div id="matbutiken_left_menu">
-                    <p:menu>
-                        <p:submenu label="Kategorier">
-                            <p:menuitem value="Alla" outcome="products">
-                                <f:param name="category" value="Alla"/>
-                            </p:menuitem>
-                            <p:menuitem value="Frukt &amp; Grönt" outcome="products"> 
-                                <f:param name="category" value="Frukt &amp; Grönt"/>
-                            </p:menuitem>
-                            <p:menuitem value="Dryck" outcome="products">
-                                <f:param name="category" value="Dryck"/>
-                            </p:menuitem>
-                            <p:menuitem value="Kött &amp; Chark" outcome="products">
-                                <f:param name="category" value="Kött &amp; Chark"/>    
-                            </p:menuitem>
-                            <p:menuitem value="Fisk &amp; Skaldjur" outcome="products">
-                                <f:param name="category" value="Fisk &amp; Skaldjur"/>
-                            </p:menuitem>
-                            <p:menuitem value="Mejeri" outcome="products">
-                                <f:param name="category" value="Mejeri"/>    
-                            </p:menuitem>
-                            <p:menuitem value="Skafferi" outcome="products">
-                                <f:param name="category" value="Skafferi"/>    
-                            </p:menuitem>
-                            <p:menuitem value="Godis" outcome="products">
-                                <f:param name="category" value="Godis"/>    
-                            </p:menuitem>
-                        </p:submenu>
-                    </p:menu>
-
-                    <h:form>
-                        <h:panelGrid columns="1" cellpadding="5">                        
-                            <p:inputText id="productname" size="15" value="#{searchBB.productname}"/>
-                            <p:commandButton value="Sök Produkt" actionListener="#{searchCtrl.search}" />
-                        </h:panelGrid>
-                    </h:form>
+                        <p:menu>
+                            <p:submenu label="Kategorier">
+                                <p:menuitem value="Alla" outcome="products">
+                                    <f:param name="category" value="Alla"/>
+                                </p:menuitem>
+                                <p:menuitem value="Frukt &amp; Grönt" outcome="products"> 
+                                    <f:param name="category" value="Frukt &amp; Grönt"/>
+                                </p:menuitem>
+                                <p:menuitem value="Dryck" outcome="products">
+                                    <f:param name="category" value="Dryck"/>
+                                </p:menuitem>
+                                <p:menuitem value="Kött &amp; Chark" outcome="products">
+                                    <f:param name="category" value="Kött &amp; Chark"/>    
+                                </p:menuitem>
+                                <p:menuitem value="Fisk &amp; Skaldjur" outcome="products">
+                                    <f:param name="category" value="Fisk &amp; Skaldjur"/>
+                                </p:menuitem>
+                                <p:menuitem value="Mejeri" outcome="products">
+                                    <f:param name="category" value="Mejeri"/>    
+                                </p:menuitem>
+                                <p:menuitem value="Skafferi" outcome="products">
+                                    <f:param name="category" value="Skafferi"/>    
+                                </p:menuitem>
+                                <p:menuitem value="Godis" outcome="products">
+                                    <f:param name="category" value="Godis"/>    
+                                </p:menuitem>
+                            </p:submenu>
+                        </p:menu>
+                        <h:form>
+                            <h:panelGrid columns="1" cellpadding="5">                        
+                                <p:inputText id="productname" size="15" value="#{searchBB.productname}"/>
+                                <p:commandButton value="Sök Produkt" actionListener="#{searchCtrl.search}" />
+                            </h:panelGrid>
+                        </h:form>
                 </div>
 
 
@@ -55,7 +53,7 @@
                     <h:form id="form">
                         <p:layout class="product_content">
                             <p:layoutUnit position="center">
-                                <p:dataGrid var="prod" value="#{productDetailBB.products}" columns="4" layout="grid"
+                                <p:dataGrid var="prod" value="#{searchBB.products}" columns="4" layout="grid"
                                             rows="4" id="products">
 
                                     <p:panel header="#{prod.product.name}" style="text-align:center">

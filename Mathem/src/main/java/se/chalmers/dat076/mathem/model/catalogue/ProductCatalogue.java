@@ -32,7 +32,7 @@ public class ProductCatalogue extends AbstractDAO<Product, Integer>
     public List<Product> getByName(String name) {
         List<Product> found = new ArrayList<>();
         for (Product p : findRange(0, count())) {
-            if (p.getName().equals(name)) {
+            if (p.getName().startsWith(name)) {
                 found.add(p);
             }
         }
