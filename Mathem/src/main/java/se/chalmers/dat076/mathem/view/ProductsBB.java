@@ -26,27 +26,27 @@ public class ProductsBB implements Serializable {
     private List<OrderItem> products= new ArrayList<>();
     private String category;
     private double price;
+    private String productid;
     
     @PostConstruct
     public void init() {
-        category = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("category");
+        category = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("category");       
     }
     
     public List<OrderItem> getProducts() {
-        products.clear();
-        for (Category c : shop.getCategoryCatalogue().findAll()) {
-            if(c.getName().equals(category)){
-                for (Product p : shop.getProductCatalogue().getByCategory(category)) {
-                    products.add(new OrderItem(p,1));
+        products.clear();        
+            for (Category c : shop.getCategoryCatalogue().findAll()) {
+                if(c.getName().equals(category)){
+                    for (Product p : shop.getProductCatalogue().getByCategory(category)) {
+                        products.add(new OrderItem(p,1));
+                    }
+                    return products;
                 }
-                return products;
             }
-        }
-        
-        for (Product p : shop.getProductCatalogue().findAll()) {
-            products.add(new OrderItem(p,1));
-        }
-        
+            
+            for (Product p : shop.getProductCatalogue().findAll()) {
+                products.add(new OrderItem(p,1));
+            }        
         return products;
         
     }

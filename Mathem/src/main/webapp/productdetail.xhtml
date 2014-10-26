@@ -9,12 +9,7 @@
         <link rel="stylesheet" type="text/css" href="css/default.css"/>
     </h:head>
     <h:body>
-        <ui:composition template="/WEB-INF/template.xhtml">
-            <ui:define name="metadata">
-                <f:metadata>
-                    <f:viewParam name="name" value="#{productDetailBB.name}"/>                    
-                </f:metadata>
-            </ui:define>
+        <ui:composition template="/WEB-INF/template.xhtml">            
 
             <ui:define name="content"> 
                 <div id="matbutiken_left_menu">
@@ -60,8 +55,8 @@
                     <h:form id="form">
                         <p:layout class="product_content">
                             <p:layoutUnit position="center">
-                                <p:dataGrid var="prod" value="#{searchDetailBB.products}" columns="4" layout="grid"
-                                            rows="99" id="products">
+                                <p:dataGrid var="prod" value="#{productDetailBB.products}" columns="4" layout="grid"
+                                            rows="4" id="products">
 
                                     <p:panel header="#{prod.product.name}" style="text-align:center">
                                         <h:panelGrid columns="1" style="width:100%;">
