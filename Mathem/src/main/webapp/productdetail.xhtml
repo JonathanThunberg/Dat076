@@ -1,5 +1,7 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- Page is used to show the searched products -->
+
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:ui="http://java.sun.com/jsf/facelets"
@@ -12,42 +14,48 @@
         <ui:composition template="/WEB-INF/template.xhtml">            
             <ui:define name="content"> 
                 <div id="matbutiken_left_menu">
-                        <p:menu>
-                            <p:submenu label="Kategorier">
-                                <p:menuitem value="Alla" outcome="products">
-                                    <f:param name="category" value="Alla"/>
-                                </p:menuitem>
-                                <p:menuitem value="Frukt &amp; Grönt" outcome="products"> 
-                                    <f:param name="category" value="Frukt &amp; Grönt"/>
-                                </p:menuitem>
-                                <p:menuitem value="Dryck" outcome="products">
-                                    <f:param name="category" value="Dryck"/>
-                                </p:menuitem>
-                                <p:menuitem value="Kött &amp; Chark" outcome="products">
-                                    <f:param name="category" value="Kött &amp; Chark"/>    
-                                </p:menuitem>
-                                <p:menuitem value="Fisk &amp; Skaldjur" outcome="products">
-                                    <f:param name="category" value="Fisk &amp; Skaldjur"/>
-                                </p:menuitem>
-                                <p:menuitem value="Mejeri" outcome="products">
-                                    <f:param name="category" value="Mejeri"/>    
-                                </p:menuitem>
-                                <p:menuitem value="Skafferi" outcome="products">
-                                    <f:param name="category" value="Skafferi"/>    
-                                </p:menuitem>
-                                <p:menuitem value="Godis" outcome="products">
-                                    <f:param name="category" value="Godis"/>    
-                                </p:menuitem>
-                            </p:submenu>
-                        </p:menu>
-                        <h:form>
-                            <h:panelGrid columns="1" cellpadding="5">                        
-                                <p:inputText id="productname" size="15" value="#{searchBB.productname}"/>
-                                <p:commandButton value="Sök Produkt" action="/productdetail.xhtml" update="@form" style="width: 130px"/>
-                            </h:panelGrid>
-                        </h:form>
+                    <p:menu>
+                        <p:submenu label="Kategorier">
+                            <p:menuitem value="Alla" outcome="products">
+                                <f:param name="category" value="Alla"/>
+                            </p:menuitem>
+                            
+                            <p:menuitem value="Frukt &amp; Grönt" outcome="products"> 
+                                <f:param name="category" value="Frukt &amp; Grönt"/>
+                            </p:menuitem>
+                            
+                            <p:menuitem value="Dryck" outcome="products">
+                                <f:param name="category" value="Dryck"/>
+                            </p:menuitem>
+                            
+                            <p:menuitem value="Kött &amp; Chark" outcome="products">
+                                <f:param name="category" value="Kött &amp; Chark"/>    
+                            </p:menuitem>
+                            
+                            <p:menuitem value="Fisk &amp; Skaldjur" outcome="products">
+                                <f:param name="category" value="Fisk &amp; Skaldjur"/>
+                            </p:menuitem>
+                            
+                            <p:menuitem value="Mejeri" outcome="products">
+                                <f:param name="category" value="Mejeri"/>    
+                            </p:menuitem>
+                            
+                            <p:menuitem value="Skafferi" outcome="products">
+                                <f:param name="category" value="Skafferi"/>    
+                            </p:menuitem>
+                            
+                            <p:menuitem value="Godis" outcome="products">
+                                <f:param name="category" value="Godis"/>    
+                            </p:menuitem>
+                        </p:submenu>
+                    </p:menu>
+                    <h:form>
+                        <h:panelGrid columns="1" cellpadding="5">                        
+                            <p:inputText id="productname" size="15" value="#{searchBB.productname}"/>
+                            <p:commandButton value="Sök Produkt" action="/productdetail.xhtml" update="@form" style="width: 130px"/>
+                        </h:panelGrid>
+                    </h:form>
                 </div>
-
 
                 <div id="matbutiken_big_menu">
                     <h:form id="form">

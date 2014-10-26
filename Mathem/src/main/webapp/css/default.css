@@ -6,14 +6,13 @@
 root { 
     display: block;
 }
-head {
-
-}
-
 p{
     font-size: 15px;
 }
-
+body{
+    margin:2% 15%;
+    background-image: url(../img/background.jpg);
+}
 .aboutus_content{
     min-width:400px;
     min-height:500px;
@@ -24,10 +23,6 @@ p{
 }
 .recipe_intro{
     min-width:600px;
-}
-body{
-    margin:2% 15%;
-    background-image: url(../img/background.jpg);
 }
 #matbutiken_left_menu{
     float: left;

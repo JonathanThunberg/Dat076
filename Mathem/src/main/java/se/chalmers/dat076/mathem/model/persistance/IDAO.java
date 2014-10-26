@@ -1,15 +1,7 @@
-    
 package se.chalmers.dat076.mathem.model.persistance;
 
 import java.util.List;
 
-/**
- * Basic contract for containers of Products, Customers, etc
- *
- * @author hajo
- * @param <T> type of elements in container
- * @param <K> K is type of id (primary key)
- */
 public interface IDAO<T, K> {
 
     public void create(T t);

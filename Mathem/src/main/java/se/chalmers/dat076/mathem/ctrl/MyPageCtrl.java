@@ -1,8 +1,4 @@
-/*
-* To change this license header, choose License Headers in Project Properties.
-* To change this template file, choose Tools | Templates
-* and open the template in the editor.
-*/
+
 package se.chalmers.dat076.mathem.ctrl;
 
 import java.io.IOException;
@@ -20,8 +16,9 @@ import se.chalmers.dat076.mathem.util.PasswordUtil;
 import se.chalmers.dat076.mathem.view.MyPageBB;
 
 /**
- *
- * @author Julia
+ * Responsibility: Change a customers contact information
+ * Uses: Shop, MyPageBB, User, Customer, Adress
+ * Used by: myPage.xhtml
  */
 
 @Named

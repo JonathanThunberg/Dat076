@@ -11,38 +11,45 @@
     <h:head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />        
         <link rel="stylesheet" type="text/css" href="css/default.css"/>
-
         <title>MatButiken Online</title>
         <div id ="header"></div>
     </h:head>
     <h:body>
-
         <h:form>
             <p:tabMenu id="template_menu" activeIndex="#{param.i}">
+
                 <p:menuitem value="Matbutik" outcome="products" icon="ui-icon-cart">
                     <f:param name="i" value="0" />
                 </p:menuitem>
+
                 <p:menuitem value="Recept"  outcome="recipe" icon="ui-icon-note">
                     <f:param name="i" value="1" />
                 </p:menuitem>                
+
                 <p:menuitem value="Om oss"  outcome="aboutus" icon="ui-icon-person">
                     <f:param name="i" value="2" />
                 </p:menuitem>
+
                 <p:menuitem value="Varukorg" icon="ui-icon-cart" actionListener="#{shoppingCartDialog.openCart()}" rendered="#{renderBB.isUserCustomer()}">
                     <f:param name="i" value="3" />
                 </p:menuitem>
+
                 <p:menuitem value="Logga in" icon="ui-icon-contact"  outcome="login" rendered="#{!renderBB.isUserLoggedIn()}">
                     <f:param name="i" value="3" />
                 </p:menuitem>
+
                 <p:menuitem value="Registrera dig" icon="ui-icon-pencil" outcome="customerregistry" rendered="#{!renderBB.isUserLoggedIn()}">
                     <f:param name="i" value="4" />
                 </p:menuitem>
+
                 <p:menuitem value="Min Sida" outcome="mypage" rendered="#{renderBB.isUserCustomer()}">
                     <f:param name="i" value="4" />
                 </p:menuitem>
-                 <p:menuitem value="Orderhistorik" outcome="orderhistory" rendered="#{renderBB.isUserCustomer()}">
+
+                <p:menuitem value="Orderhistorik" outcome="orderhistory" rendered="#{renderBB.isUserCustomer()}">
                     <f:param name="i" value="5" />
                 </p:menuitem>
+
                 <p:menuitem value="Logga ut" actionListener="#{loginCtrl.logout()}" rendered="#{renderBB.isUserLoggedIn()}">
                     <f:param name="i" value="6" />
                 </p:menuitem>
@@ -54,6 +61,7 @@
             <ui:insert name="content">Content</ui:insert>
         </div>
     </h:body>
+
     <div id="footer">
         <p:layout style="height: 100%">
             <p:layoutUnit position="center">

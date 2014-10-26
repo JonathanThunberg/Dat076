@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
 <!DOCTYPE html>
+<!-- Shows the order which is created from the cart. In this page can the user put in it's creditcard info for payment-->
+
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:p="http://primefaces.org/ui">
-    
+
     <h:head>
         <title>Varukorg</title>
         <style type="text/css">
@@ -17,7 +14,7 @@ and open the template in the editor.
             }
         </style>
     </h:head>
-    
+
     <h:body>
         <p:layout>
             <p:layoutUnit position="center">
@@ -26,60 +23,58 @@ and open the template in the editor.
                         <p:column headerText="Namn">
                             <h:outputText value="#{item.product.name}" />
                         </p:column>
-                        
+
                         <p:column headerText="Pris/st">
                             <h:outputText value="#{item.product.price} kr" />
                         </p:column>
-                        
-                        
+
                         <p:column id="quantity" headerText="Antal">
                             <h:outputText value="#{item.quantity}"/>
                         </p:column>
-                        
+
                         <p:column headerText="Pris">
                             <h:outputText value="#{buyConfirmationBB.cart.getPrice(item)} kr" />
                         </p:column>
-                        
+
                     </p:dataTable> 
-                    
+
                     <h:panelGrid columns="8" cellpadding="5">
                         <h:outputText value="Leveransadress: " />
                         <h:outputText value="#{buyConfirmationBB.customer.adresses.adressesPK.streetname}" />
-                        
+
                         <h:outputText value="Postort: "/>
                         <h:outputText value="#{buyConfirmationBB.customer.adresses.adressesPK.city}" />
-                        
+
                         <h:outputText value="Postnr: "/>
                         <h:outputText value="#{buyConfirmationBB.customer.adresses.postalcode}"/>
-                        
+
                         <h:outputText value="Mottagare: "/>
                         <h:outputText value="#{buyConfirmationBB.customer.name}" />
                     </h:panelGrid>
-                    
+
                     <h:outputText value="Betalinfo: " />
                     <h:panelGrid columns="4" cellpadding="5">
                         <h:outputText value="Kortnummer :" />
                         <h:inputText value="#{buyConfirmationBB.cardnumber}"/>
-                        
+
                         <h:outputText value="CVC: "/>
                         <h:inputText value="#{buyConfirmationBB.cvc}" />
-                        
+
                         <h:outputText value="Giltig till: "/>
                         <h:inputText value="#{buyConfirmationBB.expdate}"/>
-                        
+
                         <h:outputText value="Innehavarens namn: "/>                        
                         <h:inputText value="#{buyConfirmationBB.name}" />
-                        
-                        
                     </h:panelGrid>
+
                     <p:commandButton value="Avbryt" actionListener="#{buyConfirmationCtrl.cancel}"  />
                     <p:commandButton value="Köp" actionListener="#{buyConfirmationCtrl.confirm}"  />
                     <p:outputLabel value="Totalt: #{buyConfirmationBB.cart.totalPrice} kr"/>
-                    
+
                 </h:form>
-                
+
             </p:layoutUnit>
         </p:layout>
     </h:body>
-    
+
 </html>

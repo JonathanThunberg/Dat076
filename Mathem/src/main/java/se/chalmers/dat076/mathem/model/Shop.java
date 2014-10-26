@@ -1,10 +1,5 @@
-/*
-* To change this license header, choose License Headers in Project Properties.
-* To change this template file, choose Tools | Templates
-* and open the template in the editor.
-*/
-
 package se.chalmers.dat076.mathem.model;
+
 
 import se.chalmers.dat076.mathem.model.catalogue.ICustomerCatalogue;
 import se.chalmers.dat076.mathem.model.catalogue.IRecipeCatalogue;
@@ -18,10 +13,14 @@ import se.chalmers.dat076.mathem.model.catalogue.IOrderCatalogue;
 import se.chalmers.dat076.mathem.model.catalogue.IOrderQuantityCatalogue;
 import se.chalmers.dat076.mathem.model.catalogue.IUserCatalogue;
 
-
 /**
- *
- * @author tuna
+ * Responsibilty: Managing all catalogues
+ * Uses: All Catalogues
+ * Used by: All ControlBean except ShoppingCartCtrl and ProductsCtrl, 
+ *          AddProductBB, BuyConfirmationBB, MyPageBB, OrderDetailBB, OrderHistoryBB,
+ *          ProductDetailBB, ProductsBB, RecipeBB, RenderBB, ShoppingCartBB, SearchDetailBB,
+ *          template.xhtml, aboutus.xhtml, contactus.xhtml, generalconditions.xhtml, safeshopping.xhtml, 
+ *          shoppingcart.xhtml, workhere.xhtml 
  */
 @ApplicationScoped
 public class Shop {
