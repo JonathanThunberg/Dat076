@@ -49,10 +49,8 @@ public class BuyConfirmationCtrl {
         
 
         //Validate() towards bank
-        List<OrderItem> orderItems = buyConBB.getCart().getOrderItems();
-        System.out.println(buyConBB.getCustomer().getName());
-        Customer customer = shop.getCustomerCatalogue().getByKey(buyConBB.getCustomer().getUsername()).get(0);
-        System.out.println("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"+customer.getName()); 
+        List<OrderItem> orderItems = buyConBB.getCart().getOrderItems();        
+        Customer customer = shop.getCustomerCatalogue().getByKey(buyConBB.getCustomer().getUsername()).get(0);        
         CustomerOrder o = new CustomerOrder();
         if(o.getCustomersCollection()==null){
             o.setCustomersCollection(new ArrayList<Customer>());

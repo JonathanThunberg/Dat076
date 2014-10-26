@@ -47,4 +47,15 @@ public class OrderQuantityCatalogue extends AbstractDAO<OrderQuantity, OrderQuan
     protected EntityManager getEntityManager() {
         return eM;
     } 
+    
+    @Override
+    public List<OrderQuantity> getByOrder(int order) {
+        List<OrderQuantity> found = new ArrayList<>();
+        for (OrderQuantity o : findRange(0, count())) {
+            if (o.getCustomerOrder().getId().equals(order)) {
+                found.add(o);
+            }
+        }
+        return found;
+    }
 }

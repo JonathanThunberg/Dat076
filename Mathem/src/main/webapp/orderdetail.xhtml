@@ -1,0 +1,54 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <link rel="stylesheet" type="text/css" href="css/default.css"/>
+    </h:head>
+    <h:body>
+        <ui:composition template="/WEB-INF/template.xhtml">
+            <ui:define name="metadata">
+                <f:metadata>
+                    <f:viewParam name="id" value="#{orderDetailBB.id}"/>                    
+                </f:metadata>
+            </ui:define>
+
+            <ui:define name="content">                
+                <p:layout style="margin-left: auto; margin-right: auto; height: 500px">
+                    <p:layoutUnit position="center">
+                        <div style="margin:0 auto;width:40%;text-align:left">
+                            <div style="margin:0 auto;width:20%;text-align:left">
+                                <p:outputLabel value="Order #{orderDetailBB.id}" style=" font-size: larger; font-weight: bold"/>
+                            </div>
+                            <br/>
+                            <br/>
+                            <p:dataTable var="prod" value="#{orderDetailBB.orderQuantities}">
+
+                                <p:column headerText="Namn">
+                                    <h:outputText value="#{prod.product.name}" />
+                                </p:column>
+
+                                <p:column headerText="Antal">
+                                    <h:outputText value="#{prod.amount}" />
+                                </p:column>                                                                                                                                   
+
+                            </p:dataTable>
+                            <br/>
+                            <p:outputLabel value="Totalt pris: #{orderDetailBB.price} kr"  />  
+                            <br/>
+                            <br/>
+                            <div style="margin:0 auto;width:20%;text-align:left">
+                                <p:button value="Tillbaka" outcome="/orderhistory.xhtml">
+                                    <f:param name="i" value="5" />
+                                </p:button>
+                            </div>
+                        </div>
+                    </p:layoutUnit>
+                </p:layout>
+            </ui:define>
+        </ui:composition>                
+    </h:body>
+</html>
