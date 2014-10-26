@@ -22,6 +22,7 @@ and open the template in the editor.
             <ui:define name="content">
                 <p:layout style="height: 220px; width: 100%;">
                     <p:layoutUnit position="center">
+                        <p:messages showDetail="true" closable="true" autoUpdate="true"/>
                         <div style="margin:0 auto;width:20%;text-align:left">
                             <p:outputLabel value="Lägg till vara" style=" font-size: larger; font-weight: bold"/>
                             <br/>
@@ -42,7 +43,7 @@ and open the template in the editor.
                                 </h:panelGrid>   
                                 <h:panelGrid columns="2" cellpadding="5">
                                     <p:commandButton value="Tillbaka" action="products?faces-redirect=true"/>
-                                    <p:commandButton value="Lägg till" actionListener="#{addProductCtrl.add}"/>
+                                    <p:commandButton value="Lägg till" actionListener="#{addProductCtrl.add()}"/>
                                 </h:panelGrid>
                             </h:form>
                         </div>
