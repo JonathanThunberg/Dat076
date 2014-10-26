@@ -12,7 +12,7 @@ import se.chalmers.dat076.mathem.model.entityclasses.Customer;
 
 /**
  *Responsibility: Keeps some data for MyPage.xhtlm and MyPageCtrl 
- *Used by: MyPageBBxhtlm, MyPageCtrl
+ *Used by: MyPage.htlm, MyPageCtrl
  *Uses: shop, UserCatalogue, CustomerCatalogue
  */
 @Named

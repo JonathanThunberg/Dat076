@@ -1,26 +1,18 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package se.chalmers.dat076.mathem.view;
 
-import java.io.IOException;
 import java.io.Serializable;
 import java.util.List;
-import java.util.logging.Logger;
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.RequestScoped;
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ViewScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 import se.chalmers.dat076.mathem.model.Shop;
 import se.chalmers.dat076.mathem.model.entityclasses.Recipe;
 
 /**
- *
- * @author victor_nordh92
+ *Responsibility: Keeps some data for Recipe.xhtlm
+ *Used by: Recipe.htlm, RecipeCtrl
+ *Uses: shop, Recipe, RecipeCatalogue
  */
 @Named
 @RequestScoped

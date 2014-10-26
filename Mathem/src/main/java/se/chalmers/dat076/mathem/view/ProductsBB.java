@@ -1,24 +1,24 @@
 package se.chalmers.dat076.mathem.view;
 
-/**
- *
- * @author victor_norxdh92
- */
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import javax.annotation.PostConstruct;
-import javax.enterprise.context.RequestScoped;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
-import javax.inject.Named;
 import se.chalmers.dat076.mathem.model.OrderItem;
 import se.chalmers.dat076.mathem.model.Shop;
 import se.chalmers.dat076.mathem.model.entityclasses.Category;
 import se.chalmers.dat076.mathem.model.entityclasses.Product;
 
+/**
+ *Responsibility: Keeps some data for Products.xhtlm and ProductsCtrl 
+ *Used by: Products.xhtlm, ProductsCtrl
+ *Uses: shop, OrderItem, CategoryCatalogue, ProductCatalogue
+ */
 @ManagedBean
 @ViewScoped
 public class ProductsBB implements Serializable {

@@ -1,8 +1,4 @@
-/*
-* To change this license header, choose License Headers in Project Properties.
-* To change this template file, choose Tools | Templates
-* and open the template in the editor.
-*/
+
 package se.chalmers.dat076.mathem.view;
 
 import javax.enterprise.context.RequestScoped;
@@ -12,8 +8,9 @@ import javax.inject.Named;
 import se.chalmers.dat076.mathem.model.Shop;
 
 /**
- *
- * @author Julia
+ *Responsibility: Used to check if a Someone is logged in 
+ *Used by: Template.xhtlm, products.xhtlm, productsdetail.xhtlm
+ *Uses: Shop, UserCatalogue, CustomerCatalogue, AdminCatalogue
  */
 
 @Named

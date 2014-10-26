@@ -1,23 +1,17 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package se.chalmers.dat076.mathem.view;
 
 import java.io.Serializable;
 import javax.enterprise.context.RequestScoped;
-import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
-import se.chalmers.dat076.mathem.model.Shop;
 import se.chalmers.dat076.mathem.model.ShoppingCart;
-import se.chalmers.dat076.mathem.model.entityclasses.Customer;
  
 
 /**
- *
- * @author Julia
+ *Responsibility: Only used to get the cart in ShoppingCartCtrl and shoppingCart.xhtml
+ *Used by:ShoppingCartCtrl and shoppingCart.xhtml
+ *Uses: shop, ShoppingCart
  */
 @Named
 @RequestScoped
@@ -25,10 +19,7 @@ public class ShoppingCartBB implements Serializable{
      
     @Inject
     private ShoppingCart cart;
-    @Inject
-    private Shop shop;
-   
-
+    
     public ShoppingCart getCart() {
         return cart;
     }
