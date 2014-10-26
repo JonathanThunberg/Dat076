@@ -17,20 +17,20 @@
             <to-view-id>/recipe.xhtml</to-view-id>
         </navigation-case>
         <navigation-case>
-            <from-outcome>aboutus</from-outcome>
-            <to-view-id>/aboutus.xhtml</to-view-id>
+            <from-outcome>aboutUs</from-outcome>
+            <to-view-id>/aboutUs.xhtml</to-view-id>
         </navigation-case>  
         <navigation-case>
-            <from-outcome>mypage</from-outcome>
-            <to-view-id>/mypage.xhtml</to-view-id>
+            <from-outcome>myPage</from-outcome>
+            <to-view-id>/myPage.xhtml</to-view-id>
         </navigation-case>
         <navigation-case>    
             <from-outcome>login</from-outcome>
             <to-view-id>/login.xhtml</to-view-id>
         </navigation-case>
         <navigation-case>
-            <from-outcome>customerregistry</from-outcome>
-            <to-view-id>/customerregistry.xhtml</to-view-id>
+            <from-outcome>customerRegistry</from-outcome>
+            <to-view-id>/customerRegistry.xhtml</to-view-id>
         </navigation-case>
         <navigation-case>
             <from-outcome>recipe</from-outcome>
@@ -41,16 +41,16 @@
             <to-view-id>/editProduct.xhtml</to-view-id>
         </navigation-case>
         <navigation-case>
-            <from-outcome>recipedetail</from-outcome>
-            <to-view-id>/recipedetail.xhtml</to-view-id>
+            <from-outcome>recipeDetail</from-outcome>
+            <to-view-id>/recipeDetail.xhtml</to-view-id>
         </navigation-case>
         <navigation-case>
-            <from-outcome>productdetail</from-outcome>
-            <to-view-id>/productdetail.xhtml</to-view-id>
+            <from-outcome>productDetail</from-outcome>
+            <to-view-id>/productDetail.xhtml</to-view-id>
         </navigation-case>
         <navigation-case>
-            <from-outcome>orderhistory</from-outcome>
-            <to-view-id>/orderhistory.xhtml</to-view-id>
+            <from-outcome>orderHistory</from-outcome>
+            <to-view-id>/orderHistory.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule> 
     <application>

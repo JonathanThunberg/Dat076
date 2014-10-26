@@ -13,7 +13,7 @@ public class ShoppingCartDialog {
     
     public void openCart() {
         
-        RequestContext.getCurrentInstance().openDialog("shoppingcart.xhtml");
+        RequestContext.getCurrentInstance().openDialog("shoppingCart.xhtml");
     }
 
 }

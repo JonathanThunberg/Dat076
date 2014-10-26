@@ -70,12 +70,12 @@ public class BuyConfirmationCtrl {
         FacesContext context = FacesContext.getCurrentInstance();
         context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Ditt köp har gått igenom", ""));
         context.getExternalContext().getFlash().setKeepMessages(true);
-        FacesContext.getCurrentInstance().getExternalContext().redirect("shoppingcart.xhtml");
+        FacesContext.getCurrentInstance().getExternalContext().redirect("shoppingCart.xhtml");
     }
 
     public void cancel() {
         try {
-            FacesContext.getCurrentInstance().getExternalContext().redirect("shoppingcart.xhtml");
+            FacesContext.getCurrentInstance().getExternalContext().redirect("shoppingCart.xhtml");
         } catch (Exception e) {
             Logger.getLogger(BuyConfirmationCtrl.class.getName()).log(Level.SEVERE, e.toString());
         }

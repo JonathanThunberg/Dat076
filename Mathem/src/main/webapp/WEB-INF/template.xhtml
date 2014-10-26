@@ -26,7 +26,7 @@
                     <f:param name="i" value="1" />
                 </p:menuitem>                
 
-                <p:menuitem value="Om oss"  outcome="aboutus" icon="ui-icon-person">
+                <p:menuitem value="Om oss"  outcome="aboutUs" icon="ui-icon-person">
                     <f:param name="i" value="2" />
                 </p:menuitem>
 
@@ -38,15 +38,15 @@
                     <f:param name="i" value="3" />
                 </p:menuitem>
 
-                <p:menuitem value="Registrera dig" icon="ui-icon-pencil" outcome="customerregistry" rendered="#{!renderBB.isUserLoggedIn()}">
+                <p:menuitem value="Registrera dig" icon="ui-icon-pencil" outcome="customerRegistry" rendered="#{!renderBB.isUserLoggedIn()}">
                     <f:param name="i" value="4" />
                 </p:menuitem>
 
-                <p:menuitem value="Min Sida" outcome="mypage" rendered="#{renderBB.isUserCustomer()}">
+                <p:menuitem value="Min Sida" outcome="myPage" rendered="#{renderBB.isUserCustomer()}">
                     <f:param name="i" value="4" />
                 </p:menuitem>
 
-                <p:menuitem value="Orderhistorik" outcome="orderhistory" rendered="#{renderBB.isUserCustomer()}">
+                <p:menuitem value="Orderhistorik" outcome="orderHistory" rendered="#{renderBB.isUserCustomer()}">
                     <f:param name="i" value="5" />
                 </p:menuitem>
 
