@@ -19,8 +19,8 @@ import se.chalmers.dat076.mathem.model.catalogue.IUserCatalogue;
  * Used by: All ControlBean except ShoppingCartCtrl and ProductsCtrl, 
  *          AddProductBB, BuyConfirmationBB, MyPageBB, OrderDetailBB, OrderHistoryBB,
  *          ProductDetailBB, ProductsBB, RecipeBB, RenderBB, ShoppingCartBB, SearchDetailBB,
- *          template.xhtml, aboutus.xhtml, contactus.xhtml, generalconditions.xhtml, safeshopping.xhtml, 
- *          shoppingcart.xhtml, workhere.xhtml 
+ *          template.xhtml, aboutUs.xhtml, contactUs.xhtml, generalConditions.xhtml, safeShopping.xhtml, 
+ *          shoppingCart.xhtml, workHere.xhtml 
  */
 @ApplicationScoped
 public class Shop {

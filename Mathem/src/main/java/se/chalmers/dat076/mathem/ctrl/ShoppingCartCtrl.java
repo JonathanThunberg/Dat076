@@ -36,11 +36,11 @@ public class ShoppingCartCtrl {
     }
     
     public void buy() throws IOException{
-        FacesContext.getCurrentInstance().getExternalContext().redirect("buyconfirmation.xhtml");
+        FacesContext.getCurrentInstance().getExternalContext().redirect("buyConfirmation.xhtml");
     }
     
     public void cancel() throws IOException{
-        FacesContext.getCurrentInstance().getExternalContext().redirect("shoppingcart.xhtml");
+        FacesContext.getCurrentInstance().getExternalContext().redirect("shoppingCart.xhtml");
     }
     
     public void setQuantity(OrderItem item, int quantity) {

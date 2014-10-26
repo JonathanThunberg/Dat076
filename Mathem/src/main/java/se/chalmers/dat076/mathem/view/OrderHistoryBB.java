@@ -26,14 +26,11 @@ public class OrderHistoryBB implements Serializable{
     private List<CustomerOrder> customerOrders = new ArrayList();
 
     public List<CustomerOrder> getCustomerOrders() {
-        System.out.println("Nu är vi i getCustomerOrders");
         List<CustomerOrder> p = shop.getOrderCatalogue().getByCustomer(FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("user").toString());
-         System.out.println("Nu har vi fått listan med antal element: " + FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("user").toString());
         return p;
     }
 
     public void setCustomerOrders(List<CustomerOrder> customerOrders) {
-        System.out.println("Nu är vi i setCustomerOrders");
         this.customerOrders = customerOrders;
     }      
     

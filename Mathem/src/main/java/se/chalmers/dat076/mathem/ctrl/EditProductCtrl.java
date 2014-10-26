@@ -30,7 +30,6 @@ public class EditProductCtrl {
     }
     
     public void edit() {
-        System.out.println("I edit");
         Product p = new Product(editProductBB.getId(), editProductBB.getName(), editProductBB.getPrice());
         p.setCategory(shop.getProductCatalogue().getByKey(editProductBB.getId()).get(0).getCategory());
         shop.getProductCatalogue().update(p);

@@ -3,11 +3,11 @@ package se.chalmers.dat076.mathem.model;
 import se.chalmers.dat076.mathem.model.entityclasses.Product;
 
 /**
- * Responsibilty: Create orderitems which is a product with a quantity in the shoppingcart
+ * Responsibilty: Create orderitems which is a product with a quantity in the shoppingCart
  * Uses: Product, Quantity
  * Used by: BuyConfirmationCtrl, ProductsCtrl, SearchCtrl, ShoppingCartCtrl, 
  *          ShoppingCart, ProductDetailBB, ProductsBB, SearchBB, buyConfirmation.xhtml, 
- *          shoppingcart.xhtml
+ *          shoppingCart.xhtml
  */
 public class OrderItem {
     

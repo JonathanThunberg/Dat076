@@ -68,7 +68,6 @@ public class CatalogueTest {
 
     @Test
     public void testCreate() throws Exception {
-        System.out.println("create");
         Product t = new Product(1, "aaa", 8.1);
         shop.getProductCatalogue().create(t);
         List<Product> ps = shop.getProductCatalogue().findAll();
@@ -78,7 +77,6 @@ public class CatalogueTest {
 
     @Test
     public void testDelete() throws Exception {
-        System.out.println("create");
         Product t = new Product(1, "aaa", 8.1);
         shop.getProductCatalogue().create(t);
         shop.getProductCatalogue().delete(t.getId());
