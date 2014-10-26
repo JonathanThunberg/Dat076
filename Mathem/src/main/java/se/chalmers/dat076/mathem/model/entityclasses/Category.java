@@ -38,8 +38,6 @@ public class Category implements Serializable {
     @Size(min = 1, max = 20)
     @Column(name = "NAME")
     private String name;
-    @OneToMany(mappedBy = "category")
-    private Collection<Product> productsCollection;
 
     public Category() {
     }
@@ -56,14 +54,6 @@ public class Category implements Serializable {
         this.name = name;
     }
 
-    @XmlTransient
-    public Collection<Product> getProductsCollection() {
-        return productsCollection;
-    }
-
-    public void setProductsCollection(Collection<Product> productsCollection) {
-        this.productsCollection = productsCollection;
-    }
 
     @Override
     public int hashCode() {

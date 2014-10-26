@@ -8,12 +8,14 @@ package se.chalmers.dat076.mathem.model.entityclasses;
 import java.io.Serializable;
 import java.util.Collection;
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -32,6 +34,7 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Recipe.findByName", query = "SELECT r FROM Recipe r WHERE r.name = :name"),
     @NamedQuery(name = "Recipe.findByDescription", query = "SELECT r FROM Recipe r WHERE r.description = :description")})
 public class Recipe implements Serializable {
+    
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
@@ -44,9 +47,7 @@ public class Recipe implements Serializable {
     @Size(min = 1, max = 2000)
     @Column(name = "DESCRIPTION")
     private String description;
-    @ManyToMany(mappedBy = "recipesCollection")
-    private Collection<Product> productsCollection;
-
+    
     public Recipe() {
     }
 
@@ -73,15 +74,6 @@ public class Recipe implements Serializable {
 
     public void setDescription(String description) {
         this.description = description;
-    }
-
-    @XmlTransient
-    public Collection<Product> getProductsCollection() {
-        return productsCollection;
-    }
-
-    public void setProductsCollection(Collection<Product> productsCollection) {
-        this.productsCollection = productsCollection;
     }
 
     @Override

@@ -27,7 +27,7 @@ public class AddProductBB {
     
     private String name;
     private double price;
-    private Category category;
+    private String category;
     private List<String> categories = new ArrayList<>();
     
     public List<String> getCategories() {
@@ -58,11 +58,11 @@ public class AddProductBB {
         this.price = price;
     }
     
-    public Category getCategory() {
+    public String getCategory() {
         return category;
     }
     
-    public void setCategory(Category category) {
+    public void setCategory(String category) {
         this.category = category;
     }
     
