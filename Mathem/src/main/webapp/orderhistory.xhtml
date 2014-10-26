@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <link rel="stylesheet" type="text/css" href="css/default.css"/>
+    </h:head>
+    <h:body>
+        <ui:composition template="/WEB-INF/template.xhtml">
+            <ui:define name="content"> 
+               <p:dataTable var="order" value="#{shoppingCartBB.cart.orderItems}">
+                        <p:column headerText="Id">
+                            <h:outputText value="#{order.product.name}" />
+                        </p:column>
+                        
+                        <p:column headerText="Datum">
+                            <h:outputText value="#{item.product.price} kr" />
+                        </p:column>
+                        
+                        
+                        <p:column id="quantity" headerText="Varor">
+                            <p:spinner size="5" value="#{item.quantity}"  min="1">
+                                <p:ajax listener="#{shoppingCartCtrl.setQuantity(item,item.quantity)}" update="@form" />
+                            </p:spinner>
+                            
+                        </p:column>
+                        
+                        <p:column headerText="Pris">
+                            <h:outputText value="#{shoppingCartBB.cart.getPrice(item)} kr" />
+                        </p:column>
+                        
+                        <p:column headerText="Ta bort">
+                            <p:commandButton icon="ui-icon-closethick" actionListener="#{shoppingCartCtrl.deleteItem(item)}" update="@form" />
+                        </p:column>
+                    </p:dataTable>
+            </ui:define>
+        </ui:composition>                
+    </h:body>
+</html>

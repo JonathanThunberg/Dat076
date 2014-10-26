@@ -40,8 +40,11 @@
                 <p:menuitem value="Min Sida" outcome="mypage" rendered="#{renderBB.isUserCustomer()}">
                     <f:param name="i" value="4" />
                 </p:menuitem>
-                <p:menuitem value="Logga ut" actionListener="#{loginCtrl.logout()}" rendered="#{renderBB.isUserLoggedIn()}">
+                 <p:menuitem value="Orderhistorik" outcome="orderhistory" rendered="#{renderBB.isUserCustomer()}">
                     <f:param name="i" value="5" />
+                </p:menuitem>
+                <p:menuitem value="Logga ut" actionListener="#{loginCtrl.logout()}" rendered="#{renderBB.isUserLoggedIn()}">
+                    <f:param name="i" value="6" />
                 </p:menuitem>
 
             </p:tabMenu>

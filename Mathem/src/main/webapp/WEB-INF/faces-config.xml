@@ -48,6 +48,10 @@
             <from-outcome>productdetail</from-outcome>
             <to-view-id>/productdetail.xhtml</to-view-id>
         </navigation-case>
+        <navigation-case>
+            <from-outcome>orderhistory</from-outcome>
+            <to-view-id>/orderhistory.xhtml</to-view-id>
+        </navigation-case>
     </navigation-rule> 
     <application>
         <action-listener>

@@ -6,6 +6,8 @@
 package se.chalmers.dat076.mathem.ctrl;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -17,6 +19,7 @@ import javax.inject.Named;
 import se.chalmers.dat076.mathem.model.OrderItem;
 import se.chalmers.dat076.mathem.model.Shop;
 import se.chalmers.dat076.mathem.model.entityclasses.Account;
+import se.chalmers.dat076.mathem.model.entityclasses.Customer;
 import se.chalmers.dat076.mathem.model.entityclasses.CustomerOrder;
 import se.chalmers.dat076.mathem.model.entityclasses.OrderQuantity;
 import se.chalmers.dat076.mathem.model.entityclasses.Payswith;
@@ -47,8 +50,20 @@ public class BuyConfirmationCtrl {
 
         //Validate() towards bank
         List<OrderItem> orderItems = buyConBB.getCart().getOrderItems();
+        Customer customer = shop.getCustomerCatalogue().getByKey(buyConBB.getCustomer().getName()).get(0);
+        System.out.println("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"+customer.getName()); 
         CustomerOrder o = new CustomerOrder();
+        if(o.getCustomersCollection()==null){
+            o.setCustomersCollection(new ArrayList<Customer>());
+        }
+        
+        o.getCustomersCollection().add(customer);
+
         shop.getOrderCatalogue().create(o);
+        
+        customer.getOrdersCollection().add(o);
+        shop.getCustomerCatalogue().update(customer);
+        
         for (OrderItem i : orderItems) {
             OrderQuantity oQ = new OrderQuantity(i.getProduct().getId(), o.getId());
             oQ.setCustomerOrder(o);
@@ -56,6 +71,7 @@ public class BuyConfirmationCtrl {
             oQ.setProduct(i.getProduct());
             shop.getOrderQuantityCatalogue().create(oQ);
         }
+        
         buyConBB.getCart().emptyCart();
         FacesContext context = FacesContext.getCurrentInstance();
         context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Ditt köp har gått igenom", ""));
