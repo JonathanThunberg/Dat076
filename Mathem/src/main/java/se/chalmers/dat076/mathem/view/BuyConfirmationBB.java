@@ -1,12 +1,7 @@
-/*
-* To change this license header, choose License Headers in Project Properties.
-* To change this template file, choose Tools | Templates
-* and open the template in the editor.
-*/
+
 package se.chalmers.dat076.mathem.view;
 
 import java.io.Serializable;
-import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.RequestScoped;
 import javax.faces.context.FacesContext;
@@ -15,11 +10,11 @@ import javax.inject.Named;
 import se.chalmers.dat076.mathem.model.Shop;
 import se.chalmers.dat076.mathem.model.ShoppingCart;
 import se.chalmers.dat076.mathem.model.entityclasses.Customer;
-import se.chalmers.dat076.mathem.model.entityclasses.Payswith;
 
 /**
- *
- * @author tuna
+ *Responsibility: Keeps some data for BuyConfirmation.xhtlm and BuyConfirmationCtrl 
+ *Used by: BuyConfirmation.xhtlm, BuyConfirmationCtrl 
+ *Uses: shop, CustomerCatalogue, ShoppingCart, Customer
  */
 @Named
 @RequestScoped
@@ -72,14 +67,6 @@ public class BuyConfirmationBB implements Serializable{
         customer = shop.getCustomerCatalogue().getByKey(
                 FacesContext.getCurrentInstance().getExternalContext()
                         .getSessionMap().get("user").toString()).get(0);
-        
-        List<Payswith> payswith = shop.getPaysWithCatalogue().getByKey(customer);
-        if(payswith.size()>0){
-            cvc=payswith.get(0).getAccount().getCvc();
-            name=payswith.get(0).getAccount().getName();
-            expdate=payswith.get(0).getAccount().getExpdate();
-            cardnumber=payswith.get(0).getAccount().getCardnumber();
-        }
     }
     
     public String getCardnumber() {

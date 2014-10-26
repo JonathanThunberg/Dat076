@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package se.chalmers.dat076.mathem.model.catalogue;
 
 import java.util.ArrayList;
@@ -14,8 +10,10 @@ import se.chalmers.dat076.mathem.model.entityclasses.Product;
 import se.chalmers.dat076.mathem.model.persistance.AbstractDAO;
 
 /**
- *
- * @author tuna
+ *Responsibility: Handles the persistence for the entity class Product
+ *Used by: Shop, AddProductCtrl, EditProductCtrl, ProductDetailBB, ProductsBB
+ *  SearchBB
+ * Uses: ProductCatalogue
  */
 @Stateless
 public class ProductCatalogue extends AbstractDAO<Product, Integer>

@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package se.chalmers.dat076.mathem.model.catalogue;
 
 import java.util.ArrayList;
@@ -10,14 +6,14 @@ import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import se.chalmers.dat076.mathem.model.entityclasses.CustomerOrder;
 import se.chalmers.dat076.mathem.model.entityclasses.OrderQuantity;
 import se.chalmers.dat076.mathem.model.entityclasses.OrderQuantityPK;
 import se.chalmers.dat076.mathem.model.persistance.AbstractDAO;
 
 /**
- *
- * @author tuna
+ *Responsibility: Handles the persistence for the entity class OrderQuantity
+ *Used by: Shop, BuyConfirmationCtrl, OrderHistoryBB
+ *Uses: OrderQuantity
  */
 @Stateless
 public class OrderQuantityCatalogue extends AbstractDAO<OrderQuantity, OrderQuantityPK>

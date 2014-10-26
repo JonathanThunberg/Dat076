@@ -1,18 +1,13 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package se.chalmers.dat076.mathem.view;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Named;
 
 /**
- *
- * @author Julia
+ *Responsibility: Keeps some data for EditProduct.xhtlm and EditProductCtrl 
+ *Used by: EditProduct.xhtlm, EditProductCtrl 
  */
-
 @Named
 @RequestScoped
 public class EditProductBB {

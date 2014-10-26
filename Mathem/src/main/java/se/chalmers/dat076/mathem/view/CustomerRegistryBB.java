@@ -1,9 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package se.chalmers.dat076.mathem.view;
  
 import java.io.Serializable;
@@ -11,8 +5,8 @@ import javax.enterprise.context.RequestScoped;
 import javax.inject.Named;
 
 /**
- *
- * @author victor_nordh92
+ *Responsibility: Keeps some data for CustomerRegistry.xhtlm and CustomerRegistryCtrl 
+ *Used by: CustomerRegistry.xhtlm, CustomerRegistryCtrl 
  */
 @Named
 @RequestScoped

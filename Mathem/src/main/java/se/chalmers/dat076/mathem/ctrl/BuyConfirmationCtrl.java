@@ -18,11 +18,9 @@ import javax.inject.Inject;
 import javax.inject.Named;
 import se.chalmers.dat076.mathem.model.OrderItem;
 import se.chalmers.dat076.mathem.model.Shop;
-import se.chalmers.dat076.mathem.model.entityclasses.Account;
 import se.chalmers.dat076.mathem.model.entityclasses.Customer;
 import se.chalmers.dat076.mathem.model.entityclasses.CustomerOrder;
 import se.chalmers.dat076.mathem.model.entityclasses.OrderQuantity;
-import se.chalmers.dat076.mathem.model.entityclasses.Payswith;
 import se.chalmers.dat076.mathem.view.BuyConfirmationBB;
 
 /**

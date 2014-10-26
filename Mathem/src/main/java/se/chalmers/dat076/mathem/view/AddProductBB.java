@@ -1,8 +1,4 @@
-/*
-* To change this license header, choose License Headers in Project Properties.
-* To change this template file, choose Tools | Templates
-* and open the template in the editor.
-*/
+
 package se.chalmers.dat076.mathem.view;
 
 import java.util.ArrayList;
@@ -14,8 +10,10 @@ import se.chalmers.dat076.mathem.model.Shop;
 import se.chalmers.dat076.mathem.model.entityclasses.Category;
 
 /**
- *
- * @author Julia
+ *Responsibility: Keeps some data for AddProduct.xhtlm and AddProductCtrl 
+ *Used by: AddProduct.xhtlm, AddProductCtrl 
+ *Uses: shop, CategoryCatalogue
+ *    
  */
 
 @Named

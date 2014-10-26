@@ -12,16 +12,11 @@ import se.chalmers.dat076.mathem.model.catalogue.IProductCatalogue;
 import se.chalmers.dat076.mathem.model.catalogue.IAdressesCatalogue;
 import javax.ejb.EJB;
 import javax.enterprise.context.ApplicationScoped;
-import se.chalmers.dat076.mathem.model.catalogue.IAccountCatalogue;
 import se.chalmers.dat076.mathem.model.catalogue.IAdminCatalogue;
 import se.chalmers.dat076.mathem.model.catalogue.ICategoryCatalogue;
 import se.chalmers.dat076.mathem.model.catalogue.IOrderCatalogue;
 import se.chalmers.dat076.mathem.model.catalogue.IOrderQuantityCatalogue;
-import se.chalmers.dat076.mathem.model.catalogue.IPayswithCatalogue;
 import se.chalmers.dat076.mathem.model.catalogue.IUserCatalogue;
-import se.chalmers.dat076.mathem.model.entityclasses.Admin;
-import se.chalmers.dat076.mathem.model.entityclasses.User;
-import se.chalmers.dat076.mathem.util.PasswordUtil;
 
 
 /**
@@ -33,9 +28,6 @@ public class Shop {
     
     @EJB
     private IProductCatalogue pC;
-    
-    @EJB
-    private IAccountCatalogue acC;
     
     @EJB
     private ICustomerCatalogue cC;
@@ -54,8 +46,6 @@ public class Shop {
     
     @EJB
     private IAdminCatalogue adC;
-    @EJB
-    private IPayswithCatalogue pwc;
     @EJB
     private IOrderCatalogue oC;
     @EJB
@@ -89,14 +79,6 @@ public class Shop {
         return uC;
     }
     
-    public IAccountCatalogue getAccountCatalogue() {
-        return acC;
-    }
-
-    public IPayswithCatalogue getPaysWithCatalogue() {
-        return pwc;
-    }
-
     public IOrderCatalogue getOrderCatalogue() {
         return oC;
     }

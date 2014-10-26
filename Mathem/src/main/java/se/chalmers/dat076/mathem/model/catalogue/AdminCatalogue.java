@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package se.chalmers.dat076.mathem.model.catalogue;
 
 import java.util.ArrayList;
@@ -11,12 +7,12 @@ import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import se.chalmers.dat076.mathem.model.entityclasses.Admin;
-import se.chalmers.dat076.mathem.model.entityclasses.Category;
 import se.chalmers.dat076.mathem.model.persistance.AbstractDAO;
 
 /**
- *
- * @author tuna
+ *Responsibility: Handles the persistence for the entity class Account
+ *Used by: Shop, RenderBB
+ *Uses: Admin
  */
 @Stateless
 public class AdminCatalogue extends AbstractDAO<Admin, String>

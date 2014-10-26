@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package se.chalmers.dat076.mathem.model.catalogue;
 
 import java.util.ArrayList;
@@ -14,8 +9,10 @@ import se.chalmers.dat076.mathem.model.entityclasses.Customer;
 import se.chalmers.dat076.mathem.model.persistance.AbstractDAO;
 
 /**
- *
- * @author victor_nordh92
+ *Responsibility: Handles the persistence for the entity class Customer
+ *Used by: Shop, BuyConfirmationCtrl,CustomerRegistryCtrl,MyPageCtrl,
+ * BuyConfirmationCtrl,MyPageBB, RenderBB 
+ *Uses: Customer
  */
 
     @Stateless
