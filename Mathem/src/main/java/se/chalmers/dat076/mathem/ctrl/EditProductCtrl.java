@@ -6,12 +6,13 @@
 package se.chalmers.dat076.mathem.ctrl;
 
 import javax.enterprise.context.RequestScoped;
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
 import se.chalmers.dat076.mathem.model.Shop;
 import se.chalmers.dat076.mathem.model.entityclasses.Product;
 import se.chalmers.dat076.mathem.view.EditProductBB;
-import se.chalmers.dat076.mathem.view.ProductsBB;
 
 /**
  *
@@ -31,10 +32,9 @@ public class EditProductCtrl {
     }
     
     public void edit() {
-        Product product = shop.getProductCatalogue().getByKey(editProductBB.getId()).get(0);
-        System.out.println(editProductBB.getName() + editProductBB.getPrice());
-        product.setName(editProductBB.getName());
-        product.setPrice(editProductBB.getPrice());
+        shop.getProductCatalogue().update(new Product(editProductBB.getId(), editProductBB.getName(), editProductBB.getPrice()));
+        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Varan är ändrad", ""));
+        FacesContext.getCurrentInstance().getExternalContext().getFlash().setKeepMessages(true);
         
     }
     

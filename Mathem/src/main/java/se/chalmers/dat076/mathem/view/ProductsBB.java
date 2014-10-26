@@ -25,7 +25,6 @@ public class ProductsBB implements Serializable {
     private Shop shop;
     private List<OrderItem> products= new ArrayList<>();
     private String category;
-    private double price;
     
     @PostConstruct
     public void init() {
@@ -64,15 +63,7 @@ public class ProductsBB implements Serializable {
     public void setCategory(String category) {
         this.category = category;
     }
-    
-    public void setPrice(double price) {
-        System.out.println("Priset sätts till: " + price);
-        this.price = price;
-    }
-    
-    public double getPrice() {
-        return price;
-    }
+
     
    
 }

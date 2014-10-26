@@ -43,7 +43,6 @@ public class BuyConfirmationCtrl {
     }
 
     public void confirm() throws IOException {
-        System.out.println("LEts go");
         
 
         //Validate() towards bank
@@ -51,14 +50,12 @@ public class BuyConfirmationCtrl {
         CustomerOrder o = new CustomerOrder();
         shop.getOrderCatalogue().create(o);
         for (OrderItem i : orderItems) {
-            System.out.println("Lägger in " + i.getProduct() + " i ordern");
             OrderQuantity oQ = new OrderQuantity(i.getProduct().getId(), o.getId());
             oQ.setCustomerOrder(o);
             oQ.setAmount(i.getQuantity());
             oQ.setProduct(i.getProduct());
             shop.getOrderQuantityCatalogue().create(oQ);
         }
-        System.out.println("Färdig med ordern");
         buyConBB.getCart().emptyCart();
         FacesContext context = FacesContext.getCurrentInstance();
         context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Ditt köp har gått igenom", ""));
@@ -68,7 +65,6 @@ public class BuyConfirmationCtrl {
 
     public void cancel() {
         try {
-            System.out.println("TIllbaka");
             FacesContext.getCurrentInstance().getExternalContext().redirect("shoppingcart.xhtml");
         } catch (Exception e) {
             Logger.getLogger(BuyConfirmationCtrl.class.getName()).log(Level.SEVERE, e.toString());

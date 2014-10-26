@@ -31,7 +31,6 @@ public class AddProductCtrl {
     }
     
     public void add() {
-        System.out.println(addProductBB.getName() + addProductBB.getPrice());
         
         Product product = new Product();
         product.setName(addProductBB.getName());

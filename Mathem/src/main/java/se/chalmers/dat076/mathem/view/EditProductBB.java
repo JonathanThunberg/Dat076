@@ -29,12 +29,10 @@ public class EditProductBB {
     }
 
     public int getId() {
-        System.out.println("get id" + id);
         return id;
     }
 
     public void setId(int id) {
-        System.out.println("set id" + id);
         this.id = id;
     }
 

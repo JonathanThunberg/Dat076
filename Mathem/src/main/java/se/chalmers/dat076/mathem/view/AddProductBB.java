@@ -43,32 +43,26 @@ public class AddProductBB {
     
     
     public String getName() {
-        System.out.println("get name: " + name);
         return name;
     }
     
     public void setName(String name) {
-        System.out.println("set name: " + name);
         this.name = name;
     }
     
     public double getPrice() {
-        System.out.println("get price: " + price);
         return price;
     }
     
     public void setPrice(double price) {
-        System.out.println("set price: " + price);
         this.price = price;
     }
     
     public Category getCategory() {
-        System.out.println("get category: " + category);
         return category;
     }
     
     public void setCategory(Category category) {
-        System.out.println("set category: " + category);
         this.category = category;
     }
     

@@ -58,11 +58,9 @@ public class Product implements Serializable {
     @NotNull
     @Column(name = "PRICE")
     private double price;
-    @JoinTable(name = "HAS", joinColumns = {
-        @JoinColumn(name = "PRODUCT", referencedColumnName = "ID")}, inverseJoinColumns = {
-        @JoinColumn(name = "ORDERID", referencedColumnName = "ID")})
     @ManyToMany
     private Collection<CustomerOrder> ordersCollection;
+    @JoinColumn(name = "CATEGORY", referencedColumnName = "NAME")
     @JoinTable(name = "FAVORITES", joinColumns = {
         @JoinColumn(name = "PRODUCT", referencedColumnName = "ID")}, inverseJoinColumns = {
         @JoinColumn(name = "USERNAME", referencedColumnName = "USERNAME")})
@@ -114,13 +112,12 @@ public class Product implements Serializable {
         this.price = price;
     }
 
-    @XmlTransient
-    public Collection<CustomerOrder> getOrdersCollection() {
-        return ordersCollection;
+    public Category getCategory() {
+        return category;
     }
 
-    public void setOrdersCollection(Collection<CustomerOrder> ordersCollection) {
-        this.ordersCollection = ordersCollection;
+    public void setCategory(Category category) {
+        this.category = category;
     }
 
     @XmlTransient
@@ -132,7 +129,7 @@ public class Product implements Serializable {
         this.customersCollection = customersCollection;
     }
 
-    @XmlTransient
+   @XmlTransient
     public Collection<Recipe> getRecipesCollection() {
         return recipesCollection;
     }
@@ -141,12 +138,13 @@ public class Product implements Serializable {
         this.recipesCollection = recipesCollection;
     }
 
-    public Category getCategory() {
-        return category;
+    @XmlTransient
+    public Collection<CustomerOrder> getOrdersCollection() {
+        return ordersCollection;
     }
 
-    public void setCategory(Category category) {
-        this.category = category;
+    public void setOrdersCollection(Collection<CustomerOrder> ordersCollection) {
+        this.ordersCollection = ordersCollection;
     }
 
     @Override
