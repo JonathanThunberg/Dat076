@@ -12,21 +12,21 @@
     <h:body style="text-align: center">
         <ui:composition template="/WEB-INF/template.xhtml">
             <ui:define name="content"> 
-                <p:layout style="height: 250px; width: 100%; ">
+                <p:layout style="height: 270px; width: 100%; ">
                     <p:layoutUnit position="center">
+                        <p:messages id="messages" showDetail="true" autoUpdate="true" closable="true" />
                         <div style="margin:0 auto;width:25%;text-align:left">
-                        <h:form style="text-align: center">
-                            <p:messages id="messages" showDetail="true" autoUpdate="true" closable="true" />
-                            <h:panelGrid columns="1" cellpadding="5">
-                                <p:outputLabel for="user" value="Användarnamn:" style="font-weight:bold" />
-                                <p:inputText id="user" value="#{loginBB.user}" />
-                                
-                                <p:outputLabel for="password" value="Lösenord:" style="font-weight:bold" />
-                                <p:inputText type="password" id="password" value="#{loginBB.password}" />
-                                
-                                <p:commandButton value="Logga in" icon="ui-icon-check" actionListener="#{loginCtrl.login()}"/>
-                            </h:panelGrid>
-                        </h:form>
+                            <h:form style="text-align: center">     
+                                <h:panelGrid columns="1" cellpadding="5">
+                                    <p:outputLabel for="user" value="Användarnamn:" style="font-weight:bold" />
+                                    <p:inputText id="user" value="#{loginBB.user}" />
+                                    
+                                    <p:outputLabel for="password" value="Lösenord:" style="font-weight:bold" />
+                                    <p:inputText type="password" id="password" value="#{loginBB.password}" />
+                                    
+                                    <p:commandButton value="Logga in" icon="ui-icon-check" actionListener="#{loginCtrl.login()}"/>
+                                </h:panelGrid>
+                            </h:form>
                         </div>
                     </p:layoutUnit>
                 </p:layout>
