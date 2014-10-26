@@ -44,9 +44,8 @@
                         <h:panelGrid columns="1" cellpadding="5" >                        
                             <p:inputText id="productname" size="15" value="#{searchBB.productname}"/>
                             <p:commandButton value="Sök Produkt" action="/productdetail.xhtml" update="@form" style="width: 130px"/>
-                            <p:button value="Ny vara" outcome="addProduct" rendered="#{renderBB.userAdmin}" style="width: 130px" > 
-                                <f:param name="paramName" value="#{productsBB.searchProductname}" />
-                            </p:button>    
+                            <p:button value="Ny vara" outcome="addProduct" rendered="#{renderBB.userAdmin}" style="width: 130px" /> 
+                                
                         </h:panelGrid>
                     </h:form>                
                     

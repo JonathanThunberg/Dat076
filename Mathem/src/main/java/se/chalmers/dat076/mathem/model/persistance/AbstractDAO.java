@@ -4,15 +4,16 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
-
+/**
+ * Responsibilty: Abstract Class that the catalogues uses
+ * Uses: EntityManager, General key T, General value K
+ * Used by: All Catalogues
+ * 
+ */
 public abstract class AbstractDAO<T, K> implements IDAO<T, K> {
-
-    // Emulate a database
-    private final Class<T> clazz;
     
-    
-    protected abstract EntityManager getEntityManager();
-            
+    private final Class<T> clazz;    
+    protected abstract EntityManager getEntityManager();            
     
     public AbstractDAO(Class<T> clazz){
     this.clazz=clazz;    

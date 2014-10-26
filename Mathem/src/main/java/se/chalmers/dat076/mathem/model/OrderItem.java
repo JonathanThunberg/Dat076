@@ -1,15 +1,13 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package se.chalmers.dat076.mathem.model;
 
 import se.chalmers.dat076.mathem.model.entityclasses.Product;
 
 /**
- *
- * @author Julia
+ * Responsibilty: Create orderitems which is a product with a quantity in the shoppingcart
+ * Uses: Product, Quantity
+ * Used by: BuyConfirmationCtrl, ProductsCtrl, SearchCtrl, ShoppingCartCtrl, 
+ *          ShoppingCart, ProductDetailBB, ProductsBB, SearchBB, buyConfirmation.xhtml, 
+ *          shoppingcart.xhtml
  */
 public class OrderItem {
     
