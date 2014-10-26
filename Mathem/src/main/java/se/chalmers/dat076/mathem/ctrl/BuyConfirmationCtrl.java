@@ -2,7 +2,9 @@
 package se.chalmers.dat076.mathem.ctrl;
 
 import java.io.IOException;
+import java.sql.Timestamp;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -45,6 +47,7 @@ public class BuyConfirmationCtrl {
         List<OrderItem> orderItems = buyConBB.getCart().getOrderItems();        
         Customer customer = shop.getCustomerCatalogue().getByKey(buyConBB.getCustomer().getUsername()).get(0);        
         CustomerOrder o = new CustomerOrder();
+        o.setDate(new Timestamp(Calendar.getInstance().getTime().getTime()));
         if(o.getCustomersCollection()==null){
             o.setCustomersCollection(new ArrayList<Customer>());
         }
