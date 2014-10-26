@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- Page where a user can create an account-->
+
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:p="http://primefaces.org/ui"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
-    
+      xmlns:p="http://primefaces.org/ui">
+
     <h:head>
         <link rel="stylesheet" type="text/css" href="css/default.css"/>
     </h:head>
+
     <h:body style="text-align: center">
         <ui:composition template="/WEB-INF/template.xhtml">
             <ui:define name="content"> 
@@ -20,34 +22,35 @@
                                 <h:panelGrid columns="4" cellpadding="5">
                                     <p:outputLabel for="name" value="Förnamn:" style="font-weight:bold" />
                                     <p:inputText id="name" value="#{customerRegistryBB.name}" required="true"/>
-                                    
+
                                     <p:outputLabel for="username" value="Användarnamn:" style="font-weight:bold" />
                                     <p:inputText id="username" value="#{customerRegistryBB.username}" required="true"/>
-                                    
+
                                     <h:outputLabel for="password" value="Lösenord:" style="font-weight:bold" class="ui-outputlabel ui-widget"/>
                                     <p:password id="password" value="#{customerRegistryBB.password}" match="pwd2" required="true" feedback="true" />
-                                    
+
                                     <p:outputLabel for="pwd2" value="Lösenord igen:" style="font-weight:bold" />
                                     <p:password id="pwd2" value="#{customerRegistryBB.password}" required="true" />
-                                    
+
                                     <p:outputLabel for="phone" value="Telefonnr:" style="font-weight:bold" />
                                     <p:inputText id="phone" value="#{customerRegistryBB.phone}" required="true"/>
-                                    
+
                                     <p:outputLabel for="email" value="E-mail:" style="font-weight:bold" />
                                     <p:inputText id="email" value="#{customerRegistryBB.email}" required="true"/>
-                                    
+
                                     <p:outputLabel for="streetname" value="Adress:" style="font-weight:bold" />
                                     <p:inputText id="streetname" value="#{customerRegistryBB.streetname}" required="true"/>
-                                    
+
                                     <p:outputLabel for="city" value="Postort:" style="font-weight:bold" />
                                     <p:inputText id="city" value="#{customerRegistryBB.city}" required="true"/>
-                                    
+
                                     <p:outputLabel for="postcode" value="Postnr:" style="font-weight:bold" />
                                     <p:inputText id="postcode" value="#{customerRegistryBB.postcode}" required="true"/>
-                                    
+
                                     <p:outputLabel/>
-                                    
+
                                     <p:commandButton style= "width: 100%" value="Bli medlem" icon="ui-icon-disk" actionListener="#{customerRegistryCtrl.submit}"/>                
+
                                 </h:panelGrid>
                             </h:form>
                         </div>
@@ -56,5 +59,5 @@
             </ui:define>
         </ui:composition>
     </h:body>
-    
+
 </html>

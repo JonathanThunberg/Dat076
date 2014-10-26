@@ -1,21 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
 <!DOCTYPE html>
+<!-- Is showed when "läs mer" is clicked on from recipe and show the full details about the recipe -->
+
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:p="http://primefaces.org/ui" >
-
-
     <h:head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />        
         <link rel="stylesheet" type="text/css" href="css/default.css"/>
-
     </h:head>    
     <h:body>
         <ui:composition template="/WEB-INF/template.xhtml">
@@ -25,21 +19,19 @@ and open the template in the editor.
                     <f:viewParam name="description" value="#{recipeDetailBB.description}"/>
                 </f:metadata>
             </ui:define>
-            
+
             <ui:define name="content">
-                
-                            <h:form id="form" >                               
-                                <p:fieldset legend="#{recipeDetailBB.name}" style="margin-bottom:50px">
-                                    <h:panelGrid columns="2" cellpadding="5">
-                                        <p:graphicImage class="recipe_img" value= "/img/Recipes/#{recipeDetailBB.name}.jpg"/>
-                                        <h:outputText value="#{recipeDetailBB.description}" />
-                                        <p:button style=" width: 80px; font-size: 15px; margin-left: auto;" title="Tillbaka" value="Tillbaka" outcome="recipe">
-                                            <f:param name="i" value="1" />
-                                        </p:button>
-                                    </h:panelGrid>
-                                </p:fieldset>
-                            </h:form>
-                
+                <h:form id="form" >                               
+                    <p:fieldset legend="#{recipeDetailBB.name}" style="margin-bottom:50px">
+                        <h:panelGrid columns="2" cellpadding="5">
+                            <p:graphicImage class="recipe_img" value= "/img/Recipes/#{recipeDetailBB.name}.jpg"/>
+                            <h:outputText value="#{recipeDetailBB.description}" />
+                            <p:button style=" width: 80px; font-size: 15px; margin-left: auto;" title="Tillbaka" value="Tillbaka" outcome="recipe">
+                                <f:param name="i" value="1" />
+                            </p:button>
+                        </h:panelGrid>
+                    </p:fieldset>
+                </h:form>
             </ui:define>
         </ui:composition>
     </h:body>
