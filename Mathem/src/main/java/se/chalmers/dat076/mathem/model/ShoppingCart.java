@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package se.chalmers.dat076.mathem.model;
 
 import java.io.Serializable;
@@ -12,10 +7,10 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.enterprise.context.SessionScoped;
 
-
 /**
- *
- * @author Julia
+ * Responsibility: Shoppingcart where the users products is stored
+ * Uses: Orderitem,
+ * Used by: ProductsCtrl, SearchCtrl, BuyConfirmationBB, ShoppingCartBB         
  */
 
 @SessionScoped
@@ -25,9 +20,9 @@ public class ShoppingCart implements Serializable{
     
     public void add(OrderItem item) {
         boolean itemAdded = false;
-        for(int i = 0; i<items.size(); i++) {
-            if(items.get(i).getProduct().getName().equalsIgnoreCase(item.getProduct().getName())) {
-                changeQuantity(items.get(i), items.get(i).getQuantity()+item.getQuantity());
+        for (OrderItem i : items) {
+            if (i.getProduct().getName().equalsIgnoreCase(item.getProduct().getName())) {
+                changeQuantity(i, i.getQuantity() + item.getQuantity());
                 itemAdded = true;
             }
         }
@@ -64,7 +59,5 @@ public class ShoppingCart implements Serializable{
             price+=o.getQuantity()*o.getProduct().getPrice();
         }
         return new BigDecimal(price).setScale(3, RoundingMode.HALF_UP).doubleValue();
-    }
-
-    
+    }   
 }
