@@ -1,5 +1,6 @@
 package se.chalmers.dat076.mathem.model;
 
+import java.io.Serializable;
 import se.chalmers.dat076.mathem.model.entityclasses.Product;
 
 /**
@@ -9,7 +10,7 @@ import se.chalmers.dat076.mathem.model.entityclasses.Product;
  *          ShoppingCart, ProductDetailBB, ProductsBB, SearchBB, buyConfirmation.xhtml, 
  *          shoppingCart.xhtml
  */
-public class OrderItem {
+public class OrderItem implements Serializable{
     
     private Product product;
     private int quantity;
