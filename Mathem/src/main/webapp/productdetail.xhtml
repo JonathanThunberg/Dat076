@@ -43,7 +43,7 @@
                         <h:form>
                             <h:panelGrid columns="1" cellpadding="5">                        
                                 <p:inputText id="productname" size="15" value="#{searchBB.productname}"/>
-                                <p:commandButton value="Sök Produkt" actionListener="#{searchCtrl.search}" />
+                                <p:commandButton value="Sök Produkt" action="/productdetail.xhtml" update="@form" style="width: 130px"/>
                             </h:panelGrid>
                         </h:form>
                 </div>
@@ -54,7 +54,7 @@
                         <p:layout class="product_content">
                             <p:layoutUnit position="center">
                                 <p:dataGrid var="prod" value="#{searchBB.products}" columns="4" layout="grid"
-                                            rows="4" id="products">
+                                            rows="99" id="products">
 
                                     <p:panel header="#{prod.product.name}" style="text-align:center">
                                         <h:panelGrid columns="1" style="width:100%;">
@@ -63,10 +63,7 @@
                                             <h:outputText value="#{prod.product.price} kr/st" />
                                             <p:row>  
                                                 <p:spinner style="float:left; " size="5"  min="1" value="#{prod.quantity}" rendered="#{renderBB.userCustomer}"/>
-                                                <p:commandButton style="float: left; width: 60px; font-size: 15px; margin-left: 6px;" title="Köp" value="Köp"  actionListener="#{productsCtrl.buy(prod)}" rendered="#{renderBB.userCustomer}"/>                                                     
-                                                <p:button style=" width: 80px; font-size: 15px; margin-left: auto;" title="Tillbaka" value="Tillbaka" outcome="products">
-                                                    <f:param name="i" value="0" />
-                                                </p:button>
+                                                <p:commandButton style="float: left; width: 60px; font-size: 15px; margin-left: 6px;" title="Köp" value="Köp"  actionListener="#{searchCtrl.buy(prod)}" rendered="#{renderBB.userCustomer}"/>                                                     
                                             </p:row>
                                         </h:panelGrid>
                                     </p:panel>
