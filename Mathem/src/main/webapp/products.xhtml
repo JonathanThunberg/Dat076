@@ -43,11 +43,11 @@
                     <h:form>
                         <h:panelGrid columns="1" cellpadding="5" >                        
                             <p:inputText id="productname" size="15" value="#{searchBB.productname}"/>
-                            <p:commandButton value="Sök Produkt" actionListener="#{searchCtrl.search}" action="/productdetail.xhtml" update="@form"/>
-
+                            <p:commandButton value="Sök Produkt" actionListener="#{searchCtrl.search}" action="/productdetail.xhtml" update="@form" style="width: 130px"/>
+                            <p:button value="Ny vara" outcome="addProduct" rendered="#{renderBB.userAdmin}" style="width: 130px" />    
                         </h:panelGrid>
                     </h:form>                
-                    <p:button value="Lägg till ny vara" outcome="addProduct" rendered="#{renderBB.userAdmin}" />
+                    
                 </div> 
                 
                 <div id="matbutiken_big_menu">

@@ -40,8 +40,7 @@ import org.codehaus.jackson.annotate.JsonIgnore;
     @NamedQuery(name = "CustomerOrders.findById", query = "SELECT o FROM CustomerOrder o WHERE o.id = :id"),
     @NamedQuery(name = "CustomerOrders.findByDate", query = "SELECT o FROM CustomerOrder o WHERE o.date = :date")})
 public class CustomerOrder implements Serializable {
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "customerOrder")
-    private Collection<OrderQuantity> hasCollection;
+
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -51,14 +50,19 @@ public class CustomerOrder implements Serializable {
     @Column(name = "DATE")
     @Temporal(TemporalType.TIMESTAMP)
     private Date date;
-    @ManyToMany(mappedBy = "ordersCollection")
-    private Collection<Product> productsCollection;
     @JoinTable(name = "ISTO", joinColumns = {
-        @JoinColumn(name = "ORDERID", referencedColumnName = "ID")}, inverseJoinColumns = {
-        @JoinColumn(name = "USERNAME", referencedColumnName = "USERNAME")})
+    @JoinColumn(name = "ORDERID", referencedColumnName = "ID")}, inverseJoinColumns = {
+    @JoinColumn(name = "USERNAME", referencedColumnName = "USERNAME")})
     @ManyToMany
     private Collection<Customer> customersCollection;
 
+    public Collection<Customer> getCustomersCollection() {
+        return customersCollection;
+    }
+
+    public void setCustomersCollection(Collection<Customer> customersCollection) {
+        this.customersCollection = customersCollection;
+    }
     public CustomerOrder() {
     }
 
@@ -80,24 +84,6 @@ public class CustomerOrder implements Serializable {
 
     public void setDate(Date date) {
         this.date = date;
-    }
-
-    @XmlTransient
-    public Collection<Product> getProductsCollection() {
-        return productsCollection;
-    }
-
-    public void setProductsCollection(Collection<Product> productsCollection) {
-        this.productsCollection = productsCollection;
-    }
-
-    @XmlTransient
-    public Collection<Customer> getCustomersCollection() {
-        return customersCollection;
-    }
-
-    public void setCustomersCollection(Collection<Customer> customersCollection) {
-        this.customersCollection = customersCollection;
     }
 
     @Override
@@ -123,16 +109,6 @@ public class CustomerOrder implements Serializable {
     @Override
     public String toString() {
         return "se.chalmers.dat076.mathem.model.entityclasses.Orders[ id=" + id + " ]";
-    }
-
-    @XmlTransient
-    @JsonIgnore
-    public Collection<OrderQuantity> getHasCollection() {
-        return hasCollection;
-    }
-
-    public void setHasCollection(Collection<OrderQuantity> hasCollection) {
-        this.hasCollection = hasCollection;
     }
     
 }

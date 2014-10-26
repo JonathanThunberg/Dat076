@@ -14,6 +14,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinColumns;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
@@ -24,6 +25,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
+import org.codehaus.jackson.annotate.JsonIgnore;
 
 /**
  *
@@ -39,6 +41,7 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Customer.findByPhone", query = "SELECT c FROM Customer c WHERE c.phone = :phone"),
     @NamedQuery(name = "Customer.findByEmail", query = "SELECT c FROM Customer c WHERE c.email = :email")})
 public class Customer implements Serializable {
+    
     @OneToOne(cascade = CascadeType.ALL, mappedBy = "customer1")
     private Payswith payswith;
     private static final long serialVersionUID = 1L;
@@ -58,11 +61,7 @@ public class Customer implements Serializable {
     @NotNull
     @Size(min = 1, max = 50)
     @Column(name = "EMAIL")
-    private String email;
-    @ManyToMany(mappedBy = "customersCollection")
-    private Collection<Product> productsCollection;
-    @ManyToMany(mappedBy = "customersCollection")
-    private Collection<CustomerOrder> ordersCollection;
+    private String email;        
     @JoinColumn(name = "USERNAME", referencedColumnName = "USERNAME", insertable = false, updatable = false)
     @OneToOne(optional = false)
     private User users;
@@ -116,25 +115,6 @@ public class Customer implements Serializable {
         this.email = email;
     }
 
-    
-    @XmlTransient
-    public Collection<Product> getProductsCollection() {
-        return productsCollection;
-    }
-
-    public void setProductsCollection(Collection<Product> productsCollection) {
-        this.productsCollection = productsCollection;
-    }
-
-    @XmlTransient
-    public Collection<CustomerOrder> getOrdersCollection() {
-        return ordersCollection;
-    }
-
-    public void setOrdersCollection(Collection<CustomerOrder> ordersCollection) {
-        this.ordersCollection = ordersCollection;
-    }
-
     public User getUsers() {
         return users;
     }
@@ -183,5 +163,6 @@ public class Customer implements Serializable {
     public void setPayswith(Payswith payswith) {
         this.payswith = payswith;
     }
+
     
 }

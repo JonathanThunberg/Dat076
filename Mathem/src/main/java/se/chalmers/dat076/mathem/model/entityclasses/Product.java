@@ -41,8 +41,14 @@ import org.codehaus.jackson.annotate.JsonIgnore;
     @NamedQuery(name = "Product.findByName", query = "SELECT p FROM Product p WHERE p.name = :name"),
     @NamedQuery(name = "Product.findByPrice", query = "SELECT p FROM Product p WHERE p.price = :price")})
 public class Product implements Serializable {
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "product")
-    private Collection<OrderQuantity> hasCollection;
+    // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
+    @Basic(optional = false)
+    @NotNull
+    @Column(name = "PRICE")
+    private double price;
+    @JoinColumn(name = "CATEGORY", referencedColumnName = "NAME")
+    @ManyToOne
+    private Category category;
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -54,26 +60,6 @@ public class Product implements Serializable {
     @Size(min = 1, max = 20)
     @Column(name = "NAME")
     private String name;
-    @Basic(optional = false)
-    @NotNull
-    @Column(name = "PRICE")
-    private double price;
-    @ManyToMany
-    private Collection<CustomerOrder> ordersCollection;
-    @JoinColumn(name = "CATEGORY", referencedColumnName = "NAME")
-    @JoinTable(name = "FAVORITES", joinColumns = {
-        @JoinColumn(name = "PRODUCT", referencedColumnName = "ID")}, inverseJoinColumns = {
-        @JoinColumn(name = "USERNAME", referencedColumnName = "USERNAME")})
-    @ManyToMany
-    private Collection<Customer> customersCollection;
-    @JoinTable(name = "ISIN", joinColumns = {
-        @JoinColumn(name = "PRODUCT", referencedColumnName = "ID")}, inverseJoinColumns = {
-        @JoinColumn(name = "RECIPE", referencedColumnName = "NAME")})
-    @ManyToMany
-    private Collection<Recipe> recipesCollection;
-    @JoinColumn(name = "CATEGORY", referencedColumnName = "NAME")
-    @ManyToOne
-    private Category category;
 
     public Product() {
     }
@@ -104,13 +90,6 @@ public class Product implements Serializable {
         this.name = name;
     }
 
-    public double getPrice() {
-        return price;
-    }
-
-    public void setPrice(double price) {
-        this.price = price;
-    }
 
     public Category getCategory() {
         return category;
@@ -118,34 +97,7 @@ public class Product implements Serializable {
 
     public void setCategory(Category category) {
         this.category = category;
-    }
-
-    @XmlTransient
-    public Collection<Customer> getCustomersCollection() {
-        return customersCollection;
-    }
-
-    public void setCustomersCollection(Collection<Customer> customersCollection) {
-        this.customersCollection = customersCollection;
-    }
-
-   @XmlTransient
-    public Collection<Recipe> getRecipesCollection() {
-        return recipesCollection;
-    }
-
-    public void setRecipesCollection(Collection<Recipe> recipesCollection) {
-        this.recipesCollection = recipesCollection;
-    }
-
-    @XmlTransient
-    public Collection<CustomerOrder> getOrdersCollection() {
-        return ordersCollection;
-    }
-
-    public void setOrdersCollection(Collection<CustomerOrder> ordersCollection) {
-        this.ordersCollection = ordersCollection;
-    }
+    }  
 
     @Override
     public int hashCode() {
@@ -172,14 +124,13 @@ public class Product implements Serializable {
         return "se.chalmers.dat076.mathem.model.entityclasses.Products[ id=" + id + " ]";
     }
 
-    @XmlTransient
-    @JsonIgnore
-    public Collection<OrderQuantity> getHasCollection() {
-        return hasCollection;
+    public double getPrice() {
+        return price;
     }
 
-    public void setHasCollection(Collection<OrderQuantity> hasCollection) {
-        this.hasCollection = hasCollection;
+    public void setPrice(double price) {
+        this.price = price;
     }
+
     
 }

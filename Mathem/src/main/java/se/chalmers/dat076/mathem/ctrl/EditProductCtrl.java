@@ -32,7 +32,10 @@ public class EditProductCtrl {
     }
     
     public void edit() {
-        shop.getProductCatalogue().update(new Product(editProductBB.getId(), editProductBB.getName(), editProductBB.getPrice()));
+        System.out.println("I edit");
+        Product p = new Product(editProductBB.getId(), editProductBB.getName(), editProductBB.getPrice());
+        p.setCategory(shop.getProductCatalogue().getByKey(editProductBB.getId()).get(0).getCategory());
+        shop.getProductCatalogue().update(p);
         FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Varan är ändrad", ""));
         FacesContext.getCurrentInstance().getExternalContext().getFlash().setKeepMessages(true);
         
