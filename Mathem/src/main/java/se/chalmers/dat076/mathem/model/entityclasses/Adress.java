@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package se.chalmers.dat076.mathem.model.entityclasses;
 
 import java.io.Serializable;
@@ -21,8 +17,9 @@ import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
 /**
- *
- * @author Julia
+ * Responsibility: specifies an adress
+ * Uses: AdressesPK, Customer
+ * Used by: Shop, AdressCatalogue, IAdressesCatalogue, CustomerRegistryCtrl, MyPageCtrl, Customer
  */
 @Entity
 @Table(name = "ADRESSES")

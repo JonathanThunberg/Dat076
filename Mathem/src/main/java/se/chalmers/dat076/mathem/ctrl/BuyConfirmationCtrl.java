@@ -1,13 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package se.chalmers.dat076.mathem.ctrl;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -18,22 +13,20 @@ import javax.inject.Inject;
 import javax.inject.Named;
 import se.chalmers.dat076.mathem.model.OrderItem;
 import se.chalmers.dat076.mathem.model.Shop;
-import se.chalmers.dat076.mathem.model.entityclasses.Account;
 import se.chalmers.dat076.mathem.model.entityclasses.Customer;
 import se.chalmers.dat076.mathem.model.entityclasses.CustomerOrder;
 import se.chalmers.dat076.mathem.model.entityclasses.OrderQuantity;
-import se.chalmers.dat076.mathem.model.entityclasses.Payswith;
 import se.chalmers.dat076.mathem.view.BuyConfirmationBB;
 
 /**
- *
- * @author tuna
+ * Responsibility: confirm a purchase
+ * Uses: Shop, BuyConfirmationBB, Customer, OrderItem
+ * Used by: buyConfirmation.xhtml
  */
+
 @Named
 @RequestScoped
 public class BuyConfirmationCtrl {
-
-    private static final Logger LOG = Logger.getLogger(BuyConfirmationCtrl.class.getName());
 
     private BuyConfirmationBB buyConBB;
 
@@ -60,7 +53,6 @@ public class BuyConfirmationCtrl {
 
         shop.getOrderCatalogue().create(o);
         
-        //customer.getOrdersCollection().add(o);
         shop.getCustomerCatalogue().update(customer);
         
         for (OrderItem i : orderItems) {

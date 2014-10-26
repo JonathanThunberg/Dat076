@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package se.chalmers.dat076.mathem.ctrl;
 
 import java.io.IOException;
@@ -16,9 +12,11 @@ import se.chalmers.dat076.mathem.model.entityclasses.Product;
 import se.chalmers.dat076.mathem.view.SearchBB;
 
 /**
- *
- * @author victor_nordh92
+ * Responsibility: searches for products
+ * Uses: Shop, SearchBB
+ * Used by: productDetail.xhtml
  */
+
 @Named
 @RequestScoped
 public class SearchCtrl{

@@ -1,8 +1,4 @@
-/*
-* To change this license header, choose License Headers in Project Properties.
-* To change this template file, choose Tools | Templates
-* and open the template in the editor.
-*/
+
 package se.chalmers.dat076.mathem.ctrl;
 
 import javax.enterprise.context.RequestScoped;
@@ -15,8 +11,9 @@ import se.chalmers.dat076.mathem.model.entityclasses.Product;
 import se.chalmers.dat076.mathem.view.AddProductBB;
 
 /**
- *
- * @author Julia
+ * Responsibility: add a new product
+ * Uses: Shop, AddProductBB, Product
+ * Used by: addProduct.xhtml
  */
 @Named
 @RequestScoped
