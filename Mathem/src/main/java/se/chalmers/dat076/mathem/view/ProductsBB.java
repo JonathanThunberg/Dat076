@@ -9,6 +9,8 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.RequestScoped;
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -17,8 +19,8 @@ import se.chalmers.dat076.mathem.model.Shop;
 import se.chalmers.dat076.mathem.model.entityclasses.Category;
 import se.chalmers.dat076.mathem.model.entityclasses.Product;
 
-@Named
-@RequestScoped
+@ManagedBean
+@ViewScoped
 public class ProductsBB implements Serializable {
     
     @Inject
@@ -32,7 +34,6 @@ public class ProductsBB implements Serializable {
     }
     
     public List<OrderItem> getProducts() {
-        products.clear();        
             for (Category c : shop.getCategoryCatalogue().findAll()) {
                 if(c.getName().equals(category)){
                     for (Product p : shop.getProductCatalogue().getByCategory(category)) {
