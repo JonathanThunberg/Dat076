@@ -22,23 +22,19 @@ public class RecipeDetailBB implements Serializable{
     private String description;    
     
     public String getName() {
-        System.out.println("Nu är vi fel1");
         return name;
     }
 
     public void setName(String name) {
         this.name = name;
-        System.out.println("Nu har vi satt namn: " + name);
     }
 
     public String getDescription() {
-        System.out.println("Nu är vi fel2");
         return description;
     }
 
     public void setDescription(String description) {
         this.description = description;
-        System.out.println("Nu har vi satt description: " + description);
     }
 
 }

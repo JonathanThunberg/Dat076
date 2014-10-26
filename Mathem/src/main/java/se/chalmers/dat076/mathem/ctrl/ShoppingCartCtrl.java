@@ -43,7 +43,6 @@ public class ShoppingCartCtrl {
     }
     
     public void cancel() throws IOException{
-        System.out.println("TIllbaka");
         FacesContext.getCurrentInstance().getExternalContext().redirect("shoppingcart.xhtml");
     }
     

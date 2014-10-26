@@ -19,6 +19,9 @@ import se.chalmers.dat076.mathem.model.catalogue.IOrderCatalogue;
 import se.chalmers.dat076.mathem.model.catalogue.IOrderQuantityCatalogue;
 import se.chalmers.dat076.mathem.model.catalogue.IPayswithCatalogue;
 import se.chalmers.dat076.mathem.model.catalogue.IUserCatalogue;
+import se.chalmers.dat076.mathem.model.entityclasses.Admin;
+import se.chalmers.dat076.mathem.model.entityclasses.User;
+import se.chalmers.dat076.mathem.util.PasswordUtil;
 
 
 /**

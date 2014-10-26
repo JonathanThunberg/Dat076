@@ -26,9 +26,6 @@ public class ProductsCtrl {
     private ProductsBB productsBB;
     
     @Inject
-    private Shop shop;
-    
-    @Inject
     private ShoppingCart cart;
     
     @Inject
@@ -38,11 +35,6 @@ public class ProductsCtrl {
     
     public void buy(OrderItem product) {
         cart.add(product);
-    }
-    
-    public void delete(Product product) {
-        System.out.println(product.getName());
-        shop.getProductCatalogue().delete(product.getId());
     }
     
 }

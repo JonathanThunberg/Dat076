@@ -8,25 +8,23 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import javax.annotation.PostConstruct;
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ViewScoped;
+import javax.enterprise.context.RequestScoped;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
+import javax.inject.Named;
 import se.chalmers.dat076.mathem.model.OrderItem;
 import se.chalmers.dat076.mathem.model.Shop;
 import se.chalmers.dat076.mathem.model.entityclasses.Category;
 import se.chalmers.dat076.mathem.model.entityclasses.Product;
 
-@ManagedBean
-@ViewScoped
+@Named
+@RequestScoped
 public class ProductsBB implements Serializable {
     
     @Inject
     private Shop shop;
     private List<OrderItem> products= new ArrayList<>();
     private String category;
-    private double price;
-    private String productid;
     
     @PostConstruct
     public void init() {
@@ -64,15 +62,7 @@ public class ProductsBB implements Serializable {
     public void setCategory(String category) {
         this.category = category;
     }
-    
-    public void setPrice(double price) {
-        System.out.println("Priset sätts till: " + price);
-        this.price = price;
-    }
-    
-    public double getPrice() {
-        return price;
-    }
+
     
    
 }
